@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["user", "admin"],
+      enum: ["user", "operator", "admin"],
       default: "user",
     },
     password: {
@@ -32,14 +32,6 @@ const userSchema = new mongoose.Schema(
       min: [8, "minimum 8 letter"],
       required: [true, "write your password"],
       select: false,
-    },
-    gender: {
-      type: String,
-      enum: ["male", "female"],
-      required: [true, "write your gender"],
-    },
-    profileImage: {
-      type: String,
     },
     googleId: {
       type: String,
@@ -55,16 +47,8 @@ const userSchema = new mongoose.Schema(
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
-userSchema.virtual("userPost", {
-  ref: "posts",
-  localField: "_id",
-  foreignField: "owner",
-  justOne: false,
-});
-
 userSchema.pre("remove", async function (next) {
-  await this.model("posts").deleteMany({ owner: this._id });
-  await this.model("comments").deleteMany({ writerId: this._id });
+  await this.model("accounts").deleteMany({ owner: this._id });
   next();
 });
 
@@ -84,48 +68,6 @@ userSchema.methods.getJWT = function () {
   );
 
   return token;
-};
-
-femaleProfilePicture = [
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677057469/Blog/06c49b59-2d4e-4305-a510-aae02fa92e0c_bcc3wz.png",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058132/Blog/dcsohgg-6068e5ed-b130-4e90-9d0e-2818ffef14bb.jpg_h7qutu.jpg",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058138/Blog/random_profile_picture_by_skybonthebunny_d9mot04-fullview.jpg_fjcqts.jpg",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058177/Blog/e72wyjmuzkgq_jh7w9p.jpg",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058206/Blog/054b6826c3565c7ceacc06559ac948cbcefc0ac0_cmtj6j.png",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058210/Blog/d3f82ab525e2216c7ab238c263352ce7_ihtu1m.jpg",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058226/Blog/random_profile_picture_by_mysticalbluenova_dck1qv9-pre.png_rtwjta.png",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058231/Blog/bliss__xbox_profile_picture_by_easterblanket_dbtynep-fullview.jpg_k9vj4x.jpg",
-];
-
-maleProfilePicture = [
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677057383/Blog/favicon_cfjsme.png",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058145/Blog/13e07bd455dcf46_dr3ctt.png",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058581/Blog/f154020acae62376ac3a4ec0745d2c8e_cuyecd.jpg",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058591/Blog/OFATsLp8_400x400_oejiev.jpg",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058622/Blog/aeMA8eW_700b_cr13xy.jpg",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058636/Blog/main-qimg-89380dcfb5e239d42d8ee3475bedcd36-lq_cfs9ze.jpg",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058646/Blog/3D-AI-Anime-Boy-Avatar_funqsc.jpg",
-  "https://res.cloudinary.com/dalheltnm/image/upload/v1677058656/Blog/dxosebl55fcq_cav0zm.jpg",
-];
-
-userSchema.methods.profileImageGenerator = async function () {
-  if (!this.profileImage) {
-    if (this.gender === "male") {
-      randomPicture =
-        maleProfilePicture[
-          Math.floor(Math.random() * maleProfilePicture.length)
-        ];
-      this.profileImage = randomPicture;
-    } else if (this.gender === "female") {
-      randomPicture =
-        femaleProfilePicture[
-          Math.floor(Math.random() * femaleProfilePicture.length)
-        ];
-      this.profileImage = randomPicture;
-    }
-  }
-
-  return this.profileImage;
 };
 
 userSchema.methods.checkPassword = async function (password) {
