@@ -10,7 +10,7 @@ exports.checkUser = asyncHandler(async (req, res, next) => {
   const token = req?.headers?.token;
 
   if (!token) {
-    return res.status(404).json({
+    return res.status(200).json({
       success: false,
       message: "Invalid token",
     });
@@ -23,23 +23,15 @@ exports.checkUser = asyncHandler(async (req, res, next) => {
   res.status(200).json({
     success: true,
     data: { user, data },
-    message: "successfully check token",
   });
 });
 
 exports.getUsers = asyncHandler(async (req, res, next) => {
-  const { limit, sort } = req.query;
-  delete req.query.limit;
-
-  const users = await User.find({})
-    .populate("userPost")
-    .limit(limit)
-    .sort(sort);
+  const users = await User.find({});
 
   res.status(200).json({
     success: true,
     data: users,
-    message: "Get all users information",
   });
 });
 
@@ -47,7 +39,7 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.params.id);
 
   if (!user) {
-    throw new MyError(`ID алдаатай байна`, 404);
+    throw new MyError(`Wrong Id`, 200);
   }
 
   user.remove();
@@ -55,20 +47,15 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
   res.status(200).json({
     success: true,
     data: user,
-    message: "User deleted",
   });
 });
 
 exports.getUser = asyncHandler(async (req, res, next) => {
-  const { select } = req.query;
-  ["select"].map((el) => delete req.query[el]);
-
-  const user = await User.findById(req.params.id, select).populate("userPost");
+  const user = await User.findById(req.params.id);
 
   res.status(200).json({
     success: true,
     data: user,
-    message: "user data",
   });
 });
 
@@ -79,19 +66,18 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
   });
 
   if (!user) {
-    throw new MyError(`wrong ID`, 404);
+    throw new MyError(`wrong Id`, 200);
   }
 
   res.status(200).json({
     isDone: true,
     data: user,
-    message: "user updated",
   });
 });
 
 exports.verifyUser = asyncHandler(async (req, res, next) => {
   if (!req.body.email) {
-    throw new MyError(`Write your email address`, 404);
+    throw new MyError(`Write your email address`, 200);
   }
 
   let characters =
@@ -121,9 +107,6 @@ exports.register = asyncHandler(async (req, res, next) => {
   const user = await User.create(req.body);
 
   const token = user.getJWT();
-  user.profileImageGenerator();
-
-  await user.save();
 
   res.status(200).json({
     success: true,
@@ -136,41 +119,40 @@ exports.login = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    throw new MyError("write your email or password", 400);
+    throw new MyError("write your email or password", 200);
   }
 
   const user = await User.findOne({ email: email }).select("+password");
 
   if (!user) {
-    throw new MyError("wrong your email or password", 400);
+    throw new MyError("wrong your email or password", 200);
   }
 
   const isOkey = await user.checkPassword(password);
 
   if (!isOkey) {
-    throw new MyError("wrong your email or password", 400);
+    throw new MyError("wrong your email or password", 200);
   }
 
   const token = user.getJWT();
 
-  user.password = "";
+  const callBackUser = await User.findOne({ email: email });
 
   res.status(200).json({
     success: true,
-    data: { token, user },
-    message: "user loged",
+    data: { token, callBackUser },
   });
 });
 
 exports.forgotPassword = asyncHandler(async (req, res, next) => {
   if (!req.body.email) {
-    throw new MyError(`You must provide an email address`, 404);
+    throw new MyError(`You must provide an email address`, 200);
   }
 
   const user = await User.findOne({ email: req.body.email }).exec();
 
   if (!user) {
-    throw new MyError(`Any user found like that ${req.body.email} email`, 404);
+    throw new MyError(`Any user found like that ${req.body.email} email`, 200);
   }
 
   const resetToken = user.generatePasswordChangeToken();
@@ -187,13 +169,12 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    message: { message: "sent link to your email" },
   });
 });
 
 exports.updatePass = asyncHandler(async (req, res, next) => {
   if (!req.body.resetToken || !req.body.password) {
-    throw new MyError(`You have to write token and password`, 404);
+    throw new MyError(`You have to write token and password`, 200);
   }
 
   const encrypt = crypto
@@ -207,7 +188,7 @@ exports.updatePass = asyncHandler(async (req, res, next) => {
   });
 
   if (!user) {
-    throw new MyError(`Time is over to change password`, 404);
+    throw new MyError(`Time is over to change password`, 200);
   }
 
   user.password = req.body.password;
@@ -218,6 +199,5 @@ exports.updatePass = asyncHandler(async (req, res, next) => {
   res.status(200).json({
     isDone: true,
     user: user,
-    message: "Password changed successfully",
   });
 });
