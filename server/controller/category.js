@@ -29,6 +29,21 @@ exports.getCategory = asyncHandler(async (req, res, next) => {
   });
 });
 
+exports.getCategoryByType = asyncHandler(async (req, res, next) => {
+  const { type } = req.body;
+
+  const categories = await Category.find({ type: type });
+
+  if (!categories) {
+    throw new MyError("There is no category with this " + type + " type", 200);
+  }
+
+  res.status(200).json({
+    success: true,
+    data: categories,
+  });
+});
+
 exports.createCategory = asyncHandler(async (req, res, next) => {
   const category = await Category.create(req.body);
 

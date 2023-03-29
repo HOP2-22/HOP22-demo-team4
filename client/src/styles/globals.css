@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani&family=Roboto+Condensed:wght@300&display=swap");
+
+body {
+  font-family: 'Roboto', "Rajdhani";
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
