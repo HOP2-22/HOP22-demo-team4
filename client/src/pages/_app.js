@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import Layout from "@/components/layout/Layout";
 import AuthProvider from "@/provider/AuthContext";
 import BooleanProvider from "@/provider/BooleanContext";
 import Context from "@/provider/BooleanContext";
