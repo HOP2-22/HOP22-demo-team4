@@ -1,4 +1,4 @@
-import index from "@/pages/[category]";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -35,11 +35,11 @@ export default function Cards() {
     );
 
   return (
-    <div style={{ width: "100vw", height: "100vh", display: "flex" ,
+    <div className="mx-4 grid xl:grid-cols-5 xl:-gap-y-5 xl:-grid-rows-6" style={{ width: "60vw", height: "100vh" ,
     }}>
       {categories?.map((item, index) => {
         return (
-          <div>
+          <div className="my-4">
             <Card key={index} data={item} />
           </div>
         );
