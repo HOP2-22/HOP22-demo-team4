@@ -39,7 +39,7 @@ CategorySchema.virtual("accounts", {
 });
 
 CategorySchema.pre("remove", async function (next) {
-  await this.model("accounts").deleteMany({ category: this._id });
+  await this.model("account").deleteMany({ category: this._id });
   next();
 });
 

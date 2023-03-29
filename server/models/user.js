@@ -5,13 +5,9 @@ const crypto = require("crypto");
 
 const userSchema = new mongoose.Schema(
   {
-    firstName: {
+    name: {
       type: String,
-      required: [true, "write your name"],
-    },
-    lastName: {
-      type: String,
-      required: [true, "write your name"],
+      required: true,
     },
     email: {
       type: String,
@@ -49,6 +45,7 @@ const userSchema = new mongoose.Schema(
 
 userSchema.pre("remove", async function (next) {
   await this.model("accounts").deleteMany({ owner: this._id });
+  await this.model("categories").deleteMany({ owner: this._id });
   next();
 });
 
