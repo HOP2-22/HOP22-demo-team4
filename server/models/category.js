@@ -23,6 +23,10 @@ const CategorySchema = new mongoose.Schema(
       ref: "users",
       required: true,
     },
+    type: {
+      type: String,
+      enum: ["sandBox", "shooters", "MOBA", "sports", "puzzle", "AA"],
+    },
     createdAt: {
       type: Date,
       default: Date.now,
