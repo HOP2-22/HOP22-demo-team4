@@ -23,6 +23,14 @@ const userSchema = new mongoose.Schema(
       enum: ["user", "operator", "admin"],
       default: "user",
     },
+    purchasedccount: {
+      type: [
+        {
+          type: mongoose.Schema.ObjectId,
+          ref: "accounts",
+        },
+      ],
+    },
     password: {
       type: String,
       min: [8, "minimum 8 letter"],
@@ -42,6 +50,13 @@ const userSchema = new mongoose.Schema(
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
+
+userSchema.virtual("publishedAccounts", {
+  ref: "accounts",
+  localField: "_id",
+  foreignField: "owner",
+  justOne: false,
+});
 
 userSchema.pre("remove", async function (next) {
   await this.model("accounts").deleteMany({ owner: this._id });

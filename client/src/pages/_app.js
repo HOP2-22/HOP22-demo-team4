@@ -8,9 +8,7 @@ export default function App({ Component, pageProps }) {
   return (
     <BooleanProvider>
       <AuthProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Component {...pageProps} />
       </AuthProvider>
     </BooleanProvider>
   );

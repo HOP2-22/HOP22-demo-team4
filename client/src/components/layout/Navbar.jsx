@@ -11,7 +11,7 @@ export default function Navbar() {
             <div className="">Cart</div>
             <div className="">Favorite</div>
           </div>
-          <p className="text-white text-[32px] font-Black ">Account Trader</p>
+          <p className="text-white text-[32px] font-Black ">SwapZone</p>
           <div className="flex gap-4 items-center">
             <div className="w-[80px] py-[10px] rounded-[10px] bg-green-500 text-white flex items-center justify-center cursor-pointer">
               Log in
