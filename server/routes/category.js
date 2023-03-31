@@ -18,7 +18,7 @@ const router = express.Router();
 router.route("/:catId/accounts").get(getCategoryAccounts);
 
 router.route("/").get(getCategories).post(createCategory);
-router.route("/type").get(getCategoryByType);
+router.route("/type").post(getCategoryByType);
 
 router
   .route("/:id")

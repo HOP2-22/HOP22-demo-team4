@@ -31,6 +31,14 @@ const userSchema = new mongoose.Schema(
         },
       ],
     },
+    userFavorite: {
+      type: [
+        {
+          type: mongoose.Schema.ObjectId,
+          ref: "accounts",
+        },
+      ],
+    },
     password: {
       type: String,
       min: [8, "minimum 8 letter"],
