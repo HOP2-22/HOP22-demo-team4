@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { slugify } = require("transliteration");
 
-const CategorySchema = new mongoose.Schema(
+const categorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -35,23 +35,23 @@ const CategorySchema = new mongoose.Schema(
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
-CategorySchema.virtual("accounts", {
+categorySchema.virtual("accounts", {
   ref: "accounts",
   localField: "_id",
   foreignField: "category",
   justOne: false,
 });
 
-CategorySchema.pre("remove", async function (next) {
-  await this.model("account").deleteMany({ category: this._id });
+categorySchema.pre("remove", async function (next) {
+  await this.model("accounts").deleteMany({ category: this._id });
   next();
 });
 
-CategorySchema.pre("save", function (next) {
+categorySchema.pre("save", function (next) {
   this.slugify = slugify(this.name);
   next();
 });
 
-const Category = mongoose.model("categories", CategorySchema);
+const Category = mongoose.model("categories", categorySchema);
 
 module.exports = Category;

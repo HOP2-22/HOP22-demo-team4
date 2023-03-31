@@ -16,12 +16,11 @@ exports.getCategories = asyncHandler(async (req, res, next) => {
 exports.getCategory = asyncHandler(async (req, res, next) => {
   const category = await Category.findById(req.params.id);
 
-  if (!category) {
+  if (!category)
     throw new MyError(
       "There is no category with this " + req.params.id + " ID",
       200
     );
-  }
 
   res.status(200).json({
     success: true,
@@ -34,9 +33,8 @@ exports.getCategoryByType = asyncHandler(async (req, res, next) => {
 
   const categories = await Category.find({ type: type });
 
-  if (!categories) {
+  if (!categories)
     throw new MyError("There is no category with this " + type + " type", 200);
-  }
 
   res.status(200).json({
     success: true,
@@ -59,12 +57,11 @@ exports.updateCategory = asyncHandler(async (req, res, next) => {
     runValidators: true,
   });
 
-  if (!category) {
+  if (!category)
     throw new MyError(
       "There is no category with this " + req.params.id + " ID",
       200
     );
-  }
 
   res.status(200).json({
     success: true,
@@ -75,12 +72,11 @@ exports.updateCategory = asyncHandler(async (req, res, next) => {
 exports.deleteCategory = asyncHandler(async (req, res, next) => {
   const category = await Category.findById(req.params.id);
 
-  if (!category) {
+  if (!category)
     throw new MyError(
       "There is no category with this " + req.params.id + " ID",
       200
     );
-  }
 
   category.remove();
 

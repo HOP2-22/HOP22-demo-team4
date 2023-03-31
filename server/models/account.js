@@ -35,6 +35,10 @@ const accountSchema = new mongoose.Schema({
       },
     ],
   },
+  sold: {
+    type: Boolean,
+    default: false,
+  },
   category: {
     unique: false,
     type: mongoose.Schema.ObjectId,
@@ -50,6 +54,6 @@ const accountSchema = new mongoose.Schema({
   },
 });
 
-const Account = mongoose.model("account", accountSchema);
+const Account = mongoose.model("accounts", accountSchema);
 
 module.exports = Account;

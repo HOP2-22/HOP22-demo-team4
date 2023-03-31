@@ -38,9 +38,11 @@ exports.getUsers = asyncHandler(async (req, res, next) => {
 exports.deleteUser = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.params.id);
 
-  if (!user) {
-    throw new MyError(`Wrong Id`, 200);
-  }
+  if (!user)
+    throw new MyError(
+      "There is no user with this " + req.params.id + " ID",
+      200
+    );
 
   user.remove();
 
@@ -51,7 +53,9 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
 });
 
 exports.getUser = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.params.id);
+  const user = await User.findById(req.params.id)
+    .populate("publishedAccounts")
+    .populate("purchasedccount");
 
   res.status(200).json({
     success: true,
@@ -65,9 +69,11 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
     runValidators: true,
   });
 
-  if (!user) {
-    throw new MyError(`wrong Id`, 200);
-  }
+  if (!user)
+    throw new MyError(
+      "There is no user with this " + req.params.id + " ID",
+      200
+    );
 
   res.status(200).json({
     isDone: true,
@@ -76,9 +82,7 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
 });
 
 exports.verifyUser = asyncHandler(async (req, res, next) => {
-  if (!req.body.email) {
-    throw new MyError(`Write your email address`, 200);
-  }
+  if (!req.body.email) throw new MyError(`Write your email address`, 200);
 
   let characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -118,21 +122,16 @@ exports.register = asyncHandler(async (req, res, next) => {
 exports.login = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
-  if (!email || !password) {
+  if (!email || !password)
     throw new MyError("write your email or password", 200);
-  }
 
   const user = await User.findOne({ email: email }).select("+password");
 
-  if (!user) {
-    throw new MyError("wrong your email or password", 200);
-  }
+  if (!user) throw new MyError("wrong your email or password", 200);
 
   const isOkey = await user.checkPassword(password);
 
-  if (!isOkey) {
-    throw new MyError("wrong your email or password", 200);
-  }
+  if (!isOkey) throw new MyError("wrong your email or password", 200);
 
   const token = user.getJWT();
 
@@ -145,15 +144,13 @@ exports.login = asyncHandler(async (req, res, next) => {
 });
 
 exports.forgotPassword = asyncHandler(async (req, res, next) => {
-  if (!req.body.email) {
+  if (!req.body.email)
     throw new MyError(`You must provide an email address`, 200);
-  }
 
   const user = await User.findOne({ email: req.body.email }).exec();
 
-  if (!user) {
+  if (!user)
     throw new MyError(`Any user found like that ${req.body.email} email`, 200);
-  }
 
   const resetToken = user.generatePasswordChangeToken();
 
@@ -173,9 +170,8 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 });
 
 exports.updatePass = asyncHandler(async (req, res, next) => {
-  if (!req.body.resetToken || !req.body.password) {
+  if (!req.body.resetToken || !req.body.password)
     throw new MyError(`You have to write token and password`, 200);
-  }
 
   const encrypt = crypto
     .createHash("sha256")
@@ -187,9 +183,7 @@ exports.updatePass = asyncHandler(async (req, res, next) => {
     resetPasswordExpired: { $gt: Date.now() },
   });
 
-  if (!user) {
-    throw new MyError(`Time is over to change password`, 200);
-  }
+  if (!user) throw new MyError(`Time is over to change password`, 200);
 
   user.password = req.body.password;
   user.resetPasswordToken = undefined;

@@ -10,11 +10,14 @@ const {
   deleteAccount,
   updateAccount,
   getLatestAccountsByCategory,
+  purchaseAccount,
 } = require("../controller/account");
 
 const router = express.Router();
 
 router.route("/").get(getAccounts).post(createAccount);
+
+router.post("/purchase", purchaseAccount);
 
 router.get("/user/:ownerId", getUserAccounts);
 
