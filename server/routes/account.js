@@ -11,6 +11,8 @@ const {
   updateAccount,
   getLatestAccountsByCategory,
   purchaseAccount,
+  addFavorite,
+  removeFavorite,
 } = require("../controller/account");
 
 const router = express.Router();
@@ -18,6 +20,8 @@ const router = express.Router();
 router.route("/").get(getAccounts).post(createAccount);
 
 router.post("/purchase", purchaseAccount);
+
+router.route("/favorite").post(addFavorite).delete(removeFavorite);
 
 router.get("/user/:ownerId", getUserAccounts);
 
