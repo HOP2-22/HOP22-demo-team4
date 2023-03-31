@@ -196,7 +196,7 @@ export default function signin() {
                     />
                   </svg>
                   Google
-                </Button>
+                </Button> */}
               </Box>
             </Stack>
             <Box sx={{ width: "100%" }}>
