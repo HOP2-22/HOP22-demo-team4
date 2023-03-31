@@ -1,7 +1,10 @@
+import Container from "@/components/Container";
+import Layout from "@/components/layout/Layout";
+
 export default function cart() {
   return (
-    <div>
-      <h1>cart</h1>
-    </div>
+    <Layout>
+      <Container>cart</Container>
+    </Layout>
   );
 }
