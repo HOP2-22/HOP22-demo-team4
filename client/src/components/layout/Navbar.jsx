@@ -15,11 +15,11 @@ export default function Navbar() {
   const [hamburger, setHamburger] = useState(false);
 
   return (
-    <div className="fixed w-full z-50 h-[70px] bg-[#455073] flex items-center justify-between px-10 shadow-md">
+    <div className="fixed w-full z-50 h-[70px] bg-white flex items-center justify-between px-10 shadow-md">
       <Container>
         <div className="w-full h-full flex justify-between items-center">
           <p
-            className="text-white text-[32px] font-Black cursor-pointer"
+            className="text-[#FF6900] text-[32px] font-Black cursor-pointer"
             onClick={() => {
               router.push("/");
             }}

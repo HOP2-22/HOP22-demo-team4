@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema(
       enum: ["user", "operator", "admin"],
       default: "user",
     },
-    purchasedccount: {
+    purchasedAccounts: {
       type: [
         {
           type: mongoose.Schema.ObjectId,

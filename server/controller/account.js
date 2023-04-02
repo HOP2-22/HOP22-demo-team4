@@ -48,7 +48,7 @@ exports.getLatestAccountsByCategory = asyncHandler(async (req, res, next) => {
 
 exports.getCategoryAccounts = asyncHandler(async (req, res, next) => {
   const accounts = await Account.find({
-    category: req.params.catId,
+    slugify: req.body.slugify,
     ...req.query,
   });
 
@@ -104,9 +104,9 @@ exports.removeFavorite = asyncHandler(async (req, res, next) => {
       200
     );
 
-  user.userFavorite = user.userFavorite.filter(
-    (item) => item !== req.body.accountId
-  );
+  user.userFavorite = user.userFavorite.filter((item) => {
+    `new ObjectId(${item})` !== req.body.accountId;
+  });
 
   user.save();
 
