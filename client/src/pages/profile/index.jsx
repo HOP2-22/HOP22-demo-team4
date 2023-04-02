@@ -1,18 +1,83 @@
 import Container from "@/components/Container";
+import Guard from "@/components/Guard";
 import Layout from "@/components/layout/Layout";
+import ProfileCard from "@/components/profile/ProfileCard";
 import { AuthContext } from "@/provider/AuthContext";
-import axios from "axios";
-import { useRouter } from "next/router";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
-export default function index() {
+export default function index({ data }) {
   const { user } = useContext(AuthContext);
+  const [typeAccounts, setTypeAccounts] = useState(false);
 
   return (
-    <Layout>
-      <Container>
-        <h1>{user?.name}</h1>
+    // <Guard>
+    <Layout title={"Profile"}>
+      <Container className="pt-[70px] pb-[100px]">
+        <div className="px-5 pb-3 sm:px-0">
+          <p className="pt-5 text-[30px] font-semibold tracking-wide">
+            {user?.name}
+          </p>
+          <ul className="mt-5 flex items-start gap-5 h-10">
+            <li
+              className={`cursor-pointer pb-[6px] font-medium text-[16px] ${
+                !typeAccounts && "text-[#FF6900] border-b-2"
+              } border-[#FF6900] `}
+              onClick={() => setTypeAccounts(false)}
+            >
+              published accounts
+            </li>
+            <li
+              className={`cursor-pointer pb-[6px] font-medium text-[16px] ${
+                typeAccounts && "text-[#FF6900] border-b-2"
+              } border-[#FF6900]`}
+              onClick={() => setTypeAccounts(true)}
+            >
+              purchased accounts
+            </li>
+          </ul>
+        </div>
+        <div className="w-full h-8 bg-[#f0f2f5] sm:hidden"></div>
+        <div className="w-full pt-5 px-5 sm:px-0">
+          <p className="text-[24px] sm:font-medium pb-7">
+            {typeAccounts
+              ? "Your purchased accounts"
+              : "Your published accounts"}
+          </p>
+          <div className="w-full grid grid-cols-12 gap-x-5 2xl:gap-x-8 gap-y-6">
+            {typeAccounts
+              ? user?.purchasedAccounts?.map((item, index) => {
+                  return <ProfileCard key={index} data={item} user={user} />;
+                })
+              : user?.publishedAccounts?.map((item, index) => {
+                  return <ProfileCard key={index} data={item} user={user} />;
+                })}
+          </div>
+        </div>
       </Container>
     </Layout>
+    // </Guard>
   );
 }
+
+// export const getServerSideProps = async (context) => {
+//   const { query } = context;
+//   const refresh = query.refresh === "true";
+
+//   const res = await fetch(`http://localhost:8000/api/v1/user/${query?.id}`);
+//   const data = await res.json();
+
+//   if (refresh) {
+//     return {
+//       redirect: {
+//         destination: "/my-page",
+//         permanent: false,
+//       },
+//     };
+//   }
+
+//   return {
+//     props: {
+//       data: data.data,
+//     },
+//   };
+// };

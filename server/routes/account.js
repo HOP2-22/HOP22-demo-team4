@@ -21,7 +21,8 @@ router.route("/").get(getAccounts).post(createAccount);
 
 router.post("/purchase", purchaseAccount);
 
-router.route("/favorite").post(addFavorite).delete(removeFavorite);
+router.route("/adfavorite").post(addFavorite);
+router.route("/refavorite").post(removeFavorite);
 
 router.get("/user/:ownerId", getUserAccounts);
 

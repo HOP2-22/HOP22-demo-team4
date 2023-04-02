@@ -3,7 +3,8 @@ import { useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { FiChevronDown } from "react-icons/fi";
+import { BiUserCircle } from "react-icons/bi";
+import { useRouter } from "next/router";
 
 export default function DesktopNavbar({
   user,
@@ -11,19 +12,20 @@ export default function DesktopNavbar({
   hamburger,
   setHamburger,
 }) {
+  const router = useRouter();
   const [account, setAccount] = useState(false);
 
   return (
-    <>
+    <div>
       <div className="hidden sm:flex gap-14 items-center">
         <div className="relative group">
           <div
-            className="text-white group-hover:text-gray-200 flex gap-1 items-center text-[19px] cursor-pointer"
+            className="text-black group-hover:text-[#FF6900] flex gap-1 items-center text-[19px] cursor-pointer"
             onClick={() => setAccount(!account)}
           >
             Account
-            <span className="text-[22px] translate-y-[1px] group-hover:rotate-180">
-              <FiChevronDown />
+            <span className="text-[22px] translate-y-[1px]">
+              <BiUserCircle />
             </span>
           </div>
           <div className="hidden group-hover:flex flex-col absolute -right-5 w-[250px] h-[100px]">
@@ -39,13 +41,13 @@ export default function DesktopNavbar({
                 {!user ? (
                   <div className="flex flex-col gap-2 w-full px-2">
                     <div
-                      className="w-full rounded-full bg-[#6077C0] hover:bg-[#59689b] transition-colors text-white font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      className="btn w-full rounded-full font-medium h-[32px] flex items-center justify-center cursor-pointer"
                       onClick={() => router.push("/auth/signin")}
                     >
                       Sign in
                     </div>
                     <div
-                      className="w-full rounded-full border border-[#6077C0] text-[#6077C0]  hover:text-[#59689b] hover:border-[#59689b] transition-colors font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      className="w-full rounded-full border border-[#FF6900] text-[#FF6900]  hover:text-[#FA5F55] hover:border-[#FA5F55] transition-colors font-medium h-[32px] flex items-center justify-center cursor-pointer"
                       onClick={() => router.push("/auth/signup")}
                     >
                       Join now
@@ -54,13 +56,18 @@ export default function DesktopNavbar({
                 ) : (
                   <div className="flex flex-col gap-2 w-full px-2">
                     <div
-                      className="w-full rounded-full border border-[#6077C0] text-[#6077C0]  hover:text-[#59689b] hover:border-[#59689b] transition-colors font-medium h-[32px] flex items-center justify-center cursor-pointer"
-                      onClick={() => router.push(`/profile/${user?.id}`)}
+                      className="w-full rounded-full border border-[#FF6900] text-[#FF6900]  hover:text-[#FA5F55] hover:border-[#FA5F55] transition-colors font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      onClick={() =>
+                        router.push({
+                          pathname: "/profile",
+                          // query: { id: user._id },
+                        })
+                      }
                     >
                       Profile
                     </div>
                     <div
-                      className="w-full rounded-full bg-[#6077C0] hover:bg-[#59689b] transition-colors text-white font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      className="btn w-full rounded-full font-medium h-[32px] flex items-center justify-center cursor-pointer"
                       onClick={() => logout()}
                     >
                       Logout
@@ -72,25 +79,25 @@ export default function DesktopNavbar({
           </div>
         </div>
         <div
-          className="group text-[18px] text-white hover:text-gray-200 transition-colors duration-200 font-medium flex items-center gap-1 cursor-pointer"
+          className="group text-[18px] hover:text-[#FF6900] transition-colors duration-200 font-medium flex items-center gap-1 cursor-pointer"
           onClick={() => {
             router.push("/cart");
           }}
         >
           Shipping Cart
-          <span className="relative text-[20px] text-white group-hover:text-gray-200 transition duration-200 scale-125 transform group-hover:translate-x-2  ">
+          <span className="relative text-[20px] group-hover:text-[#FF6900] transition duration-200 scale-125 transform group-hover:translate-x-2  ">
             <AiOutlineShoppingCart />
             <div
               className={`${
                 user && user?.userFavorite.length > 0 ? "flex" : "hidden"
-              } absolute -right-3 -top-[10px] w-5 h-5 justify-center items-center bg-red-600 rounded-full text-[14px] text-white`}
+              } absolute -right-[9px] -top-[8px] w-[18px] h-[18px] justify-center items-center bg-[#FF6900] group-hover:bg-[#FF3131] group-hover:text-white transition-colors duration-200 rounded-full text-[13px] text-black`}
             >
-              {user.userFavorite.length}
+              {user?.userFavorite.length}
             </div>
           </span>
         </div>
       </div>
       <HamburgerMenu hamburger={hamburger} setHamburger={setHamburger} />
-    </>
+    </div>
   );
 }
