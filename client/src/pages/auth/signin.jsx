@@ -1,11 +1,6 @@
-import {
-  Box,
-  Container,
-  TextField,
-  Typography,
-  Button,
-  Checkbox,
-} from "@mui/material";
+import { Box, Container, Input, Typography, Button } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { indigo } from "@mui/material/colors";
 
 import {
   Box,
