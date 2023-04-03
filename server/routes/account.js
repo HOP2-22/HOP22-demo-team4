@@ -13,6 +13,7 @@ const {
   purchaseAccount,
   addFavorite,
   removeFavorite,
+  clearFavorite,
 } = require("../controller/account");
 
 const router = express.Router();
@@ -23,6 +24,7 @@ router.post("/purchase", purchaseAccount);
 
 router.route("/adfavorite").post(addFavorite);
 router.route("/refavorite").post(removeFavorite);
+router.route("/clfavorite").post(clearFavorite);
 
 router.get("/user/:ownerId", getUserAccounts);
 

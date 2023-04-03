@@ -47,7 +47,7 @@ export default function DesktopNavbar({
                       Sign in
                     </div>
                     <div
-                      className="w-full rounded-full border border-[#FF6900] text-[#FF6900]  hover:text-[#FA5F55] hover:border-[#FA5F55] transition-colors font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      className="w-full rounded-full border border-[#a1d4e8] text-[#a1d4e8]  hover:text-[#c8e4ee] hover:border-[#c8e4ee] transition-colors font-medium h-[32px] flex items-center justify-center cursor-pointer"
                       onClick={() => router.push("/auth/signup")}
                     >
                       Join now
@@ -56,7 +56,7 @@ export default function DesktopNavbar({
                 ) : (
                   <div className="flex flex-col gap-2 w-full px-2">
                     <div
-                      className="w-full rounded-full border border-[#FF6900] text-[#FF6900]  hover:text-[#FA5F55] hover:border-[#FA5F55] transition-colors font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      className="w-full rounded-full border border-[#a1d4e8] text-[#a1d4e8]  hover:text-[#c8e4ee] hover:border-[#c8e4ee] transition-colors font-medium h-[32px] flex items-center justify-center cursor-pointer"
                       onClick={() =>
                         router.push({
                           pathname: "/profile",
@@ -90,7 +90,7 @@ export default function DesktopNavbar({
             <div
               className={`${
                 user && user?.userFavorite.length > 0 ? "flex" : "hidden"
-              } absolute -right-[9px] -top-[8px] w-[18px] h-[18px] justify-center items-center bg-[#FF6900] group-hover:bg-[#FF3131] group-hover:text-white transition-colors duration-200 rounded-full text-[13px] text-black`}
+              } absolute -right-[9px] -top-[8px] w-[18px] h-[18px] justify-center items-center bg-[#a1d4e8] text-white transition-colors duration-200 rounded-full text-[13px]`}
             >
               {user?.userFavorite.length}
             </div>
