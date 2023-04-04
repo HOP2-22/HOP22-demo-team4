@@ -34,7 +34,7 @@ export default function ProfileCard({ data, user }) {
   };
 
   return (
-    <div className="group relative my-2 h-[130px] col-span-12 sm:col-span-10 lg:col-span-6 w-full bg-white grid grid-cols-12 overflow-hidden shadow-2xl">
+    <div className="group relative my-2 h-[130px] 3xl:h-[150px] col-span-12 sm:col-span-10 lg:col-span-6 w-full bg-white grid grid-cols-12 overflow-hidden shadow-2xl">
       <div className="col-span-5 relative w-full">
         <img
           src={`${data?.mainImage}`}
@@ -66,16 +66,18 @@ export default function ProfileCard({ data, user }) {
         <div className="text-[13px] col-span-3 grid grid-cols-12">
           <div className="col-span-12 mb-2">
             {data?.descriptions[0]?.title}
-            <span className="text-[#FF6900]">
+            <span className="pl-1 text-[#FF6900]">
               {data?.descriptions[0]?.desc}
             </span>
           </div>
           <p className="col-span-6">
-            price: <span className="text-[#FF6900]">{data?.price}</span>
+            price: <span className="pl-1 text-[#FF6900]">{data?.price}</span>
           </p>
           <p className="col-span-6">
             sold:
-            <span className="text-[#FF6900]">{data?.sold ? "yes" : "no"}</span>
+            <span className="pl-1 text-[#FF6900]">
+              {data?.sold ? "yes" : "no"}
+            </span>
           </p>
         </div>
       </div>
