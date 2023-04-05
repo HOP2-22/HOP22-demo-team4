@@ -46,10 +46,10 @@ export default function index({ data }) {
           <div className="w-full grid grid-cols-12 gap-x-5 2xl:gap-x-8 gap-y-6">
             {typeAccounts
               ? user?.purchasedAccounts?.map((item, index) => {
-                  return <ProfileCard key={index} data={item} user={user} />;
+                  return <ProfileCard key={index} data={item} />;
                 })
               : user?.publishedAccounts?.map((item, index) => {
-                  return <ProfileCard key={index} data={item} user={user} />;
+                  return <ProfileCard key={index} data={item} />;
                 })}
           </div>
         </div>
@@ -60,20 +60,20 @@ export default function index({ data }) {
 }
 
 // export const getServerSideProps = async (context) => {
-//   const { query } = context;
-//   const refresh = query.refresh === "true";
+// const { query } = context;
+// const refresh = query.refresh === "true";
 
-//   const res = await fetch(`http://localhost:8000/api/v1/user/${query?.id}`);
-//   const data = await res.json();
+// const res = await fetch(`http://localhost:8000/api/v1/user/${query?.id}`);
+// const data = await res.json();
 
-//   if (refresh) {
-//     return {
-//       redirect: {
-//         destination: "/my-page",
-//         permanent: false,
-//       },
-//     };
-//   }
+// if (refresh) {
+//   return {
+//     redirect: {
+//       destination: "/my-page",
+//       permanent: false,
+//     },
+//   };
+// }
 
 //   return {
 //     props: {

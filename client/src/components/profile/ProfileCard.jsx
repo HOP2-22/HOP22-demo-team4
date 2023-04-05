@@ -2,8 +2,11 @@ import { useRouter } from "next/router";
 
 import { HeartIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "@/provider/AuthContext";
 
-export default function ProfileCard({ data, user }) {
+export default function ProfileCard({ data }) {
+  const { user } = useContext(AuthContext);
   const router = useRouter();
 
   const addFavorite = async () => {
@@ -81,7 +84,7 @@ export default function ProfileCard({ data, user }) {
           </p>
         </div>
       </div>
-      <div className="absolute hidden group-hover:flex justify-center items-center right-1 top-1 w-7 h-7">
+      <div className="absolute flex sm:hidden sm:group-hover:flex justify-center items-center right-1 top-1 w-7 h-7">
         <HeartIcon
           onClick={() => {
             if (user) {

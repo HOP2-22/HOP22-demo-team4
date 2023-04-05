@@ -13,6 +13,7 @@ body {
   .btn {
     @apply bg-[#a1d4e8] text-white hover:bg-[#c8e4ee];
   }
+
 }
 
 .scrollBarHide::-webkit-scrollbar {
