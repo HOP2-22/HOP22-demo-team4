@@ -20,7 +20,7 @@ export default function DesktopNavbar({
       <div className="hidden sm:flex gap-14 items-center">
         <div className="relative group">
           <div
-            className="text-black group-hover:text-[#FF6900] flex gap-1 items-center text-[19px] cursor-pointer"
+            className="text-black group-hover:text-[#FF6900] transition-colors flex gap-1 items-center text-[19px] cursor-pointer"
             onClick={() => setAccount(!account)}
           >
             Account
@@ -41,7 +41,7 @@ export default function DesktopNavbar({
                 {!user ? (
                   <div className="flex flex-col gap-2 w-full px-2">
                     <div
-                      className="btn w-full rounded-full font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      className="btn transition-colors w-full rounded-full font-medium h-[32px] flex items-center justify-center cursor-pointer"
                       onClick={() => router.push("/auth/signin")}
                     >
                       Sign in
@@ -67,7 +67,7 @@ export default function DesktopNavbar({
                       Profile
                     </div>
                     <div
-                      className="btn w-full rounded-full font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      className="btn transition-colors w-full rounded-full font-medium h-[32px] flex items-center justify-center cursor-pointer"
                       onClick={() => logout()}
                     >
                       Logout
@@ -79,18 +79,18 @@ export default function DesktopNavbar({
           </div>
         </div>
         <div
-          className="group text-[18px] hover:text-[#FF6900] transition-colors duration-200 font-medium flex items-center gap-1 cursor-pointer"
+          className="group text-[18px] hover:text-[#FF6900] transition-colors font-medium flex items-center gap-1 cursor-pointer"
           onClick={() => {
             router.push("/cart");
           }}
         >
           Shipping Cart
-          <span className="relative text-[20px] group-hover:text-[#FF6900] transition duration-200 scale-125 transform group-hover:translate-x-2  ">
+          <span className="relative text-[20px] group-hover:text-[#FF6900] transition-transform scale-125 transform group-hover:translate-x-2  ">
             <AiOutlineShoppingCart />
             <div
               className={`${
                 user && user?.userFavorite.length > 0 ? "flex" : "hidden"
-              } absolute -right-[9px] -top-[8px] w-[18px] h-[18px] justify-center items-center bg-[#a1d4e8] text-white transition-colors duration-200 rounded-full text-[13px]`}
+              } absolute -right-[9px] -top-[8px] w-[18px] h-[18px] justify-center items-center bg-[#a1d4e8] text-white transition-colors rounded-full text-[13px]`}
             >
               {user?.userFavorite.length}
             </div>

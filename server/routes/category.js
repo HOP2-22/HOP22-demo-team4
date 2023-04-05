@@ -15,7 +15,7 @@ const { getCategoryAccounts } = require("../controller/account");
 
 const router = express.Router();
 
-router.route("/accounts").get(getCategoryAccounts);
+router.route("/accounts").post(getCategoryAccounts);
 
 router.route("/").get(getCategories).post(createCategory);
 router.route("/type").post(getCategoryByType);
