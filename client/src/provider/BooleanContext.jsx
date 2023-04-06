@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const BooleanContext = createContext();
 
-export default function BooleanProvider({ children }) {
+export const BooleanProvider = ({ children }) => {
   const [loading, setLoading] = useState();
 
   return (
@@ -15,4 +15,4 @@ export default function BooleanProvider({ children }) {
       {children}
     </BooleanContext.Provider>
   );
-}
+};

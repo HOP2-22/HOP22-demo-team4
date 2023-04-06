@@ -1,6 +1,5 @@
-import Container from "@/components/Container";
-import Layout from "@/components/layout/Layout";
-import Cards from "@/components/home/Cards";
+import { Layout } from "@/components/layout/Layout";
+import { Cards } from "@/components/home/Cards";
 
 export default function Home() {
   return (

@@ -1,7 +1,7 @@
 const Account = require("../models/account");
 const Category = require("../models/category");
 
-const paginate = require("../utils/paginate");
+const paginate = require("../utils/filteredPaginate");
 const MyError = require("../utils/myError");
 
 const asyncHandler = require("../middleWare/asyncHandler");
@@ -47,15 +47,48 @@ exports.getLatestAccountsByCategory = asyncHandler(async (req, res, next) => {
 });
 
 exports.getCategoryAccounts = asyncHandler(async (req, res, next) => {
-  const accounts = await Account.find({
+  const { sort, select } = req.query;
+  const page = parseInt(req.query.page) || 1;
+  const limit = 10;
+
+  [("page", "select", "sort")].map((el) => delete req.query[el]);
+
+  const total = await Account.find({
     slugify: req.body.slugify,
     ...req.query,
   });
 
+  let min = 100000000000;
+  let max = 0;
+
+  total.map((item) => {
+    if (max < item.price) max = item.price;
+  });
+
+  total.map((item) => {
+    if (min > item.price) min = item.price;
+  });
+
+  let pagination = await paginate(total.length, page, limit);
+
+  const accounts = await Account.find(
+    {
+      slugify: req.body.slugify,
+      ...req.query,
+    },
+    select
+  )
+    .populate("category owner")
+    .sort(sort)
+    .skip(pagination.start - 1)
+    .limit(pagination.limit);
+
   res.status(200).json({
     success: true,
-    count: accounts.length,
+    pagination,
     data: accounts,
+    min,
+    max,
   });
 });
 
@@ -96,7 +129,7 @@ exports.addFavorite = asyncHandler(async (req, res, next) => {
 });
 
 exports.removeFavorite = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.body.userId);
+  const user = await User.findById(req.body.userId).populate("userFavorite");
 
   if (!user)
     throw new MyError(
@@ -104,15 +137,19 @@ exports.removeFavorite = asyncHandler(async (req, res, next) => {
       200
     );
 
-  user.userFavorite = user.userFavorite.filter((item) => {
-    `new ObjectId(${item})` !== req.body.accountId;
-  });
+  const newUser = await User.updateOne(
+    { _id: req.body.userId },
+    { $pull: { userFavorite: { $in: [`${req.body.accountId}`] } } }
+  );
 
-  user.save();
+  console.log(newUser);
+  if (newUser.modifiedCount === 1)
+    throw new MyError(
+      "There is no account with this " + req.body.accountId + " ID"
+    );
 
   res.status(200).json({
     success: true,
-    data: user,
   });
 });
 

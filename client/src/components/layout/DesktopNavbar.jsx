@@ -1,26 +1,21 @@
 import { useState } from "react";
 
-import HamburgerMenu from "./HamburgerMenu";
+import { HamburgerMenu } from "./HamburgerMenu";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 import { useRouter } from "next/router";
 
-export default function DesktopNavbar({
-  user,
-  logout,
-  hamburger,
-  setHamburger,
-}) {
+export const DesktopNavbar = ({ user, logout, hamburger, setHamburger }) => {
   const router = useRouter();
   const [account, setAccount] = useState(false);
 
   return (
     <div>
-      <div className="hidden sm:flex gap-14 items-center">
+      <div className="hidden md:flex gap-14 items-center">
         <div className="relative group">
           <div
-            className="text-black group-hover:text-[#FF6900] transition-colors flex gap-1 items-center text-[19px] cursor-pointer"
+            className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200 flex gap-1 items-center text-[19px] cursor-pointer"
             onClick={() => setAccount(!account)}
           >
             Account
@@ -41,22 +36,24 @@ export default function DesktopNavbar({
                 {!user ? (
                   <div className="flex flex-col gap-2 w-full px-2">
                     <div
-                      className="btn transition-colors w-full rounded-full font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      className="btn transition-colors w-full h-[32px] rounded-full flex items-center justify-center cursor-pointer"
                       onClick={() => router.push("/auth/signin")}
                     >
-                      Sign in
+                      <p className="font-medium">Sign in</p>
                     </div>
                     <div
-                      className="w-full rounded-full border border-[#a1d4e8] text-[#a1d4e8]  hover:text-[#c8e4ee] hover:border-[#c8e4ee] transition-colors font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      className="w-full h-[32px] rounded-full flex items-center justify-center border hover:border-[#027ffe] border-[#44BAF0]  transition-colors cursor-pointer"
                       onClick={() => router.push("/auth/signup")}
                     >
-                      Join now
+                      <p className="hover:text-[#027ffe] text-[#44BAF0] transition-colors font-medium">
+                        Join now
+                      </p>
                     </div>
                   </div>
                 ) : (
                   <div className="flex flex-col gap-2 w-full px-2">
                     <div
-                      className="w-full rounded-full border border-[#a1d4e8] text-[#a1d4e8]  hover:text-[#c8e4ee] hover:border-[#c8e4ee] transition-colors font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      className="w-full h-[32px] rounded-full flex items-center justify-center border hover:border-[#027ffe] border-[#44BAF0] transition-colors cursor-pointer"
                       onClick={() =>
                         router.push({
                           pathname: "/profile",
@@ -64,13 +61,15 @@ export default function DesktopNavbar({
                         })
                       }
                     >
-                      Profile
+                      <p className="hover:text-[#027ffe] text-[#44BAF0] transition-colors font-medium">
+                        Profile
+                      </p>
                     </div>
                     <div
-                      className="btn transition-colors w-full rounded-full font-medium h-[32px] flex items-center justify-center cursor-pointer"
+                      className="btn transition-colors w-full rounded-full h-[32px] flex items-center justify-center cursor-pointer"
                       onClick={() => logout()}
                     >
-                      Logout
+                      <p className="font-medium">Logout</p>
                     </div>
                   </div>
                 )}
@@ -79,20 +78,24 @@ export default function DesktopNavbar({
           </div>
         </div>
         <div
-          className="group text-[18px] hover:text-[#FF6900] transition-colors font-medium flex items-center gap-1 cursor-pointer"
+          className="group flex items-center gap-1 cursor-pointer"
           onClick={() => {
             router.push("/cart");
           }}
         >
-          Shipping Cart
-          <span className="relative text-[20px] group-hover:text-[#FF6900] transition-transform scale-125 transform group-hover:translate-x-2  ">
-            <AiOutlineShoppingCart />
+          <p className="text-[18px] text-[#027ffe] group-hover:text-[#44BAF0] transition-colors font-medium">
+            Shipping Cart
+          </p>
+          <span className="relative transition-transform scale-125 transform group-hover:translate-x-2">
+            <AiOutlineShoppingCart className="text-[20px] text-[#027ffe] group-hover:text-[#44BAF0]" />
             <div
               className={`${
                 user && user?.userFavorite.length > 0 ? "flex" : "hidden"
-              } absolute -right-[9px] -top-[8px] w-[18px] h-[18px] justify-center items-center bg-[#a1d4e8] text-white transition-colors rounded-full text-[13px]`}
+              } absolute -right-[5px] -top-[7px] w-4 h-4 justify-center items-center bg-pink-600 transition-colors rounded-full`}
             >
-              {user?.userFavorite.length}
+              <p className="text-white text-[12px]">
+                {user?.userFavorite.length}
+              </p>
             </div>
           </span>
         </div>
@@ -100,4 +103,4 @@ export default function DesktopNavbar({
       <HamburgerMenu hamburger={hamburger} setHamburger={setHamburger} />
     </div>
   );
-}
+};

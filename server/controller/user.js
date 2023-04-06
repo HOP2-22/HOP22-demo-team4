@@ -54,8 +54,9 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
 
 exports.getUser = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.params.id)
-    .populate({ path: "publishedAccounts", populate: "category" })
-    .populate({ path: "purchasedAccounts", populate: "category" });
+    .populate({ path: "publishedAccounts", populate: "category owner" })
+    .populate({ path: "purchasedAccounts", populate: "category owner" })
+    .populate({ path: "userFavorite", populate: "category" });
 
   res.status(200).json({
     success: true,

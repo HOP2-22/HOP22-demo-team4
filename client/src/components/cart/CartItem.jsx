@@ -1,0 +1,42 @@
+import Link from "next/link";
+import { TableCell, TableRow, Box } from "@mui/material";
+
+import { XCircleIcon } from "@heroicons/react/24/solid";
+
+export const CartItem = ({ item, removeItemHandler, index }) => {
+  return (
+    <TableRow className="border-b">
+      <TableCell component="th" scope="row">
+        <Link
+          href={`/${item?.category.slugify}/${item?._id}`}
+          className="min-w-[180px]"
+        >
+          <img
+            src={item?.mainImage}
+            alt={item?.name}
+            width={200}
+            className="object-cover"
+          />
+        </Link>
+      </TableCell>
+      <TableCell align="center" className="text-[20px]">
+        {item?.price}
+      </TableCell>
+      <TableCell align="center">
+        <button className="">
+          <XCircleIcon
+            className="w-6 fill-pink-600 cursor-pointer"
+            onClick={() => {
+              removeItemHandler(index, item);
+            }}
+          />
+        </button>
+      </TableCell>
+      <TableCell align="center">
+        <Box className="mx-auto w-14 h-8 flex justify-center items-center rounded-[8px] btn transition-colors cursor-pointer">
+          <p>Buy</p>
+        </Box>
+      </TableCell>
+    </TableRow>
+  );
+};

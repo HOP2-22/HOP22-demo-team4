@@ -1,8 +1,9 @@
 import Head from "next/head";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
 
-export default function Layout({ children, title }) {
+import { Footer } from "./Footer";
+import { Navbar } from "./Navbar";
+
+export const Layout = ({ children, title }) => {
   return (
     <div className="flex flex-col justify-between min-h-screen w-full">
       <Head>
@@ -15,4 +16,4 @@ export default function Layout({ children, title }) {
       <Footer />
     </div>
   );
-}
+};

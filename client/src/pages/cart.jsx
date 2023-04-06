@@ -1,44 +1,39 @@
 import axios from "axios";
+import { useContext, useState } from "react";
 import Link from "next/link";
 
-import Container from "@/components/Container";
-import Layout from "@/components/layout/Layout";
+import { Container } from "@/components/Container";
+import { Layout } from "@/components/layout/Layout";
+import { CartTable } from "@/components/cart/CartTable";
+import { AuthContext } from "@/provider/AuthContext";
 
 import { BsFillTrash3Fill } from "react-icons/bs";
-import { XCircleIcon } from "@heroicons/react/24/solid";
-import { useContext, useState } from "react";
-import { AuthContext } from "@/provider/AuthContext";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Box,
-} from "@mui/material";
 
-export default function cart({ data }) {
+export default function cart() {
   const { user } = useContext(AuthContext);
-  const [items, setItems] = useState(data);
+
+  const [items, setItems] = useState(user?.userFavorite);
 
   const clear = async () => {
     setItems([]);
     try {
-      // await axios.post("http://localhost:8000/api/v1/account/clfavorite", {
-      //   userId: user?._id,
-      // });
+      await axios.post("http://localhost:8000/api/v1/account/clfavorite", {
+        userId: user?._id,
+      });
     } catch (error) {
       console.error(error);
     }
   };
 
-  const removeItemHandler = async (item) => {
+  const removeItemHandler = async (index, item) => {
+    const updatedItems = [...items];
+    updatedItems.splice(index, 1);
+    setItems(updatedItems);
     try {
-      // await axios.post("http://localhost:8000/api/v1/account/refavorite", {
-      //   accountId: item?._id,
-      //   userId: user?._id,
-      // });
+      await axios.post("http://localhost:8000/api/v1/account/refavorite", {
+        accountId: item?._id,
+        userId: user?._id,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -57,27 +52,7 @@ export default function cart({ data }) {
             </Link>
           </div>
         ) : (
-          <div className="lg:grid lg:grid-cols-4 md:gap-5">
-            <div className="bg-white p-5 rounded-[10px] lg:col-span-3">
-              <TableContainer>
-                <Table sx={{ minWidth: 500 }} aria-label="simple table">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell className="text-[20px]">Item</TableCell>
-                      <TableCell align="center">Price</TableCell>
-                      <TableCell align="center">Action</TableCell>
-                      <TableCell align="center">Purchase</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {items.map((item, index) => (
-                      <CartItem item={item} key={index} />
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </div>
-          </div>
+          <CartTable items={items} removeItemHandler={removeItemHandler} />
         )}
         <div
           className={`${
@@ -99,53 +74,3 @@ export default function cart({ data }) {
     // </Guard>
   );
 }
-
-export async function getServerSideProps(context) {
-  const res = await axios.get("http://localhost:8000/api/v1/category/accounts");
-
-  return {
-    props: {
-      data: res.data.data,
-    },
-  };
-}
-
-export const CartItem = ({ item }) => {
-  return (
-    <>
-      <TableRow className="border-b">
-        <TableCell component="th" scope="row">
-          <Link
-            href={`/${item?.slugify}/${item?.id}`}
-            className="min-w-[180px]"
-          >
-            <img
-              src={item?.mainImage}
-              alt={item?.name}
-              width={200}
-              className="object-cover"
-            />
-          </Link>
-        </TableCell>
-        <TableCell align="center" className="text-[20px]">
-          {item?.price}₮
-        </TableCell>
-        <TableCell align="center">
-          <button className="">
-            <XCircleIcon
-              className="w-6 fill-[#FF6900] cursor-pointer"
-              onClick={() => {
-                removeItemHandler(item);
-              }}
-            />
-          </button>
-        </TableCell>
-        <TableCell align="center">
-          <Box className="mx-auto w-14 h-8 flex justify-center items-center rounded-[8px] btn transition-colors cursor-pointer">
-            Buy
-          </Box>
-        </TableCell>
-      </TableRow>
-    </>
-  );
-};
