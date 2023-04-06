@@ -1,8 +1,9 @@
-import { AuthContext } from "@/provider/AuthContext";
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 
-export default function Guard({ children }) {
+import { AuthContext } from "@/provider/AuthContext";
+
+export const Guard = ({ children }) => {
   const router = useRouter();
   const { logout } = useContext(AuthContext);
 
@@ -24,4 +25,4 @@ export default function Guard({ children }) {
   }, []);
 
   return <div className="w-full h-full grow">{children}</div>;
-}
+};

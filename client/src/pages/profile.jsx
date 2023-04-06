@@ -1,11 +1,12 @@
-import Container from "@/components/Container";
-import Guard from "@/components/Guard";
-import Layout from "@/components/layout/Layout";
-import ProfileCard from "@/components/profile/ProfileCard";
-import { AuthContext } from "@/provider/AuthContext";
 import { useContext, useState } from "react";
 
-export default function index({ data }) {
+import { Container } from "@/components/Container";
+import { Guard } from "@/components/Guard";
+import { Layout } from "@/components/layout/Layout";
+import { ProfileCard } from "@/components/profile/ProfileCard";
+import { AuthContext } from "@/provider/AuthContext";
+
+export default function index() {
   const { user } = useContext(AuthContext);
   const [typeAccounts, setTypeAccounts] = useState(false);
 
@@ -20,16 +21,16 @@ export default function index({ data }) {
           <ul className="mt-5 flex items-start gap-5 h-10">
             <li
               className={`cursor-pointer pb-[6px] font-medium text-[16px] ${
-                !typeAccounts && "text-[#FF6900] border-b-2"
-              } border-[#FF6900] `}
+                !typeAccounts && "text-[#027FFE] border-b-2"
+              } border-[#027FFE] `}
               onClick={() => setTypeAccounts(false)}
             >
               published accounts
             </li>
             <li
               className={`cursor-pointer pb-[6px] font-medium text-[16px] ${
-                typeAccounts && "text-[#FF6900] border-b-2"
-              } border-[#FF6900]`}
+                typeAccounts && "text-[#027FFE] border-b-2"
+              } border-[#027FFE]`}
               onClick={() => setTypeAccounts(true)}
             >
               purchased accounts
@@ -58,26 +59,3 @@ export default function index({ data }) {
     // </Guard>
   );
 }
-
-// export const getServerSideProps = async (context) => {
-// const { query } = context;
-// const refresh = query.refresh === "true";
-
-// const res = await fetch(`http://localhost:8000/api/v1/user/${query?.id}`);
-// const data = await res.json();
-
-// if (refresh) {
-//   return {
-//     redirect: {
-//       destination: "/my-page",
-//       permanent: false,
-//     },
-//   };
-// }
-
-//   return {
-//     props: {
-//       data: data.data,
-//     },
-//   };
-// };

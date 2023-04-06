@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Card from "./Card";
+import { Card } from "./Card";
 
-export default function Cards({ title, link, type }) {
+export const Cards = ({ title, link, type }) => {
   const [categories, setCategories] = useState([]);
 
   const [loading, setLoading] = useState();
@@ -35,15 +35,13 @@ export default function Cards({ title, link, type }) {
   }
 
   return (
-    <div
-      className="h-[200px]"
-    >
+    <div className="h-[200px]">
       <div className="text-3xl mb-2">{title}</div>
-      <div className="flex ">
+      <div className="flex">
         {categories?.map((item, index) => {
           return <Card key={index} data={item} />;
         })}
       </div>
     </div>
   );
-}
+};

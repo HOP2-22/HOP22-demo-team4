@@ -11,9 +11,8 @@ body {
 
 @layer components {
   .btn {
-    @apply bg-[#a1d4e8] text-white hover:bg-[#c8e4ee];
+    @apply hover:bg-[#027ffe] bg-[#44BAF0] text-white;
   }
-
 }
 
 .scrollBarHide::-webkit-scrollbar {
@@ -23,4 +22,9 @@ body {
 .scrollBarHide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.border-gradient {
+  border-image: linear-gradient(to right, #ec4899, #8b5cf6);
+  border-image-slice: 1;
 }

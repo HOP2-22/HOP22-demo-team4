@@ -1,14 +1,15 @@
 import { useRouter } from "next/router";
 
-export const ProfileCard = ({ data }) => {
+export const CategoryCard = ({ data }) => {
   const router = useRouter();
 
   return (
-    <div className="group relative my-2 h-[130px] 3xl:h-[150px] col-span-12 sm:col-span-10 lg:col-span-6 w-full bg-white grid grid-cols-12 overflow-hidden shadow-2xl rounded-[3xl]">
+    <div className="group relative my-2 h-[130px] lg:h-[150px] col-span-12 xl:col-span-6 w-full bg-white grid grid-cols-12 overflow-hidden shadow-2xl rounded-[3px]">
       <div className="col-span-5 relative w-full">
         <img
           src={`${data?.mainImage}`}
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full cursor-pointer"
+          onClick={() => router.push(`/${data?.category.slugify}/${data?._id}`)}
         />
         <div
           className={`${
@@ -24,7 +25,10 @@ export const ProfileCard = ({ data }) => {
         </div>
       </div>
       <div className="col-span-7 grid grid-cols-3 px-[10px] py-1 sm:py-3 content-between">
-        <p className="col-span-3 cursor-pointer">
+        <p
+          className="col-span-3 cursor-pointer"
+          onClick={() => router.push(`/${data?.category.slugify}/${data?._id}`)}
+        >
           {data?.title.slice(0, 52)} {data?.title.length > 52 && "..."}
         </p>
         <div className="text-[13px] col-span-3 grid grid-cols-12">
@@ -41,9 +45,18 @@ export const ProfileCard = ({ data }) => {
             </span>
           </p>
           <p className="col-span-6">
-            date:
+            name:
+            <span
+              className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500 cursor-pointer"
+              onClick={() => router.push(`/user/${data?.owner._id}`)}
+            >
+              {data?.owner.name}
+            </span>
+          </p>
+          <p className="col-span-12">
+            When created:{" "}
             <span className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500">
-              {data?.createdAt.slice(0, 10)}
+              {data.createdAt.slice(0, 19).replace("T", " ")}
             </span>
           </p>
         </div>

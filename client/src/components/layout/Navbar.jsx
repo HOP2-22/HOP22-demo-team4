@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
-
-import Container from "../Container";
-import DesktopNavbar from "./DesktopNavbar";
-
 import { useRouter } from "next/router";
-import { AuthContext } from "@/provider/AuthContext";
-import MobileNavbar from "./MobileNavbar";
 
-export default function Navbar() {
+import { AuthContext } from "@/provider/AuthContext";
+import { MobileNavbar } from "./MobileNavbar";
+import { Container } from "../Container";
+import { DesktopNavbar } from "./DesktopNavbar";
+
+export const Navbar = () => {
   const router = useRouter();
 
   const { user, logout } = useContext(AuthContext);
@@ -19,7 +18,7 @@ export default function Navbar() {
       <Container>
         <div className="w-full h-full flex justify-between items-center">
           <p
-            className="text-[#FF6900] text-[32px] font-Black cursor-pointer"
+            className="bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500 text-[32px] font-Black cursor-pointer"
             onClick={() => {
               router.push("/");
             }}
@@ -37,4 +36,4 @@ export default function Navbar() {
       </Container>
     </div>
   );
-}
+};
