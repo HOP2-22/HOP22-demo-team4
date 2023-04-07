@@ -1,17 +1,31 @@
 const Account = require("../models/account");
 const Category = require("../models/category");
 
-const paginate = require("../utils/filteredPaginate");
+const filteredPaginate = require("../utils/filteredPaginate");
+const paginate = require("../utils/paginate");
 const MyError = require("../utils/myError");
 
 const asyncHandler = require("../middleWare/asyncHandler");
 const User = require("../models/user");
 
 exports.getAccounts = asyncHandler(async (req, res, next) => {
-  const books = await Account.find(req.query).populate("category");
+  const { select, sort } = req.query;
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+
+  ["page", "limit", "select", "sort"].map((el) => delete req.query[el]);
+
+  const pagination = await paginate(Account, page, limit);
+
+  const books = await Account.find(req.query)
+    .populate("category")
+    .sort(sort)
+    .skip(pagination.start - 1)
+    .limit(pagination.limit);
 
   res.status(200).json({
     success: true,
+    pagination,
     data: books,
   });
 });
@@ -51,12 +65,21 @@ exports.getCategoryAccounts = asyncHandler(async (req, res, next) => {
   const page = parseInt(req.query.page) || 1;
   const limit = 10;
 
+  const cat = await Category.findOne({ slugify: req.body.slugify });
+  const id = cat._id;
+
   [("page", "select", "sort")].map((el) => delete req.query[el]);
 
   const total = await Account.find({
-    slugify: req.body.slugify,
-    ...req.query,
+    category: id,
   });
+
+  if (total.length === 0) {
+    return res.status(200).json({
+      success: false,
+      message: "There are no accounts",
+    });
+  }
 
   let min = 100000000000;
   let max = 0;
@@ -69,11 +92,11 @@ exports.getCategoryAccounts = asyncHandler(async (req, res, next) => {
     if (min > item.price) min = item.price;
   });
 
-  let pagination = await paginate(total.length, page, limit);
+  let pagination = await filteredPaginate(total.length, page, limit);
 
   const accounts = await Account.find(
     {
-      slugify: req.body.slugify,
+      category: id,
       ...req.query,
     },
     select
@@ -83,12 +106,22 @@ exports.getCategoryAccounts = asyncHandler(async (req, res, next) => {
     .skip(pagination.start - 1)
     .limit(pagination.limit);
 
+  if (accounts.length === 0) {
+    return res.status(200).json({
+      success: false,
+      message: "There are no accounts",
+    });
+  }
+
+  const step = (max - min) / 20;
+
   res.status(200).json({
     success: true,
     pagination,
     data: accounts,
     min,
     max,
+    step,
   });
 });
 

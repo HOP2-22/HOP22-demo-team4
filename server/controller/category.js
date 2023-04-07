@@ -5,7 +5,9 @@ const colors = require("colors");
 const paginate = require("../utils/paginate");
 
 exports.getCategories = asyncHandler(async (req, res, next) => {
-  const categories = await Category.find(req.query);
+  const categories = await Category.find(req.query, req.query.select).populate(
+    "accounts"
+  );
 
   res.status(200).json({
     success: true,

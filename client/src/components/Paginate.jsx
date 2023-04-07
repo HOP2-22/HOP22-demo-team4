@@ -7,7 +7,7 @@ export const Paginate = ({ pagination }) => {
   const { query } = useRouter();
 
   return (
-    <div className="w-full flex justify-end pt-8">
+    <div className="col-span-10 w-full flex justify-end pt-8">
       <div className="flex items-center gap-3">
         <div
           className={`w-10 h-10 flex justify-center items-center ${

@@ -5,11 +5,13 @@ export const CategoryCard = ({ data }) => {
 
   return (
     <div className="group relative my-2 h-[130px] lg:h-[150px] col-span-12 xl:col-span-6 w-full bg-white grid grid-cols-12 overflow-hidden shadow-2xl rounded-[3px]">
-      <div className="col-span-5 relative w-full">
+      <div
+        className="col-span-5 relative w-full cursor-pointer"
+        onClick={() => router.push(`/${data?.category.slugify}/${data?._id}`)}
+      >
         <img
           src={`${data?.mainImage}`}
-          className="object-cover w-full h-full cursor-pointer"
-          onClick={() => router.push(`/${data?.category.slugify}/${data?._id}`)}
+          className="object-cover w-full h-full"
         />
         <div
           className={`${
