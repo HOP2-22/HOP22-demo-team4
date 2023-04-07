@@ -13,9 +13,7 @@ export const Cards = ({ title, link, type }) => {
 
       try {
         const res = await axios.post(link, { type: type });
-        console.log(res.data.data);
         setCategories(res.data.data);
-        // console.log(res.data);
       } catch (error) {
         console.log(error);
       }

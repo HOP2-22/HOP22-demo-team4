@@ -140,7 +140,7 @@ exports.login = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: { token, callBackUser },
+    data: { token, user: callBackUser },
   });
 });
 
