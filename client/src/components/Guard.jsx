@@ -2,13 +2,17 @@ import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 
 import { AuthContext } from "@/provider/AuthContext";
+import { BooleanContext } from "@/provider/BooleanContext";
 
 export const Guard = ({ children }) => {
   const router = useRouter();
   const { logout } = useContext(AuthContext);
 
+  const { setLoading } = useContext(BooleanContext);
+
   useEffect(() => {
     const checkUser = async () => {
+      setLoading(true);
       try {
         const res = await axios.post("http://localhost:8000/api/v1/user/");
 
@@ -20,6 +24,7 @@ export const Guard = ({ children }) => {
       } catch (error) {
         router.push("/auth/signin");
       }
+      setLoading(false);
     };
     checkUser();
   }, []);

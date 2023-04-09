@@ -7,7 +7,9 @@ export const CategoryCard = ({ data }) => {
     <div className="group relative my-2 h-[130px] lg:h-[150px] col-span-12 xl:col-span-6 w-full bg-white grid grid-cols-12 overflow-hidden shadow-2xl rounded-[3px]">
       <div
         className="col-span-5 relative w-full cursor-pointer"
-        onClick={() => router.push(`/${data?.category.slugify}/${data?._id}`)}
+        onClick={() =>
+          router.push(`/category/${data?.category.slugify}/${data?._id}`)
+        }
       >
         <img
           src={`${data?.mainImage}`}
@@ -29,7 +31,9 @@ export const CategoryCard = ({ data }) => {
       <div className="col-span-7 grid grid-cols-3 px-[10px] py-1 sm:py-3 content-between">
         <p
           className="col-span-3 cursor-pointer"
-          onClick={() => router.push(`/${data?.category.slugify}/${data?._id}`)}
+          onClick={() =>
+            router.push(`/category/${data?.category.slugify}/${data?._id}`)
+          }
         >
           {data?.title.slice(0, 52)} {data?.title.length > 52 && "..."}
         </p>
