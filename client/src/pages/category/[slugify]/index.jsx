@@ -18,6 +18,7 @@ export default function index({
   title,
   categories,
   error,
+  category,
 }) {
   const { back, query } = useRouter();
   const { slugify } = query;
@@ -32,9 +33,7 @@ export default function index({
     <Layout title={title}>
       <img
         className="hidden md:block md:h-[250px] lg:h-[320px] w-full object-cover mt-[70px] fixed -z-10"
-        src={
-          "https://res.cloudinary.com/dymjjmeyc/image/upload/v1680692617/MobileLegendsRoles_ctwvha.png"
-        }
+        src={category.coverPhoto}
         draggable="false"
       />
       <Container
@@ -85,6 +84,7 @@ export async function getServerSideProps(context) {
 
     return {
       props: {
+        category: response.data.data[0].category.coverPhoto,
         title: response.data.data[0].category.name,
         data: response.data.data,
         pagination: response.data.pagination,
@@ -97,10 +97,15 @@ export async function getServerSideProps(context) {
   } catch (error) {
     const data = await axios.get(`http://localhost:8000/api/v1/category`);
 
+    const category = data.data.data.filter(
+      (item) => item.slugify === query.slugify
+    );
+
     return {
       props: {
         title: query.slugify,
         categories: data.data.data,
+        category: category[0],
         error: true,
       },
     };
