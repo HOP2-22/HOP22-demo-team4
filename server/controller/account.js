@@ -9,24 +9,11 @@ const asyncHandler = require("../middleWare/asyncHandler");
 const User = require("../models/user");
 
 exports.getAccounts = asyncHandler(async (req, res, next) => {
-  const { select, sort } = req.query;
-  const page = parseInt(req.query.page) || 1;
-  const limit = parseInt(req.query.limit) || 10;
-
-  ["page", "limit", "select", "sort"].map((el) => delete req.query[el]);
-
-  const pagination = await paginate(Account, page, limit);
-
-  const books = await Account.find(req.query)
-    .populate("category")
-    .sort(sort)
-    .skip(pagination.start - 1)
-    .limit(pagination.limit);
+  const accounts = await Account.find(req.query).populate("category");
 
   res.status(200).json({
     success: true,
-    pagination,
-    data: books,
+    data: accounts,
   });
 });
 
@@ -126,11 +113,11 @@ exports.getCategoryAccounts = asyncHandler(async (req, res, next) => {
 });
 
 exports.getAccount = asyncHandler(async (req, res, next) => {
-  const book = await Account.findById(req.params.id)
+  const account = await Account.findById(req.params.id)
     .populate("category")
     .populate("owner");
 
-  if (!book)
+  if (!account)
     throw new MyError(
       "There is no account with this " + req.params.id + " ID",
       200
@@ -138,7 +125,7 @@ exports.getAccount = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: book,
+    data: account,
   });
 });
 

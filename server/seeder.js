@@ -10,7 +10,7 @@ connectDB();
 const deleteData = async () => {
   try {
     // await User.deleteMany();
-    await Category.deleteMany();
+    // await Category.deleteMany();
     // await Account.deleteMany();
     console.log("ogogdliig bvgdiig ustaglaa".green.inverse);
   } catch (err) {

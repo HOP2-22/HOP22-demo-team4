@@ -16,7 +16,11 @@ const categorySchema = new mongoose.Schema(
     slugify: String,
     photo: {
       type: String,
-      default: "no-photo.jpg",
+      required: true,
+    },
+    coverPhoto: {
+      type: String,
+      required: true,
     },
     owner: {
       type: mongoose.Schema.ObjectId,
@@ -24,7 +28,7 @@ const categorySchema = new mongoose.Schema(
       required: true,
     },
     type: {
-      type: String,
+      type: [String],
       enum: ["sandBox", "shooters", "MOBA", "sports", "puzzle", "AA"],
     },
     createdAt: {
