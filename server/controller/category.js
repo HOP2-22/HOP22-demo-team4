@@ -5,9 +5,7 @@ const colors = require("colors");
 const paginate = require("../utils/paginate");
 
 exports.getCategories = asyncHandler(async (req, res, next) => {
-  const categories = await Category.find(req.query, req.query.select).populate(
-    "accounts"
-  );
+  const categories = await Category.find(req.query).populate("accounts");
 
   res.status(200).json({
     success: true,
@@ -33,7 +31,13 @@ exports.getCategory = asyncHandler(async (req, res, next) => {
 exports.getCategoryByType = asyncHandler(async (req, res, next) => {
   const { type } = req.body;
 
-  const categories = await Category.find({ type: type });
+  let categories;
+
+  if (type) {
+    categories = await Category.find({ type: type });
+  } else {
+    categories = await Category.find({});
+  }
 
   if (!categories)
     throw new MyError("There is no category with this " + type + " type", 200);

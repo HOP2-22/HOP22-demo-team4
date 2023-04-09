@@ -13,7 +13,7 @@ export default function index() {
   return (
     // <Guard>
     <Layout title={"Profile"}>
-      <Container className="pt-[70px] pb-[100px]">
+      <Container className="pt-[70px]">
         <div className="px-5 pb-3 sm:px-0">
           <p className="pt-5 text-[30px] font-semibold tracking-wide">
             {user?.name}

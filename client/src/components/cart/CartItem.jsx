@@ -8,7 +8,7 @@ export const CartItem = ({ item, removeItemHandler, index }) => {
     <TableRow className="border-b">
       <TableCell component="th" scope="row">
         <Link
-          href={`/${item?.category.slugify}/${item?._id}`}
+          href={`/category/${item?.category.slugify}/${item?._id}`}
           className="min-w-[180px]"
         >
           <img
@@ -16,6 +16,7 @@ export const CartItem = ({ item, removeItemHandler, index }) => {
             alt={item?.name}
             width={200}
             className="object-cover"
+            draggable="false"
           />
         </Link>
       </TableCell>

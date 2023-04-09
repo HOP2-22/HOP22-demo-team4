@@ -7,7 +7,10 @@ export const Paginate = ({ pagination }) => {
   const { query } = useRouter();
 
   return (
-    <div className="col-span-10 w-full flex justify-end pt-8">
+    <div className="col-span-10 w-full flex items-center justify-end gap-10 pt-8">
+      <div className="text-2xl font-medium text-black/80">
+        Page: {query.page ? query.page : "1"}
+      </div>
       <div className="flex items-center gap-3">
         <div
           className={`w-10 h-10 flex justify-center items-center ${
@@ -16,7 +19,6 @@ export const Paginate = ({ pagination }) => {
               : "bg-[#00bfe0] cursor-pointer"
           } text-white font-black rounded-[8px]`}
           onClick={() => {
-            console.log(pagination.prevPage);
             if (query.page)
               if (pagination.prevPage === 1) {
                 delete query.page;

@@ -14,17 +14,21 @@
     "@heroicons/react": "^2.0.17",
     "@mui/material": "^5.11.16",
     "@mui/styled-engine-sc": "^5.11.11",
+    "add": "^2.0.6",
     "axios": "^1.3.4",
     "dotenv": "^16.0.3",
     "js-cookie": "^3.0.1",
     "next": "13.2.4",
+    "openai": "^3.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.0",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.10.0",
     "styled-components": "^5.3.9",
     "sweetalert2": "^11.7.3",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
