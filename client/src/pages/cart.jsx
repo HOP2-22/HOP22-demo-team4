@@ -10,10 +10,12 @@ import { AuthContext } from "@/provider/AuthContext";
 
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { BooleanContext } from "@/provider/BooleanContext";
+import { useRouter } from "next/router";
 
-export default function cart() {
+const Cart = () => {
   const { user } = useContext(AuthContext);
   const { setLoading } = useContext(BooleanContext);
+  const { push } = useRouter();
 
   const [items, setItems] = useState(user?.userFavorite);
 
@@ -25,7 +27,7 @@ export default function cart() {
     //     userId: user?._id,
     //   });
     // } catch (error) {
-    //   console.error(error);
+    //   push("/500")
     // }
     // setLoading(false);
   };
@@ -41,7 +43,7 @@ export default function cart() {
     //     userId: user?._id,
     //   });
     // } catch (error) {
-    //   console.error(error);
+    //   push("/500")
     // }
     // setLoading(false);
   };
@@ -105,4 +107,6 @@ export default function cart() {
     </Layout>
     // </Guard>
   );
-}
+};
+
+export default Cart;

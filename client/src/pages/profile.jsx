@@ -8,7 +8,7 @@ import { ProfileTitles } from "@/components/profile/ProfileTitles";
 import { ProfileCards } from "@/components/profile/ProfileCards";
 import { ProfileBackgroundForDivide } from "@/components/profile/ProfileBackgroundForDivide";
 
-export default function index() {
+export const Profile = () => {
   const { user } = useContext(AuthContext);
   const [typeAccounts, setTypeAccounts] = useState(false);
 
@@ -27,4 +27,6 @@ export default function index() {
     </Layout>
     // </Guard>
   );
-}
+};
+
+export default Profile;

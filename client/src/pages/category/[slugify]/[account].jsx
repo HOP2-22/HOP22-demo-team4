@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-export default function account() {
+const CategoryAccount = () => {
   const { query } = useRouter();
 
   const { slugify, account } = query;
@@ -11,4 +11,6 @@ export default function account() {
       <h1>account name : {account}</h1>
     </div>
   );
-}
+};
+
+export default CategoryAccount;

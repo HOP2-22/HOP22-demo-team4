@@ -4,7 +4,7 @@ import { AuthProvider } from "@/provider/AuthContext";
 import { BooleanProvider } from "@/provider/BooleanContext";
 import "@/styles/globals.css";
 
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
   return (
     <BooleanProvider>
       <AuthProvider>
@@ -13,4 +13,6 @@ export default function App({ Component, pageProps }) {
       </AuthProvider>
     </BooleanProvider>
   );
-}
+};
+
+export default App;
