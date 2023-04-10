@@ -1,7 +1,14 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 export const SideBarPrice = () => {
   const { query, push, asPath } = useRouter();
+  const [value, setValue] = useState({
+    price: query.price || "",
+    date: "",
+  });
+
+  console.log(value);
 
   const priceHandler = (event) => {
     delete query.slugify;

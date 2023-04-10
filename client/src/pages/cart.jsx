@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useContext, useState } from "react";
 import Link from "next/link";
+import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 
 import { Container } from "@/components/Container";
@@ -34,16 +34,16 @@ export default function cart() {
     const updatedItems = [...items];
     updatedItems.splice(index, 1);
     setItems(updatedItems);
-    setLoading(true);
-    try {
-      await axios.post("http://localhost:8000/api/v1/account/refavorite", {
-        accountId: item?._id,
-        userId: user?._id,
-      });
-    } catch (error) {
-      console.error(error);
-    }
-    setLoading(false);
+    // setLoading(true);
+    // try {
+    //   await axios.post("http://localhost:8000/api/v1/account/refavorite", {
+    //     accountId: item?._id,
+    //     userId: user?._id,
+    //   });
+    // } catch (error) {
+    //   console.error(error);
+    // }
+    // setLoading(false);
   };
 
   const notification = () => {

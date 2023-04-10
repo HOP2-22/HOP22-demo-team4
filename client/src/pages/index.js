@@ -4,18 +4,21 @@ import { useContext, useEffect, useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Container } from "@/components/Container";
 import { BooleanContext } from "@/provider/BooleanContext";
-import { Card } from "@/components/home/Card";
+import { Card } from "@/components/home/HomeCard";
 import { HomeFilter } from "@/components/home/HomeFilter";
+import { HomeCards } from "@/components/home/HomeCards";
 
 export default function Home() {
   const types = [
     { name: "None", tp: "" },
     { name: "Sandbox", tp: "sandBox" },
-    { name: "Shooters", tp: "shooters" },
+    { name: "Battle Royal", tp: "BR" },
     { name: "Multiplayer online battle arena", tp: "MOBA" },
-    { name: "sports", tp: "sports" },
-    { name: "Puzzlers and party games", tp: "puzzle" },
+    { name: "Sports", tp: "sports" },
+    { name: "Card game", tp: "CG" },
     { name: "Action adventure", tp: "AA" },
+    { name: "Strategy game", tp: "strategy" },
+    { name: "Royal playing game", tp: "rpg" },
   ];
 
   const [currentType, setCurrentType] = useState("None");
@@ -64,11 +67,7 @@ export default function Home() {
             setCategory={setCategory}
           />
           {category.length > 0 ? (
-            <div className="px-5 sm:px-0 grid grid-cols-2 xsm:grid-cols-3 gap-4 lg:gap-5 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
-              {category?.map((item, index) => {
-                return <Card key={index} data={item} />;
-              })}
-            </div>
+            <HomeCards category={category} />
           ) : (
             <div className="w-full h-full sm:pt-2 px-5 sm:px-0">
               <p className="text-[20px]">any category found search again</p>
