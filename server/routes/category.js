@@ -9,6 +9,7 @@ const {
   updateCategory,
   deleteCategory,
   getCategoryByType,
+  addTypeToCategory,
 } = require("../controller/category");
 
 const { getCategoryAccounts } = require("../controller/account");
@@ -19,6 +20,7 @@ router.route("/accounts").post(getCategoryAccounts);
 
 router.route("/").get(getCategories).post(createCategory);
 router.route("/type").post(getCategoryByType);
+router.route("/type/:id").post(addTypeToCategory);
 
 router
   .route("/:id")

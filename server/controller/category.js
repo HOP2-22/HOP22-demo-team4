@@ -48,6 +48,25 @@ exports.getCategoryByType = asyncHandler(async (req, res, next) => {
   });
 });
 
+exports.addTypeToCategory = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const { type } = req.body;
+
+  const category = await Category.findById(id);
+
+  if (!category)
+    throw new MyError("There is no category with this " + type + " type", 200);
+
+  category.type = [...category.type, type];
+
+  category.save();
+
+  res.status(200).json({
+    success: true,
+    data: category,
+  });
+});
+
 exports.createCategory = asyncHandler(async (req, res, next) => {
   const category = await Category.create(req.body);
 

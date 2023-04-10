@@ -29,7 +29,17 @@ const categorySchema = new mongoose.Schema(
     },
     type: {
       type: [String],
-      enum: ["sandBox", "shooters", "MOBA", "sports", "puzzle", "AA"],
+      enum: [
+        "sandBox",
+        "BR",
+        "MOBA",
+        "sports",
+        "CG",
+        "AA",
+        "strategy",
+        "fps",
+        "rpg",
+      ],
     },
     createdAt: {
       type: Date,
