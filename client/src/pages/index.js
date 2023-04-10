@@ -4,11 +4,11 @@ import { useContext, useEffect, useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Container } from "@/components/Container";
 import { BooleanContext } from "@/provider/BooleanContext";
-import { Card } from "@/components/home/HomeCard";
 import { HomeFilter } from "@/components/home/HomeFilter";
 import { HomeCards } from "@/components/home/HomeCards";
+import { useRouter } from "next/router";
 
-export default function Home() {
+const Home = () => {
   const types = [
     { name: "None", tp: "" },
     { name: "Sandbox", tp: "sandBox" },
@@ -20,6 +20,8 @@ export default function Home() {
     { name: "Strategy game", tp: "strategy" },
     { name: "Royal playing game", tp: "rpg" },
   ];
+
+  const { push } = useRouter();
 
   const [currentType, setCurrentType] = useState("None");
 
@@ -45,7 +47,7 @@ export default function Home() {
 
         setCategory(res.data.data);
       } catch (error) {
-        console.log(error);
+        push("/500");
       }
       setLoading(false);
     };
@@ -77,4 +79,6 @@ export default function Home() {
       </Layout>
     </>
   );
-}
+};
+
+export default Home;

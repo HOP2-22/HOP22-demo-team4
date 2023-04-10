@@ -9,17 +9,17 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { Empty } from "@/components/category/Empty";
 
-export default function index({
-  data,
+const Category = ({
   pagination,
   min,
+  data,
   max,
   step,
   title,
   categories,
   error,
   category,
-}) {
+}) => {
   const { back, query } = useRouter();
   const { slugify } = query;
 
@@ -65,7 +65,7 @@ export default function index({
       </Container>
     </Layout>
   );
-}
+};
 
 export async function getServerSideProps(context) {
   const { query } = context;
@@ -111,3 +111,5 @@ export async function getServerSideProps(context) {
     };
   }
 }
+
+export default Category;
