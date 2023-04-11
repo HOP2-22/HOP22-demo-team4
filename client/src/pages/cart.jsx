@@ -9,12 +9,11 @@ import { CartTable } from "@/components/cart/CartTable";
 import { AuthContext } from "@/provider/AuthContext";
 
 import { BsFillTrash3Fill } from "react-icons/bs";
-import { BooleanContext } from "@/provider/BooleanContext";
 import { useRouter } from "next/router";
+import { Guard } from "@/components/Guard";
 
 const Cart = () => {
-  const { user } = useContext(AuthContext);
-  const { setLoading } = useContext(BooleanContext);
+  const { user, setLoading } = useContext(AuthContext);
   const { push } = useRouter();
 
   const [items, setItems] = useState(user?.userFavorite);
@@ -51,7 +50,7 @@ const Cart = () => {
   const notification = () => {
     toast((t) => (
       <span>
-        Do you want clear all
+        Сагсийг хоослохдоо итгэлтэй байна уу
         <button
           onClick={() => {
             clear();
@@ -59,7 +58,7 @@ const Cart = () => {
           }}
           className="py-1 ml-2 px-3 rounded-[5px] bg-[#44BAF0] text-white"
         >
-          Yes
+          Зөвшөөрөх
         </button>
         <button
           onClick={() => {
@@ -67,7 +66,7 @@ const Cart = () => {
           }}
           className="py-1 ml-2 px-3 rounded-[5px] bg-red-500 text-white"
         >
-          No
+          Татгалзах
         </button>
       </span>
     ));
@@ -75,14 +74,14 @@ const Cart = () => {
 
   return (
     // <Guard>
-    <Layout title={"Shopping Cart"}>
+    <Layout title={"Сагс"}>
       <Container className="px-4 sm:px-0 pt-[90px]">
-        <p className="mb-4 text-[26px] font-semibold">Shopping Cart</p>
-        {items.length === 0 ? (
+        <p className="mb-4 text-[26px] font-semibold">Сагс</p>
+        {items?.length === 0 ? (
           <div className="text-[18px]">
-            Cart is empty
+            Сагс хоосон байна.
             <Link href="/" className="underline underline-offset-4 pl-1">
-              go home page
+              Нүүр хуудас руу буцах
             </Link>
           </div>
         ) : (
@@ -90,7 +89,7 @@ const Cart = () => {
         )}
         <div
           className={`${
-            items.length === 0 ? "hidden" : "flex"
+            items?.length === 0 ? "hidden" : "flex"
           } w-full justify-end lg:justify-center pt-6  mr-10 lg:mr-0 lg:ml-32`}
         >
           <div
@@ -100,7 +99,7 @@ const Cart = () => {
             <span>
               <BsFillTrash3Fill className="text-[18px]" />
             </span>
-            Empty cart
+            Сагсийг хоослох
           </div>
         </div>
       </Container>

@@ -1,8 +1,13 @@
 import { useRouter } from "next/router";
+import { useContext } from "react";
+
+import { AuthContext } from "@/provider/AuthContext";
 
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 export const Paginate = ({ pagination }) => {
+  const { handleToTop } = useContext(AuthContext);
+
   const router = useRouter();
   const { query } = useRouter();
 
@@ -19,7 +24,8 @@ export const Paginate = ({ pagination }) => {
               : "bg-[#00bfe0] cursor-pointer"
           } text-white font-black rounded-[8px]`}
           onClick={() => {
-            if (query.page)
+            if (query.page) {
+              handleToTop();
               if (pagination.prevPage === 1) {
                 delete query.page;
                 delete query.slugify;
@@ -41,6 +47,7 @@ export const Paginate = ({ pagination }) => {
                   },
                 });
               }
+            }
           }}
         >
           <BsChevronLeft />
@@ -53,7 +60,8 @@ export const Paginate = ({ pagination }) => {
           } text-white font-black rounded-[8px]`}
           onClick={() => {
             delete query.slugify;
-            if (pagination.nextPage !== "last page")
+            if (pagination.nextPage !== "last page") {
+              handleToTop();
               router.push({
                 pathname: router.asPath.split("?")[0],
                 query: {
@@ -61,6 +69,7 @@ export const Paginate = ({ pagination }) => {
                   page: pagination.nextPage,
                 },
               });
+            }
           }}
         >
           <BsChevronRight />

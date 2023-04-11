@@ -24,6 +24,8 @@ const Category = ({
   const { slugify } = query;
 
   useEffect(() => {
+    console.log(pagination);
+
     if (!categories.find((catItem) => catItem.slugify == slugify)) {
       back();
     }
@@ -33,7 +35,7 @@ const Category = ({
     <Layout title={title}>
       <img
         className="hidden md:block md:h-[250px] lg:h-[320px] w-full object-cover mt-[70px] fixed -z-10"
-        src={category.coverPhoto}
+        src={category}
         draggable="false"
       />
       <Container
@@ -41,7 +43,7 @@ const Category = ({
           "pb-[70px] px-5 sm:px-0 pt-[90px] md:pt-[230px] lg:pt-[300px]"
         }
       >
-        <div className="grid grid-cols-10 gap-y-10 gap-x-8">
+        <div className="flex flex-col md:flex-row gap-y-10 gap-x-8">
           <SideBar
             min={min}
             max={max}
@@ -53,15 +55,15 @@ const Category = ({
             <Empty />
           ) : (
             <>
-              <div className="col-span-10 md:col-span-7 w-full grid grid-cols-12 gap-x-5 2xl:gap-x-8 gap-y-0">
+              <div className="w-full md:w-[70%] grid grid-cols-12 gap-x-5 2xl:gap-x-8 gap-y-0">
                 {data?.map((item, index) => {
                   return <CategoryCard key={index} data={item} />;
                 })}
               </div>
-              <Paginate pagination={pagination} />
             </>
           )}
         </div>
+        {!error && <Paginate pagination={pagination} />}
       </Container>
     </Layout>
   );
@@ -105,7 +107,7 @@ export async function getServerSideProps(context) {
       props: {
         title: query.slugify,
         categories: data.data.data,
-        category: category[0],
+        category: category[0].coverPhoto,
         error: true,
       },
     };

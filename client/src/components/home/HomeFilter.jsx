@@ -35,9 +35,10 @@ export const HomeFilter = ({
       <div className="w-full flex flex-wrap-reverse sm:flex-wrap justify-between items-center gap-3 px-5 sm:px-0 mt-5 mb-8">
         <div className="relative group w-full sm:w-auto">
           <input
-            className="w-full sm:w-[220px] h-[37px] pl-3 rounded-full border border-black/60 focus:outline-0 group-hover:border-[#44BAF0]"
+            className="w-full sm:w-[250px] placeholder:text-[13px] h-[37px] pl-3 rounded-full border border-black/60 focus:outline-0 group-hover:border-[#44BAF0]"
             value={searchValue}
             onChange={searchInputHandler}
+            placeholder="Категорынхоо нэрээр хайна уу"
           />
           <div className="absolute top-0 right-[5px] h-full flex items-center">
             <AiOutlineSearch className="h-6 w-6 rounded-full group-hover:text-[#44BAF0]" />

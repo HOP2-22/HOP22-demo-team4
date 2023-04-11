@@ -28,29 +28,29 @@ export const CategoryCard = ({ data }) => {
           />
         </div>
       </div>
-      <div className="col-span-7 grid grid-cols-3 px-[10px] py-1 sm:py-3 content-between">
+      <div className="col-span-7 flex flex-col px-[10px] py-1 sm:py-3 justify-between">
         <p
-          className="col-span-3 cursor-pointer"
+          className="w-full cursor-pointer"
           onClick={() =>
             router.push(`/category/${data?.category.slugify}/${data?._id}`)
           }
         >
           {data?.title.slice(0, 52)} {data?.title.length > 52 && "..."}
         </p>
-        <div className="text-[13px] col-span-3 grid grid-cols-12">
-          <div className="col-span-12 mb-2">
+        <div className="text-[13px] w-full flex flex-wrap">
+          <div className="w-full mb-2">
             {data?.descriptions[0]?.title}
             <span className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500">
               {data?.descriptions[0]?.desc}
             </span>
           </div>
-          <p className="col-span-6">
+          <p className="w-1/2">
             price:
             <span className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500">
               {data?.price}
             </span>
           </p>
-          <p className="col-span-6">
+          <p className="w-1/2">
             name:
             <span
               className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500 cursor-pointer"
@@ -59,8 +59,8 @@ export const CategoryCard = ({ data }) => {
               {data?.owner.name}
             </span>
           </p>
-          <p className="col-span-12">
-            When created:{" "}
+          <p className="w-full">
+            When created:
             <span className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500">
               {data.createdAt.slice(0, 19).replace("T", " ")}
             </span>

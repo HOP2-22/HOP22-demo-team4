@@ -3,10 +3,10 @@ import { useContext, useEffect, useState } from "react";
 
 import { Layout } from "@/components/layout/Layout";
 import { Container } from "@/components/Container";
-import { BooleanContext } from "@/provider/BooleanContext";
 import { HomeFilter } from "@/components/home/HomeFilter";
 import { HomeCards } from "@/components/home/HomeCards";
 import { useRouter } from "next/router";
+import { AuthContext } from "@/provider/AuthContext";
 
 const Home = () => {
   const types = [
@@ -27,7 +27,7 @@ const Home = () => {
 
   const [searchValue, setSearchValue] = useState("");
 
-  const { setLoading } = useContext(BooleanContext);
+  const { setLoading } = useContext(AuthContext);
 
   const [category, setCategory] = useState([]);
   const [firstAllCategories, setFirstAllCategories] = useState([]);
@@ -72,7 +72,7 @@ const Home = () => {
             <HomeCards category={category} />
           ) : (
             <div className="w-full h-full sm:pt-2 px-5 sm:px-0">
-              <p className="text-[20px]">any category found search again</p>
+              <p className="text-[20px]">Ийм нэртэй категор олдсонгүй.</p>
             </div>
           )}
         </Container>

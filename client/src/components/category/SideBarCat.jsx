@@ -5,7 +5,7 @@ export const SideBarCat = ({ currentCat, categories }) => {
 
   return (
     <div className="flex flex-col gap-2">
-      <p>Category:</p>
+      <p>Категор:</p>
       <select
         className="w-full border border-black hover:border-[#44BAF0] rounded-[5px] text-[12px] py-[6px] cursor-pointer"
         value={currentCat}

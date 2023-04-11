@@ -5,8 +5,15 @@ import { HamburgerMenu } from "./HamburgerMenu";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 import { useRouter } from "next/router";
+// import { toast } from "react-hot-toast";
 
-export const DesktopNavbar = ({ user, logout, hamburger, setHamburger }) => {
+export const DesktopNavbar = ({
+  user,
+  logout,
+  hamburger,
+  setHamburger,
+  showNotification,
+}) => {
   const router = useRouter();
   const [account, setAccount] = useState(false);
 
@@ -18,7 +25,7 @@ export const DesktopNavbar = ({ user, logout, hamburger, setHamburger }) => {
             className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200 flex gap-1 items-center text-[19px] cursor-pointer"
             onClick={() => setAccount(!account)}
           >
-            Account
+            Хэрэглэгч
             <span className="text-[22px] translate-y-[1px]">
               <BiUserCircle />
             </span>
@@ -31,7 +38,7 @@ export const DesktopNavbar = ({ user, logout, hamburger, setHamburger }) => {
             <div className="relative top-2 px-3 py-4 h-[200px] w-full bg-white rounded-[10px] z-[10] border-[0.5px]">
               <div className="relative z-40 flex flex-col gap-4">
                 <p className="font-medium text-[20px]">
-                  {user ? `Hi, ${user?.name}` : "Welcome back!"}
+                  {user ? `Сайн уу, ${user?.name}` : "Тавтай морил!"}
                 </p>
                 {!user ? (
                   <div className="flex flex-col gap-2 w-full px-2">
@@ -39,14 +46,14 @@ export const DesktopNavbar = ({ user, logout, hamburger, setHamburger }) => {
                       className="btn transition-colors w-full h-[32px] rounded-full flex items-center justify-center cursor-pointer"
                       onClick={() => router.push("/auth/signin")}
                     >
-                      <p className="font-medium">Sign in</p>
+                      <p className="font-medium">Нэвтрэх</p>
                     </div>
                     <div
                       className="w-full h-[32px] rounded-full flex items-center justify-center border hover:border-[#027ffe] border-[#44BAF0]  transition-colors cursor-pointer"
                       onClick={() => router.push("/auth/signup")}
                     >
                       <p className="hover:text-[#027ffe] text-[#44BAF0] transition-colors font-medium">
-                        Join now
+                        Бүртгүүлэх
                       </p>
                     </div>
                   </div>
@@ -57,19 +64,18 @@ export const DesktopNavbar = ({ user, logout, hamburger, setHamburger }) => {
                       onClick={() =>
                         router.push({
                           pathname: "/profile",
-                          // query: { id: user._id },
                         })
                       }
                     >
                       <p className="hover:text-[#027ffe] text-[#44BAF0] transition-colors font-medium">
-                        Profile
+                        профайл
                       </p>
                     </div>
                     <div
                       className="btn transition-colors w-full rounded-full h-[32px] flex items-center justify-center cursor-pointer"
                       onClick={() => logout()}
                     >
-                      <p className="font-medium">Logout</p>
+                      <p className="font-medium">Гарах</p>
                     </div>
                   </div>
                 )}
@@ -80,11 +86,15 @@ export const DesktopNavbar = ({ user, logout, hamburger, setHamburger }) => {
         <div
           className="group flex items-center gap-1 cursor-pointer"
           onClick={() => {
-            router.push("/cart");
+            if (user) {
+              router.push("/cart");
+            } else {
+              showNotification();
+            }
           }}
         >
           <p className="text-[18px] text-[#027ffe] group-hover:text-[#44BAF0] transition-colors font-medium">
-            Shipping Cart
+            Сагс
           </p>
           <span className="relative transition-transform scale-125 transform group-hover:translate-x-2">
             <AiOutlineShoppingCart className="text-[20px] text-[#027ffe] group-hover:text-[#44BAF0]" />

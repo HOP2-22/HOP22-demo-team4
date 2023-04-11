@@ -11,7 +11,7 @@ export const ProfileTitles = ({ user, setTypeAccounts, typeAccounts }) => {
           } border-[#027FFE] `}
           onClick={() => setTypeAccounts(false)}
         >
-          published accounts
+          Зарж буй аккаунтууд
         </li>
         <li
           className={`cursor-pointer pb-[6px] font-medium text-[16px] ${
@@ -19,7 +19,7 @@ export const ProfileTitles = ({ user, setTypeAccounts, typeAccounts }) => {
           } border-[#027FFE]`}
           onClick={() => setTypeAccounts(true)}
         >
-          purchased accounts
+          Худалдаж авсан аккаунтууд
         </li>
       </ul>
     </div>

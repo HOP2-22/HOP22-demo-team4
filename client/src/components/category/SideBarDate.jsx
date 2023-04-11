@@ -45,7 +45,7 @@ export const SideBarDate = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <p>Date:</p>
+      <p>Нийтэлсэн өдөр:</p>
       <select
         className="w-full border border-black hover:border-[#44BAF0] rounded-[5px] text-[12px] py-[6px] cursor-pointer"
         value={
@@ -61,10 +61,10 @@ export const SideBarDate = () => {
           none
         </option>
         <option key={"increase"} value={"increase"}>
-          increase
+          Эхнийхаас
         </option>
         <option key={"decrease"} value={"decrease"}>
-          decrease
+          Сүүлийнхаас
         </option>
       </select>
     </div>
