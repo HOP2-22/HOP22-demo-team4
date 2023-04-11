@@ -4,7 +4,10 @@ const Custom500 = () => {
       <p className="text-[24px] font-medium">
         500 - Server-side error occurred
       </p>
-      <p className="text-[17px]">wait a few minute sorry for that</p>
+      <p className="text-[17px]">
+        Хэрэглэгч танийг хүлээлггэж байгаадаа үүчлалт хүсье.Хэдэн хором хүлээнэ
+        үү.
+      </p>
     </div>
   );
 };

@@ -30,6 +30,7 @@ export const SideBarSlider = ({ min, max, step }) => {
   const handleSliderChangeCommitted = () => {
     delete query.min;
     delete query.max;
+    delete query.page;
 
     push({
       path: asPath.split("?")[0],
@@ -43,10 +44,10 @@ export const SideBarSlider = ({ min, max, step }) => {
 
   return (
     <div className="w-full">
-      <p className="pb-3 pl-1">Accounts price range</p>
-      <div className="w-full flex flex-col items-start lg:items-center lg:justify-between px-[3px] pb-2 lg:pb-0">
-        <p>Min:{sliderValue[0]}</p>
-        <p>Max:{sliderValue[1]}</p>
+      <p className="pb-3 pl-1">Аккаунтийн үнийн хүрээ</p>
+      <div className="w-full flex flex-col lg:flex-row items-start lg:items-center lg:justify-between px-[3px] pb-2 lg:pb-0">
+        <p>Багадаа:{sliderValue[0]}</p>
+        <p>Ихдээ:{sliderValue[1]}</p>
       </div>
       <div className="w-full px-3">
         <Slider

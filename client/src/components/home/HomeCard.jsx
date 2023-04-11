@@ -1,16 +1,22 @@
 import { useRouter } from "next/router";
+import { useContext } from "react";
+
+import { AuthContext } from "@/provider/AuthContext";
 
 export const HomeCard = ({ data }) => {
+  const { handleToTop } = useContext(AuthContext);
+
   const router = useRouter();
 
   return (
     <div
       className="relative group w-full rounded-[15px] overflow-hidden h-[230px] xsm:h-[210px] sm:h-[190px] lg:h-[220px] 2xl:h-[210px] 3xl:h-[230px] cursor-pointer"
-      onClick={() =>
+      onClick={() => {
+        handleToTop();
         router.push({
           pathname: `/category/${data?.slugify}`,
-        })
-      }
+        });
+      }}
     >
       <img
         src={data.photo}

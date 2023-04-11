@@ -1,8 +1,4 @@
-import { useRouter } from "next/router";
-
 export const ProfileCard = ({ data }) => {
-  const router = useRouter();
-
   return (
     <div className="group relative my-2 h-[130px] 3xl:h-[150px] col-span-12 sm:col-span-10 lg:col-span-6 w-full bg-white grid grid-cols-12 overflow-hidden shadow-2xl rounded-[3xl]">
       <div className="col-span-5 relative w-full">
@@ -37,13 +33,13 @@ export const ProfileCard = ({ data }) => {
             </span>
           </div>
           <p className="col-span-6">
-            price:
+            Үнэ:
             <span className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500">
               {data?.price}
             </span>
           </p>
-          <p className="col-span-6">
-            date:
+          <p className="col-span-6 text-[11px]">
+            Нийтэлсэн өдөр:
             <span className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500">
               {data?.createdAt.slice(0, 10)}
             </span>

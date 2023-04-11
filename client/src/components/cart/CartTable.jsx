@@ -21,14 +21,14 @@ export const CartTable = ({ items, removeItemHandler }) => {
           >
             <TableHead>
               <TableRow>
-                <TableCell className="text-[20px]">Item</TableCell>
-                <TableCell align="center">Price</TableCell>
-                <TableCell align="center">Action</TableCell>
-                <TableCell align="center">Purchase</TableCell>
+                <TableCell className="text-[20px]">Бараа</TableCell>
+                <TableCell align="center">Үнэ</TableCell>
+                <TableCell align="center">Устгах</TableCell>
+                <TableCell align="center">Худалдах</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {items.map((item, index) => (
+              {items?.map((item, index) => (
                 <CartItem
                   item={item}
                   key={index}

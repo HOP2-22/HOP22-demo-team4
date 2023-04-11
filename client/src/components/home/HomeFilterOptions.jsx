@@ -6,7 +6,7 @@ export default function HomeFilterOptions({
 }) {
   return (
     <div className="w-full sm:w-[300px] flex items-center gap-3">
-      <p className="font-medium">Type:</p>
+      <p className="font-medium">Төрөл:</p>
       <select
         className="w-full border border-black hover:border-[#44BAF0] rounded-[7px] text-[14px] py-2 pl-2 cursor-pointer"
         value={currentType}

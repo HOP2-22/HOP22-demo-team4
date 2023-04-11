@@ -1,8 +1,12 @@
+import { useRouter } from "next/router";
 import { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const { push } = useRouter();
+  const [loading, setLoading] = useState();
+
   const [user, setUser] = useState({
     _id: "64267d8ff4fd40092d951238",
     name: "user3",
@@ -246,10 +250,17 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+    push("/");
+  };
+
+  const handleToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, logout }}>
+    <AuthContext.Provider
+      value={{ handleToTop, user, setUser, logout, loading, setLoading }}
+    >
       {children}
     </AuthContext.Provider>
   );

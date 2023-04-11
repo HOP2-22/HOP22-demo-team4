@@ -1,5 +1,6 @@
-import { useContext, useState } from "react";
+// import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
+import { useContext, useState } from "react";
 
 import { AuthContext } from "@/provider/AuthContext";
 import { MobileNavbar } from "./MobileNavbar";
@@ -12,6 +13,31 @@ export const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   const [hamburger, setHamburger] = useState(false);
+
+  const showNotification = () => {
+    toast((t) => (
+      <span>
+        Та энэ хуудас руу нэвтэрхийн тулд заавал нэвтэрсэн байх шаардлагатай
+        <button
+          onClick={() => {
+            push("/auth/login");
+            toast.dismiss(t.id);
+          }}
+          className="py-1 ml-2 px-3 rounded-[5px] bg-[#44BAF0] text-white"
+        >
+          Зөвшөөрөх
+        </button>
+        <button
+          onClick={() => {
+            toast.dismiss(t.id);
+          }}
+          className="py-1 ml-2 px-3 rounded-[5px] bg-red-500 text-white"
+        >
+          Татгалзах
+        </button>
+      </span>
+    ));
+  };
 
   return (
     <div className="fixed w-full z-50 h-[70px] bg-white flex items-center justify-between px-10 shadow-md">
@@ -30,9 +56,15 @@ export const Navbar = () => {
             logout={logout}
             hamburger={hamburger}
             setHamburger={setHamburger}
+            showNotification={showNotification}
           />
         </div>
-        <MobileNavbar user={user} logout={logout} hamburger={hamburger} />
+        <MobileNavbar
+          user={user}
+          logout={logout}
+          hamburger={hamburger}
+          showNotification={showNotification}
+        />
       </Container>
     </div>
   );

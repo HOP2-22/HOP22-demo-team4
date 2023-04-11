@@ -44,7 +44,7 @@ export const SideBarPrice = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <p>Price:</p>
+      <p>Үнэ:</p>
       <select
         className="w-full border border-black hover:border-[#44BAF0] rounded-[5px] text-[12px] py-[6px] cursor-pointer"
         value={
@@ -60,10 +60,10 @@ export const SideBarPrice = () => {
           none
         </option>
         <option key={"increase"} value={"increase"}>
-          increase
+          Багаас их рүү
         </option>
         <option key={"decrease"} value={"decrease"}>
-          decrease
+          Ихээс баг руу
         </option>
       </select>
     </div>

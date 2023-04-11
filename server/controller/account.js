@@ -50,7 +50,7 @@ exports.getLatestAccountsByCategory = asyncHandler(async (req, res, next) => {
 exports.getCategoryAccounts = asyncHandler(async (req, res, next) => {
   const { sort, select } = req.query;
   const page = parseInt(req.query.page) || 1;
-  const limit = 2;
+  const limit = 10;
 
   const cat = await Category.findOne({ slugify: req.body.slugify });
   const id = cat._id;
@@ -59,6 +59,7 @@ exports.getCategoryAccounts = asyncHandler(async (req, res, next) => {
 
   const total = await Account.find({
     category: id,
+    ...req.query,
   });
 
   if (total.length === 0) {

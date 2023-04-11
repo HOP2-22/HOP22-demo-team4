@@ -2,13 +2,10 @@ import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 
 import { AuthContext } from "@/provider/AuthContext";
-import { BooleanContext } from "@/provider/BooleanContext";
 
 export const Guard = ({ children }) => {
   const router = useRouter();
-  const { logout } = useContext(AuthContext);
-
-  const { setLoading } = useContext(BooleanContext);
+  const { logout, setLoading } = useContext(AuthContext);
 
   useEffect(() => {
     const checkUser = async () => {
