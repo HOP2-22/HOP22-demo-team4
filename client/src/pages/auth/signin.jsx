@@ -16,28 +16,10 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
 
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  TextField,
-  OutlinedInput,
-  FormControl,
-  Stack,
-} from "@mui/material";
-import { useContext, useState } from "react";
-import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-import IconButton from "@mui/material/IconButton";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import axios from "axios";
-
 import { useRouter } from "next/router";
 import { AuthContext } from "@/provider/AuthContext";
 
-export default function signin() {
+export const SignIn = () => {
   const { setUser } = useContext(AuthContext);
 
   const LoginFunc = async () => {
@@ -56,8 +38,6 @@ export default function signin() {
       alert("Password or Email is invalid");
     }
   };
-  const image =
-    "https://res.cloudinary.com/dymjjmeyc/image/upload/v1679913069/AccountTrader/0x0_zfidbn.jpg";
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
@@ -65,81 +45,19 @@ export default function signin() {
   };
   const router = useRouter();
   return (
-    <Box
-      sx={{
-        backgroundImage: `url(${image})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        display: "flex",
-        flexDirection: "column",
-        height: "100vh",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <Box sx={styles.MainBox}>
       <Container>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Box
-            sx={{
-              width: "550px",
-              backgroundColor: "#fff",
-              borderRadius: "10px",
-              padding: "60px 35px 35px 35px",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: "38px",
-                fontWeight: 400,
-                lineHeight: "1.2",
-                fontFamily: "inherit",
-                color: "#55555",
-                textAlign: "center",
-                paddingBottom: "50px",
-              }}
-            >
-              Sign In With
-            </Typography>
+        <Box sx={styles.center}>
+          <Box sx={styles.signInBox}>
+            <Typography sx={styles.Topic}>Нэвтрэх</Typography>
             <Stack
               direction="row"
               spacing={2}
               justifyContent="space-between"
               alignItems="center"
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  backgroundColor: "#3C5997",
-                  borderRadius: "10px",
-                  width: "49%",
-                  boxShadow:
-                    "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19)",
-                }}
-              >
-                <Button
-                  sx={{
-                    display: "flex",
-                    gap: "10px",
-                    width: "100%",
-                    height: "55px",
-                    textTransform: "none",
-                    borderRadius: "20px",
-                    fontSize: "18px",
-                    backgroundColor: "#3C5997",
-                    color: "#FFFFFF",
-                    border: "1px",
-                  }}
-                >
+              <Box sx={styles.facebookBox}>
+                <Button sx={styles.facebookButton}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -153,32 +71,8 @@ export default function signin() {
                   Facebook
                 </Button>
               </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "10px",
-                  boxShadow:
-                    "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19)",
-                  borderRadius: "10px",
-                  width: "49%",
-                }}
-              >
-                <Button
-                  sx={{
-                    display: "flex",
-                    gap: "10px",
-                    width: "100%",
-                    height: "55px",
-                    textTransform: "none",
-                    borderRadius: "20px",
-                    fontSize: "18px",
-                    backgroundColor: "#fff",
-                    color: "#877C7C",
-                    border: "1px",
-                  }}
-                >
+              <Box sx={styles.googleBox}>
+                <Button sx={styles.googleButton}>
                   <svg
                     style={{ width: "30px" }}
                     viewBox="0 0 366 372"
@@ -205,72 +99,27 @@ export default function signin() {
                     />
                   </svg>
                   Google
-                </Button> 
+                </Button>
               </Box>
             </Stack>
-            <Box sx={{ width: "100%" }}>
-              <Box
-                sx={{
-                  paddingBottom: "9px",
-                  paddingTop: "30px",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontFamily: "inherit",
-                    fontSize: "16px",
-                    color: "#555",
-                    lineHeight: "1.5",
-                    fontWeight: 600,
-                  }}
-                >
-                  Email
-                </Typography>
+            <Box>
+              <Box sx={styles.mailPadding}>
+                <Typography sx={styles.infoTypography}>И-мэйл</Typography>
               </Box>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
-                sx={{
-                  width: "100%",
-                  fontSize: "18px",
-                  lineHeight: "1.2",
-                  height: "60px",
-                  backgroundColor: "#F7F7F7",
-                }}
+                sx={styles.InfoInput}
               />
-              <Box
-                sx={{
-                  paddingBottom: "9px",
-                  paddingTop: "13px",
-                  display: "flex",
-                }}
-              >
+              <Box sx={styles.PasswordBox}>
+                <Typography sx={styles.infoTypography}>Нууц үг </Typography>
                 <Typography
-                  sx={{
-                    fontFamily: "inherit",
-                    fontSize: "16px",
-                    color: "#555",
-                    lineHeight: "1.5",
-                    fontWeight: 600,
-                  }}
-                >
-                  Password
-                </Typography>
-                <Typography
-                  sx={{
-                    borderBottom: "1px solid #99999",
-                    textDecoration: "underline",
-                    fontSize: "14px",
-                    lineHeight: "1.5",
-                    marginLeft: "8px",
-                    marginTop: "3px",
-                    fontWeight: 400,
-                  }}
+                  sx={styles.forgotPass}
                   onClick={() => {
                     router.push("/auth/forgot");
                   }}
                 >
-                  Forgot?
+                  Мартсан?
                 </Typography>
               </Box>
               <FormControl
@@ -296,61 +145,20 @@ export default function signin() {
                   label="Password"
                 />
               </FormControl>
-              <Box
-                style={{
-                  backgroundColor: "#333333",
-                  borderRadius: "10px",
-                  width: "100%",
-                  height: "60px",
-                  marginTop: "10px",
-                  fontFamily: "inherit",
-                  fontSize: "16px",
-                  color: "#ffffff",
-                  fontWeight: 600,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Typography>Sign in</Typography>
-              </Box>
+              <Box sx={styles.SignInButton}>Sign in</Box>
             </Box>
             <Box>
-              <Box
-                sx={{
-                  width: "100%",
-                  textAlign: "center",
-                  paddingTop: "55px",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontFamily: "inherit",
-                    fontSize: "14px",
-                    color: "#999",
-                    fontWeight: 400,
-                  }}
-                >
-                  Not a member?
+              <Box sx={styles.secondSection}>
+                <Typography sx={styles.notmember}>
+                  Шинэ хэрэглэгч бол
                 </Typography>
                 <Typography
-                  sx={{
-                    borderBottom: "1px solid #99999",
-                    textDecoration: "underline",
-                    fontFamily: "inherit",
-                    fontSize: "14px",
-                    lineHeight: "1.5",
-                    marginLeft: "8px",
-                    fontWeight: 400,
-                    color: "#999",
-                  }}
+                  sx={styles.SignUp}
                   onClick={() => {
                     router.push("/auth/signup");
                   }}
                 >
-                  Sign up now
+                  Энд дарна уу
                 </Typography>
               </Box>
             </Box>
@@ -359,5 +167,157 @@ export default function signin() {
       </Container>
     </Box>
   );
-}
+};
 
+const image =
+  "https://res.cloudinary.com/dymjjmeyc/image/upload/v1679913069/AccountTrader/0x0_zfidbn.jpg";
+
+const styles = {
+  MainBox: {
+    backgroundImage: `url(${image})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    display: "flex",
+    flexDirection: "column",
+    height: "100vh",  
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  Topic: {
+    fontSize: "38px",
+    fontWeight: 400,
+    lineHeight: "1.2",
+    fontFamily: "inherit",
+    color: "#55555",
+    textAlign: "center",
+    paddingBottom: "50px",
+  },
+  center: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  signInBox: {
+    width: "550px",
+    backgroundColor: "#fff",
+    borderRadius: "10px",
+    padding: "60px 35px 35px 35px",
+    display: "flex",
+    flexDirection: "column",
+  },
+  facebookBox: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: "#3C5997",
+    borderRadius: "10px",
+    width: "49%",
+    boxShadow:
+      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19)",
+  },
+  facebookButton: {
+    display: "flex",
+    gap: "10px",
+    width: "100%",
+    height: "55px",
+    textTransform: "none",
+    borderRadius: "20px",
+    fontSize: "18px",
+    backgroundColor: "#3C5997",
+    color: "#FFFFFF",
+    border: "1px",
+  },
+  googleBox: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "10px",
+    boxShadow:
+      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19)",
+    borderRadius: "10px",
+    width: "49%",
+  },
+  googleButton: {
+    display: "flex",
+    gap: "10px",
+    width: "100%",
+    height: "55px",
+    textTransform: "none",
+    borderRadius: "20px",
+    fontSize: "18px",
+    backgroundColor: "#fff",
+    color: "#877C7C",
+    border: "1px",
+  },
+  infoTypography: {
+    fontFamily: "inherit",
+    fontSize: "16px",
+    color: "#555",
+    lineHeight: "1.5",
+    fontWeight: 600,
+  },
+  SignInButton: {
+    backgroundColor: "#333333",
+    borderRadius: "10px",
+    width: "100%",
+    height: "60px",
+    marginTop: "10px",
+    fontFamily: "inherit",
+    fontSize: "16px",
+    color: "#ffffff",
+    fontWeight: 600,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  SignUp: {
+    borderBottom: "1px solid #99999",
+    textDecoration: "underline",
+    fontFamily: "inherit",
+    fontSize: "14px",
+    lineHeight: "1.5",
+    marginLeft: "8px",
+    fontWeight: 400,
+    color: "#999",
+  },
+  notmember: {
+    fontFamily: "inherit",
+    fontSize: "14px",
+    color: "#999",
+    fontWeight: 400,
+  },
+  secondSection: {
+    width: "100%",
+    textAlign: "center",
+    paddingTop: "55px",
+    display: "flex",
+    justifyContent: "center",
+  },
+  forgotPass: {
+    borderBottom: "1px solid #99999",
+    textDecoration: "underline",
+    fontSize: "14px",
+    lineHeight: "1.5",
+    marginLeft: "8px",
+    marginTop: "3px",
+    fontWeight: 400,
+  },
+  mailPadding: {
+    paddingBottom: "9px",
+    paddingTop: "30px",
+  },
+  InfoInput: {
+    width: "100%",
+    fontSize: "18px",
+    lineHeight: "1.2",
+    height: "60px",
+    backgroundColor: "#F7F7F7",
+  },
+  PasswordBox: {
+    paddingBottom: "9px",
+    paddingTop: "13px",
+    display: "flex",
+  },
+};
+
+export default SignIn;

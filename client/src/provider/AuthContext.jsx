@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { createContext, useState } from "react";
-import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 export const AuthContext = createContext();
@@ -28,7 +27,7 @@ export const AuthProvider = ({ children }) => {
 
   const [userName, setUserName] = useState("");
 
-  const [checkUser, setCheckUser] = useState(false);
+  const [checkUser, setCheckUser] = useState(false);  
   const [checkEmail, setCheckEmail] = useState(false);
   const [checkPass, setCheckPass] = useState(false);
   const [value, setValue] = useState("");
