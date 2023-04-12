@@ -9,10 +9,6 @@ export const AuthProvider = ({ children }) => {
   const { push } = useRouter();
   const [loading, setLoading] = useState();
 
-
-
-
-
   // const [checkUser, setCheckUser] = useState(false);
   // const [checkEmail, setCheckEmail] = useState(false);
   // const [checkPass, setCheckPass] = useState(false);
@@ -292,12 +288,15 @@ export const AuthProvider = ({ children }) => {
         setUserData: setUserData,
         setUserinfo: setUserinfo,
         setUserName: setUserName,
-        handleToTop, user, setUser, logout, loading, setLoading
+        handleToTop,
+        user,
+        setUser,
+        logout,
+        loading,
+        setLoading,
       }}
     >
       {children}
     </AuthContext.Provider>
   );
-}
-
-export default AuthProvider
+};
