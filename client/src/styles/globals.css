@@ -28,3 +28,13 @@ body {
   border-image: linear-gradient(to right, #ec4899, #8b5cf6);
   border-image-slice: 1;
 }
+
+.Carousel-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+.carousel-container {
+  max-width: 750px;
+}

@@ -7,6 +7,7 @@ import { HomeFilter } from "@/components/home/HomeFilter";
 import { HomeCards } from "@/components/home/HomeCards";
 import { useRouter } from "next/router";
 import { AuthContext } from "@/provider/AuthContext";
+import HomeCarousel from "@/components/home/HomeCarousel";
 
 const Home = () => {
   const types = [
@@ -58,6 +59,7 @@ const Home = () => {
   return (
     <>
       <Layout title={"Home "}>
+        <HomeCarousel/>
         <Container className={"pt-[120px]"}>
           <HomeFilter
             currentType={currentType}
