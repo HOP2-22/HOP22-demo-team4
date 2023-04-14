@@ -6,72 +6,49 @@ const imageData = [
   {
     label: "Image 1",
     alt: "image1",
-    url:
-      "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123414/nba-2k22-arcade-edition_pvp1jf.jpg"
-    },
+    url: "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123414/nba-2k22-arcade-edition_pvp1jf.jpg",
+  },
   {
     label: "Image 2",
     alt: "image2",
-    url:
-      "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123086/rdZaYt_rm1qsm.jpg"
-  },
-  {
-    label: "Image 3",
-    alt: "image3",
-    url: "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122938/elden-ring-shadow-of-the-erdtree_bW5pbmaUmZqaraWkpJRmbmdlrWZlbWU_ydzuzv.jpg"
-  },
-  {
-    label: "Image 4",
-    alt: "image4",
-    url:
-      "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122480/MV5BMzI3ZjY0ZGMtMTFhOC00MDBmLTgzNjEtOTA4NTQzYzFiNmM3XkEyXkFqcGdeQXVyNTk5Nzg0MDE_._V1__kvuzzh.jpg"
-  },
-  {
-    label: "Image 5",
-    alt: "image5",
-    url:
-      "https://res.cloudinary.com/dymjjmeyc/image/upload/v1680949311/5538374_f9hv6h.jpg"
-  },
-  {
-    label: "Image 6",
-    alt: "image6",
-    url:
-      "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681180261/hyperscape---season-2--1920x1080-1920x1080-484b31ca5ebc_vayv3c.png"
+    url: "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123086/rdZaYt_rm1qsm.jpg",
   },
 ];
 
 const renderSlides = imageData.map((image) => (
-  <div key={image.alt}>
-  <img src={image.url} alt={image.alt} />
-  </div>
+  <img
+    src={image.url}
+    alt={image.alt}
+    className="w-full h-[260px] xsm:h-[305px] sm:h-[370px] md:h-[320px] lg:h-[440px] xl:h-[570px] 2xl:h-[620px] 3xl:h-[700px] object-cover object-center"
+  />
 ));
 
 export const HomeCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState();
-  function handleChange(index) {``
-    setCurrentIndex(index);
-  }
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex(currentIndex + 1 < imageData.length ? currentIndex+1 : 1)
+      setCurrentIndex(
+        currentIndex + 1 < imageData.length ? currentIndex + 1 : 1
+      );
     }, 5000);
+
     return () => clearInterval(interval);
   }, []);
+
   return (
-    <div className="Carousel-app">
+    <div className="pt-[70px] w-full h-auto">
       <Carousel
         showThumbs={false}
-        showArrows={true}
-        autoPlay={true}
+        showArrows={false}
+        autoPlay={false}
         infiniteLoop={true}
         selectedItem={imageData[currentIndex]}
-        onChange={handleChange}
-        className="carousel-container"
       >
-      {renderSlides}
+        {renderSlides}
       </Carousel>
     </div>
   );
-}
+};
 
-export default HomeCarousel
+export default HomeCarousel;

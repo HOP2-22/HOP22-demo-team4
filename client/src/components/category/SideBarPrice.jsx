@@ -6,23 +6,18 @@ export const SideBarPrice = () => {
 
   const priceHandler = (event) => {
     delete query.slugify;
-    if (query.sort?.includes("price"))
-      if (query.sort === "price" || "-price") {
-        delete query.sort;
-      } else {
-        query.sort.replace("-price", "");
-        query.sort.replace("price", "");
-      }
+    delete query.p;
 
     if (event.target.value === "increase") {
       push({
         pathname: asPath.split("?")[0],
         query: {
-          sort: `${query.sort ? `${query.sort}%20price` : "price"}`,
+          p: "price",
           ...query,
         },
       });
     }
+
     if (event.target.value === "none") {
       push({
         pathname: asPath.split("?")[0],
@@ -31,11 +26,12 @@ export const SideBarPrice = () => {
         },
       });
     }
+
     if (event.target.value === "decrease") {
       push({
         pathname: asPath.split("?")[0],
         query: {
-          sort: `${query.sort ? `${query.sort}%20-price` : "-price"}`,
+          p: "-price",
           ...query,
         },
       });
@@ -48,9 +44,9 @@ export const SideBarPrice = () => {
       <select
         className="w-full border border-black hover:border-[#44BAF0] rounded-[5px] text-[12px] py-[6px] cursor-pointer"
         value={
-          query.sort === "-price"
+          query.p === "-price"
             ? "decrease"
-            : query.sort === "price"
+            : query.p === "price"
             ? "increase"
             : "none"
         }

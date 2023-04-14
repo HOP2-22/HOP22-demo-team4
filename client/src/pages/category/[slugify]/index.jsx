@@ -79,8 +79,8 @@ export async function getServerSideProps(context) {
       `http://localhost:8000/api/v1/category/accounts?page=${
         query.page ? query.page : 1
       }&price[$gte]=${query.min ? query.min : 0}&price[$lte]=${
-        query.max ? query.max : 69696969
-      }&sort=${query.sort && query.sort}`,
+        query.max ? query.max : 6969696999
+      }&sort=${query.p && query.p} ${query.d && query.d}`,
       { slugify: query.slugify }
     );
 

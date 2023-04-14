@@ -37,11 +37,11 @@ const Home = () => {
     const getCategory = async () => {
       setLoading(true);
       try {
-        const i = types.findIndex((item) => item.name === currentType);
+        const index = types.findIndex((item) => item.name === currentType);
 
         const res = await axios.post(
           "http://localhost:8000/api/v1/category/type",
-          { type: types[i].tp }
+          { type: types[index].tp }
         );
 
         setFirstAllCategories(res.data.data);
@@ -59,8 +59,8 @@ const Home = () => {
   return (
     <>
       <Layout title={"Home "}>
-        <HomeCarousel/>
-        <Container className={"pt-[120px]"}>
+        <HomeCarousel />
+        <Container className={"pt-[20px]"}>
           <HomeFilter
             currentType={currentType}
             setCurrentType={setCurrentType}
