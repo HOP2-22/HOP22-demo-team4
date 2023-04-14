@@ -1,7 +1,4 @@
-import {
-  ScrollMenu,
-  VisibilityContext,
-} from "@ramirezcgn/react-horizontal-scrolling-menu";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 
