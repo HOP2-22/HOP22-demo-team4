@@ -27,6 +27,7 @@ app.use(express.json());
 
 let whitelist = [
   "http://localhost:3000",
+  "http://localhost:3001",
   "https://accounts.google.com",
   undefined,
 ];

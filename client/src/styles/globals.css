@@ -29,12 +29,4 @@ body {
   border-image-slice: 1;
 }
 
-.Carousel-app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60vh;
-}
-.carousel-container {
-  max-width: 750px;
-}
+

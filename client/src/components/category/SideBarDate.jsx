@@ -5,25 +5,18 @@ export const SideBarDate = () => {
 
   const dataHandler = (event) => {
     delete query.slugify;
-    if (query.sort?.includes("date"))
-      if (query.sort === "date" || "-date") {
-        delete query.sort;
-      } else {
-        query.sort.replace("-date", "");
-        query.sort.replace("date", "");
-      }
+    delete query.d;
 
     if (event.target.value === "increase") {
       push({
         pathname: asPath.split("?")[0],
         query: {
-          sort: `${
-            query.sort === "price" || "-price" ? `${query.sort}%20date` : "date"
-          }`,
+          d: "date",
           ...query,
         },
       });
     }
+
     if (event.target.value === "none") {
       push({
         pathname: asPath.split("?")[0],
@@ -32,11 +25,12 @@ export const SideBarDate = () => {
         },
       });
     }
+
     if (event.target.value === "decrease") {
       push({
         pathname: asPath.split("?")[0],
         query: {
-          sort: `${query.sort ? `${query.sort}%20-date` : "-date"}`,
+          dataHandler: "-date",
           ...query,
         },
       });
@@ -49,9 +43,9 @@ export const SideBarDate = () => {
       <select
         className="w-full border border-black hover:border-[#44BAF0] rounded-[5px] text-[12px] py-[6px] cursor-pointer"
         value={
-          query.sort === "-date"
+          query.d === "-date"
             ? "decrease"
-            : query.sort === "date"
+            : query.d === "date"
             ? "increase"
             : "none"
         }
