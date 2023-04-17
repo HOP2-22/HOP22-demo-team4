@@ -30,7 +30,6 @@ export default function dashboard() {
     { name: "Strategy game", tp: "strategy" },
     { name: "Royal playing game", tp: "rpg" },
   ];
-
   const i = types.findIndex((item) => item.name === type);
   const createCate = async () => {
     try {
@@ -55,12 +54,12 @@ export default function dashboard() {
     const getCategory = async () => {
       const category = await axios.get(`http://localhost:8000/api/v1/category`);
       setCategories(category.data.data);
-      console.log(category.data.data);
+      // console.log(category.data.data);
     };
     const getAccount = async () => {
       const account = await axios.get(`http://localhost:8000/api/v1/account`);
       setAccounts(account.data.data);
-      console.log(account.data.data);
+      // console.log(account.data.data);
     };
     getAccount(), getUser(), getCategory();
   }, []);
@@ -78,6 +77,7 @@ export default function dashboard() {
                 onClick={() => {
                   if (createCategory == false) {
                     setCreateCateory(true);
+                    console.log("");
                   } else {
                     setCreateCateory(false);
                   }
@@ -145,75 +145,83 @@ export default function dashboard() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-between">
-          <div>
-            <div>Search</div>
-            <input placeholder="Catergory" />
+        <div className="flex">
+          
+
+          <div className="">
+            <div>Accounts</div>
+            {/* <button
+              className="text-gray-400"
+              onClick={() => {
+                if (account) {
+                  setAccount(false);
+                } else {
+                  setAccount(true);
+                }
+              }}
+            >
+              see all
+            </button> */}
+
+            {/* <div className="flex overflow-x-auto w-[600px]">
+              {/* {accounts?.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <Accounts data={item} />
+                  </div>
+                );
+              })} */}
+            {/* </div> */} 
           </div>
-          <div>
-            <div className="">
-              <div>Accounts</div>
-              <button
-                className="text-gray-400"
-                onClick={() => {
-                  if (account) {
-                    setAccount(false);
-                  } else {
-                    setAccount(true);
-                  }
-                }}
-              >
-                see all
-              </button>
+          <div className="">
+            <div> User</div>
+            {/* <button
+              className="text-gray-400"
+              onClick={() => {
+                if (user) {
+                  setUser(false);
+                } else {
+                  setUser(true);
+                }
+              }}
+            >
+              see all
+            </button> */}
 
-              <div className="flex">
-                {accounts?.map((index, item) => {
-                  return <Accounts key={index} data={item} />;
-                })}
-              </div>
-            </div>
             <div className="">
-              <div> User</div>
-              <button
-                className="text-gray-400"
-                onClick={() => {
-                  if (user) {
-                    setUser(false);
-                  } else {
-                    setUser(true);
-                  }
-                }}
-              >
-                see all
-              </button>
-
-              <div className="flex">
-                {users?.map((index, item) => {
-                  return <Users key={index} data={item} />;
-                })}
-              </div>
+              {/* {users?.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <Users data={item} />
+                  </div>
+                );
+              })} */}
             </div>
-            <div className="">
-              <div>Category</div>
-              <button
-                className="text-gray-400"
-                onClick={() => {
-                  if (category) {
-                    setCategory(false);
-                  } else {
-                    setCategory(true);
-                  }
-                }}
-              >
-                see all
-              </button>
+          </div>
+          <div className="">
+            <div>Category</div>
+            {/* <button
+              className="text-gray-400"
+              onClick={() => {
+                if (category) {
+                  setCategory(false);
+                } else {
+                  setCategory(true);
+                }
+              }}
+            >
+              see all
+            </button> */}
 
-              <div className="flex">
-                {categories?.map((index, item) => {
-                  return <Categories key={index} data={item} />;
-                })}
-              </div>
-            </div>
+            {/* <div className="flex w-[600px] overflow-x-auto"> */}
+              {/* {categories?.map((item, index) => {
+                return (
+                  <div className="flex" key={index}>
+                    <Categories data={item} />
+                  </div>
+                );
+              })} */}
+            {/* </div> */}
           </div>
         </div>
       </div>
