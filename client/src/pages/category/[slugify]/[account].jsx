@@ -2,10 +2,14 @@ import { Box, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+
+// import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
 import { Container } from "@/components/Container";
@@ -21,7 +25,7 @@ const CategoryAccount = ({ data }) => {
   // const [imgs, setImgs] = useState(['img1', 'img2'])
   const [selectedImg, setSelectedImg] = useState(allImages[0]);
 
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState("");
 
   // const onClickHandler = (index)=> {
   //   setSelectedImg(img[index])
@@ -50,38 +54,13 @@ const CategoryAccount = ({ data }) => {
                 className="mySwiper2"
               >
                 <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                  {allImages.map((item, index) => {
+                    return <img src={item} key={index} />;
+                  })}
                 </SwiperSlide>
               </Swiper>
               <Swiper
-                onSwiper={setThumbsSwiper}
+                // onSwiper={setThumbsSwiper}
                 loop={true}
                 spaceBetween={10}
                 slidesPerView={4}
@@ -91,19 +70,27 @@ const CategoryAccount = ({ data }) => {
                 className="mySwiper"
               >
                 <SwiperSlide>
-                  {/* <img src={allImages} /> */}
-                  {/* {  imgs.map((data, index) => {
-             return <SwiperSlide onClick={()=> onClickHandler(index)}>
-             <img src={data.images}>
-             </SwiperSlide>
-           })
-        } */}
+                  {allImages.map((item, index) => {
+                    return (
+                      <img sx={{ width: "100px" }} src={item} key={index} />
+                    );
+                  })}
                 </SwiperSlide>
               </Swiper>
             </Box>
-            <Box sx={styles.descContainer}>
+            <Box sx={styles.descContainer} pt={3} pl={2} pr={2}>
               <Box>
-                <Typography>{`${data?.title}`}</Typography>
+                <Typography sx={{ fontSize: "16px" }}>
+                  Category / {`${data?.category.name}`}
+                </Typography>
+              </Box>
+              <Box>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontFamily: "unset",
+                  }}
+                >{`${data?.title}`}</Typography>
               </Box>
             </Box>
           </Box>
@@ -115,13 +102,6 @@ const CategoryAccount = ({ data }) => {
             }}
           ></Box>
         </Box>
-        {/* <Box>
-          <img src={allImages}></img>
-        </Box>
-        <img src={`${data?.mainImage}`} alt="" />
-        <Typography>{`${data?.title}`}</Typography>
-        <Box pt={12}></Box>
-        <button onClick={() => console.log(allImages)}>click</button> */}
       </Container>
     </Layout>
   );
@@ -139,6 +119,22 @@ export async function getServerSideProps(context) {
   return {
     props: { data: data.data },
   };
+}
+
+{
+  /* <Box>
+  {allImages.map((item, index) => {
+    return (
+      <img
+        src={item}
+        key={index}
+        style={{
+          width: "200px",
+        }}
+      />
+    );
+  })}
+</Box>; */
 }
 
 // import React, { useRef, useState } from "react";
@@ -187,30 +183,20 @@ export async function getServerSideProps(context) {
 
 const styles = {
   mainBox: {
-    display: {
-      xl: "flex",
-      md: "flex",
-      sm: "flex",
-    },
+    color: "black",
   },
   imagesContainer: {
     width: {
-      md: "30%",
-      sm: "45%",
       xs: "100%",
     },
-    backgroundColor: "gray",
-    height: "700px",
   },
   descContainer: {
-    width: {
-      md: "70%",
-      sm: "55%",
-      xs: "100%",
-    },
-    backgroundColor: "blue",
     height: "700px",
+    // paddingTop: "100px",
   },
+  // title: {
+
+  // }
   //   lg: "",
   // md: "",
   // sm: "",
