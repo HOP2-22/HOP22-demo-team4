@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 export const AuthContext = createContext();
@@ -8,7 +8,26 @@ export const AuthProvider = ({ children }) => {
   const { push } = useRouter();
   const [loading, setLoading] = useState();
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
+
+  const getUser = async () => {
+    try {
+      const response = await axios.post("http://localhost:8000/api/v1/user/");
+
+      if (response.data.data.data.exp * 1000 <= Date.now()) {
+        logout();
+        return;
+      }
+
+      setUser(response.data.data.user);
+    } catch (error) {
+      setUser(null);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   axios.interceptors.request.use(
     (config) => {
@@ -16,6 +35,7 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         config.headers.set("token", token);
       }
+
       return config;
     },
     function (error) {
@@ -26,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     Cookies.remove("token");
-    config.headers.remove("token");
+    // config.headers.remove("token");
     push("/");
   };
 

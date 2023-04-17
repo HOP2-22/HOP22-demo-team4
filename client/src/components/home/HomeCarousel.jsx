@@ -15,10 +15,11 @@ const imageData = [
   },
 ];
 
-const renderSlides = imageData.map((image) => (
+const renderSlides = imageData.map((item, index) => (
   <img
-    src={image.url}
-    alt={image.alt}
+    key={index}
+    src={item.url}
+    alt={item.alt}
     className="w-full h-[260px] xsm:h-[305px] sm:h-[370px] md:h-[320px] lg:h-[440px] xl:h-[570px] 2xl:h-[620px] 3xl:h-[700px] object-cover object-center"
   />
 ));

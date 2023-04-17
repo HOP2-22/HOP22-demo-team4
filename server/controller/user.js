@@ -18,7 +18,11 @@ exports.checkUser = asyncHandler(async (req, res, next) => {
 
   const data = await jwt.decode(token, process.env.ACCESS_TOKEN_SECRET);
 
-  const user = await User.findById(data?.id);
+  const user = await User.findById(data?.id).populate([
+    "purchasedAccounts",
+    "userFavorite",
+    "publishedAccounts",
+  ]);
 
   res.status(200).json({
     success: true,
