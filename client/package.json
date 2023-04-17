@@ -21,6 +21,7 @@
     "axois": "^0.0.1-security",
     "dotenv": "^16.0.3",
     "js-cookie": "^3.0.1",
+    "lucide-react": "^0.161.0",
     "mongodb": "^5.2.0",
     "next": "13.2.4",
     "next-auth": "^4.22.0",
