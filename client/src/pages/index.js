@@ -45,7 +45,7 @@ const Home = () => {
         );
 
         setFirstAllCategories(res.data.data);
-
+        console.log(res)
         setCategory(res.data.data);
       } catch (error) {
         push("/500");
