@@ -6,6 +6,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 import { useRouter } from "next/router";
 import NavbarHoverButton from "./NavbarHoverButton";
+import { Plus } from "lucide-react";
 // import { toast } from "react-hot-toast";
 
 export const DesktopNavbar = ({
@@ -21,6 +22,15 @@ export const DesktopNavbar = ({
   return (
     <div>
       <div className="hidden md:flex gap-14 items-center">
+        <p className="group text-[#027ffe] hover:text-[#44BAF0] transition-colors duration-200 cursor-pointer flex items-center gap-1 text-[19px]">
+          Шинэ бараа нэмэх
+          <span>
+            <Plus
+              size={22}
+              className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200"
+            />
+          </span>
+        </p>
         <div className="relative group">
           <div
             className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200 flex gap-1 items-center text-[19px] cursor-pointer"

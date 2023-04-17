@@ -40,8 +40,10 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="fixed w-full z-50 h-[70px] bg-white flex items-center justify-between px-10 shadow-md">
-      <Container>
+    <div className="fixed w-full z-50 h-[70px] bg-white flex items-center justify-center px-10 shadow-md">
+      <div
+        className={`w-full lg:w-[900px] xl:w-[1100px] 2xl:w-[1180px] 3xl:w-[1330px] h-full`}
+      >
         <div className="w-full h-full flex justify-between items-center">
           <p
             className="bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500 text-[32px] font-Black cursor-pointer"
@@ -65,7 +67,7 @@ export const Navbar = () => {
           hamburger={hamburger}
           showNotification={showNotification}
         />
-      </Container>
+      </div>
     </div>
   );
 };

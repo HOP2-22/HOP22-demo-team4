@@ -73,38 +73,38 @@ const Cart = () => {
   };
 
   return (
-    // <Guard>
-    <Layout title={"Сагс"}>
-      <Container className="px-4 sm:px-0 pt-[90px]">
-        <p className="mb-4 text-[26px] font-semibold">Сагс</p>
-        {items?.length === 0 ? (
-          <div className="text-[18px]">
-            Сагс хоосон байна.
-            <Link href="/" className="underline underline-offset-4 pl-1">
-              Нүүр хуудас руу буцах
-            </Link>
-          </div>
-        ) : (
-          <CartTable items={items} removeItemHandler={removeItemHandler} />
-        )}
-        <div
-          className={`${
-            items?.length === 0 ? "hidden" : "flex"
-          } w-full justify-end lg:justify-center pt-6  mr-10 lg:mr-0 lg:ml-32`}
-        >
+    <Guard>
+      <Layout title={"Сагс"}>
+        <Container className="px-4 sm:px-0 pt-[90px]">
+          <p className="mb-4 text-[26px] font-semibold">Сагс</p>
+          {items?.length === 0 ? (
+            <div className="text-[18px]">
+              Сагс хоосон байна.
+              <Link href="/" className="underline underline-offset-4 pl-1">
+                Нүүр хуудас руу буцах
+              </Link>
+            </div>
+          ) : (
+            <CartTable items={items} removeItemHandler={removeItemHandler} />
+          )}
           <div
-            className="px-5 py-[10px] rounded-[8px] text-black flex gap-1 items-center bg-[#a1d4e8] cursor-pointer hover:bg-[#c8e4ee] transition-colors "
-            onClick={() => notification()}
+            className={`${
+              items?.length === 0 ? "hidden" : "flex"
+            } w-full justify-end lg:justify-center pt-6  mr-10 lg:mr-0 lg:ml-32`}
           >
-            <span>
-              <BsFillTrash3Fill className="text-[18px]" />
-            </span>
-            Сагсийг хоослох
+            <div
+              className="px-5 py-[10px] rounded-[8px] text-black flex gap-1 items-center bg-[#a1d4e8] cursor-pointer hover:bg-[#c8e4ee] transition-colors "
+              onClick={() => notification()}
+            >
+              <span>
+                <BsFillTrash3Fill className="text-[18px]" />
+              </span>
+              Сагсийг хоослох
+            </div>
           </div>
-        </div>
-      </Container>
-    </Layout>
-    // </Guard>
+        </Container>
+      </Layout>
+    </Guard>
   );
 };
 

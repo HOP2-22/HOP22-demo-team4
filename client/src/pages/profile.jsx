@@ -13,19 +13,19 @@ export const Profile = () => {
   const [typeAccounts, setTypeAccounts] = useState(false);
 
   return (
-    // <Guard>
-    <Layout title={"Profile"}>
-      <Container className="pt-[70px]">
-        <ProfileTitles
-          typeAccounts={typeAccounts}
-          setTypeAccounts={setTypeAccounts}
-          user={user}
-        />
-        <ProfileBackgroundForDivide />
-        <ProfileCards user={user} typeAccounts={typeAccounts} />
-      </Container>
-    </Layout>
-    // </Guard>
+    <Guard>
+      <Layout title={"Profile"}>
+        <Container className="pt-[70px]">
+          <ProfileTitles
+            typeAccounts={typeAccounts}
+            setTypeAccounts={setTypeAccounts}
+            user={user}
+          />
+          <ProfileBackgroundForDivide />
+          <ProfileCards user={user} typeAccounts={typeAccounts} />
+        </Container>
+      </Layout>
+    </Guard>
   );
 };
 

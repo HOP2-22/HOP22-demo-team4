@@ -4,22 +4,25 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "@/provider/AuthContext";
 
 export const Guard = ({ children }) => {
-  const router = useRouter();
-  const { logout, setLoading } = useContext(AuthContext);
+  const { push } = useRouter();
+  const { logout, setLoading, setUser } = useContext(AuthContext);
 
   useEffect(() => {
     const checkUser = async () => {
       setLoading(true);
       try {
-        const res = await axios.post("http://localhost:8000/api/v1/user/");
+        const response = await axios.post("http://localhost:8000/api/v1/user/");
 
-        if (res.data.data.data.exp * 1000 <= Date.now()) {
-          router.push("/auth/signin");
+        if (response.data.data.data.exp * 1000 <= Date.now()) {
           logout();
+          push("/auth/signin");
           return;
         }
+
+        setUser(response.data.data.user);
       } catch (error) {
-        router.push("/auth/signin");
+        push("/");
+        setUser(null);
       }
       setLoading(false);
     };
