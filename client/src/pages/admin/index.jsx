@@ -145,83 +145,15 @@ export default function dashboard() {
             </div>
           </div>
         </div>
-        <div className="flex">
-          
-
+        <div className="flex justify-around w-[1000px] mt-[50px]">
           <div className="">
-            <div>Accounts</div>
-            {/* <button
-              className="text-gray-400"
-              onClick={() => {
-                if (account) {
-                  setAccount(false);
-                } else {
-                  setAccount(true);
-                }
-              }}
-            >
-              see all
-            </button> */}
-
-            {/* <div className="flex overflow-x-auto w-[600px]">
-              {/* {accounts?.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <Accounts data={item} />
-                  </div>
-                );
-              })} */}
-            {/* </div> */} 
+            <button>Accounts</button>
           </div>
           <div className="">
-            <div> User</div>
-            {/* <button
-              className="text-gray-400"
-              onClick={() => {
-                if (user) {
-                  setUser(false);
-                } else {
-                  setUser(true);
-                }
-              }}
-            >
-              see all
-            </button> */}
-
-            <div className="">
-              {/* {users?.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <Users data={item} />
-                  </div>
-                );
-              })} */}
-            </div>
+            <button> User</button>
           </div>
           <div className="">
             <div>Category</div>
-            {/* <button
-              className="text-gray-400"
-              onClick={() => {
-                if (category) {
-                  setCategory(false);
-                } else {
-                  setCategory(true);
-                }
-              }}
-            >
-              see all
-            </button> */}
-
-            {/* <div className="flex w-[600px] overflow-x-auto"> */}
-              {/* {categories?.map((item, index) => {
-                return (
-                  <div className="flex" key={index}>
-                    <Categories data={item} />
-                  </div>
-                );
-              })} */}
-            {/* </div> */}
           </div>
         </div>
       </div>
