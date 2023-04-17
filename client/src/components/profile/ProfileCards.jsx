@@ -7,6 +7,19 @@ export const ProfileCards = ({ typeAccounts, user }) => {
         {typeAccounts ? "Your purchased accounts" : "Your published accounts"}
       </p>
       <div className="w-full grid grid-cols-12 gap-x-5 2xl:gap-x-8 gap-y-6">
+        {typeAccounts ? (
+          <div className="col-span-12">
+            {!user?.purchasedAccounts?.length && (
+              <p>Таньд худалдаж авсан бараа байхгүй байна</p>
+            )}
+          </div>
+        ) : (
+          <div className="col-span-12">
+            {!user?.publishedAccounts?.length && (
+              <p>Таньд худалдаанд тавьсан бараа байхгүй байна</p>
+            )}
+          </div>
+        )}
         {typeAccounts
           ? user?.purchasedAccounts?.map((item, index) => {
               return <ProfileCard key={index} data={item} />;

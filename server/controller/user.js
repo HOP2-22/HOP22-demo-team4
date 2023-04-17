@@ -27,7 +27,7 @@ exports.checkUser = asyncHandler(async (req, res, next) => {
 });
 
 exports.getUsers = asyncHandler(async (req, res, next) => {
-  const users = await User.find({});
+  const users = await User.find({}).populate({ path: "publishedAccounts" });
 
   res.status(200).json({
     success: true,
@@ -136,7 +136,9 @@ exports.login = asyncHandler(async (req, res, next) => {
 
   const token = user.getJWT();
 
-  const callBackUser = await User.findOne({ email: email });
+  const callBackUser = await User.findOne({ email: email }).populate({
+    path: "publishedAccounts",
+  });
 
   res.status(200).json({
     success: true,

@@ -74,11 +74,11 @@ export const MobileNavbar = ({ user, logout, hamburger, showNotification }) => {
                   <AiOutlineShoppingCart className="text-[20px] text-[#027ffe] group-hover:text-[#44BAF0]" />
                   <div
                     className={`${
-                      user && user?.userFavorite.length > 0 ? "flex" : "hidden"
+                      user && user?.userFavorite?.length > 0 ? "flex" : "hidden"
                     } absolute -right-[5px] -top-[7px] w-4 h-4 justify-center items-center bg-pink-600 transition-colors rounded-full`}
                   >
                     <p className="text-white text-[12px]">
-                      {user?.userFavorite.length}
+                      {user?.userFavorite?.length}
                     </p>
                   </div>
                 </span>

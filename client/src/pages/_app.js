@@ -6,7 +6,7 @@ import "@/styles/globals.css";
 const App = ({ Component, pageProps }) => {
   return (
     <AuthProvider>
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="top-right" reverseOrder={false} />
       <Component {...pageProps} />
     </AuthProvider>
   );

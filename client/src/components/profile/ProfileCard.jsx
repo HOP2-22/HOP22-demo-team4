@@ -1,7 +1,7 @@
 export const ProfileCard = ({ data }) => {
   return (
-    <div className="group relative my-2 h-[130px] 3xl:h-[150px] col-span-12 sm:col-span-10 lg:col-span-6 w-full bg-white grid grid-cols-12 overflow-hidden shadow-2xl rounded-[3xl]">
-      <div className="col-span-5 relative w-full">
+    <div className="group relative my-2 h-[130px] 3xl:h-[150px] col-span-12 sm:col-span-10 lg:col-span-6 w-full bg-white flex overflow-hidden shadow-2xl rounded-[3xl]">
+      <div className="w-5/12 relative">
         <img
           src={`${data?.mainImage}`}
           className="object-cover w-full h-full"
@@ -21,7 +21,7 @@ export const ProfileCard = ({ data }) => {
           />
         </div>
       </div>
-      <div className="col-span-7 grid grid-cols-3 px-[10px] py-1 sm:py-3 content-between">
+      <div className="w-7/12 grid grid-cols-3 px-[10px] py-1 sm:py-3 content-between">
         <p className="col-span-3">
           {data?.title.slice(0, 52)} {data?.title.length > 52 && "..."}
         </p>
