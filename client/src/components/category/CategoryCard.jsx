@@ -4,9 +4,9 @@ export const CategoryCard = ({ data }) => {
   const router = useRouter();
 
   return (
-    <div className="group relative my-2 h-[130px] lg:h-[150px] col-span-12 xl:col-span-6 w-full bg-white grid grid-cols-12 overflow-hidden shadow-2xl rounded-[3px]">
+    <div className="group relative my-2 h-[130px] lg:h-[150px] col-span-12 xl:col-span-6 w-full bg-white flex overflow-hidden shadow-2xl rounded-[3px]">
       <div
-        className="col-span-5 relative w-full cursor-pointer"
+        className="w-5/12 relative cursor-pointer"
         onClick={() =>
           router.push(`/category/${data?.category.slugify}/${data?._id}`)
         }
@@ -28,7 +28,7 @@ export const CategoryCard = ({ data }) => {
           />
         </div>
       </div>
-      <div className="col-span-7 flex flex-col px-[10px] py-1 sm:py-3 justify-between">
+      <div className="w-7/12 flex flex-col px-[10px] py-1 sm:py-3 justify-between">
         <p
           className="w-full cursor-pointer"
           onClick={() =>
