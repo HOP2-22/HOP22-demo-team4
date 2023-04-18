@@ -1,14 +1,13 @@
-// import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
 import { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 
 import { AuthContext } from "@/provider/AuthContext";
 import { MobileNavbar } from "./MobileNavbar";
-import { Container } from "../Container";
 import { DesktopNavbar } from "./DesktopNavbar";
 
 export const Navbar = () => {
-  const router = useRouter();
+  const { push } = useRouter();
 
   const { user, logout } = useContext(AuthContext);
 
@@ -20,8 +19,8 @@ export const Navbar = () => {
         Та энэ хуудас руу нэвтэрхийн тулд заавал нэвтэрсэн байх шаардлагатай
         <button
           onClick={() => {
-            push("/auth/login");
             toast.dismiss(t.id);
+            push("/auth/signin");
           }}
           className="py-1 ml-2 px-3 rounded-[5px] bg-[#44BAF0] text-white"
         >
@@ -48,7 +47,7 @@ export const Navbar = () => {
           <p
             className="bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500 text-[32px] font-Black cursor-pointer"
             onClick={() => {
-              router.push("/");
+              push("/");
             }}
           >
             SwapZone

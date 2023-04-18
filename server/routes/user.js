@@ -8,7 +8,6 @@ const {
   register,
   login,
   updatePass,
-  verifyUser,
   forgotPassword,
   checkUser,
 } = require("../controller/user");
@@ -22,6 +21,5 @@ router.post("/auth/signup", register);
 router.post("/auth/login", login);
 router.post("/auth/forgotPassword", forgotPassword);
 router.post("/auth/updatePassword", updatePass);
-router.post("/auth/verify", verifyUser);
 
 module.exports = router;

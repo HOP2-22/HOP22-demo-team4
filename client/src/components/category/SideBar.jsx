@@ -1,9 +1,11 @@
+import { useState } from "react";
+
 import { SideBarSlider } from "./SideBarSlider";
 import { SideBarPrice } from "./SideBarPrice";
 import { SideBarCat } from "./SideBarCat";
 import { SideBarDate } from "./SideBarDate";
+
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
 
 export const SideBar = ({ min, max, step, currentCat, categories }) => {
   const [filter, setFilter] = useState(true);

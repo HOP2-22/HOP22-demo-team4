@@ -20,31 +20,36 @@ const Cart = () => {
 
   const clear = async () => {
     setItems([]);
-    // setLoading(true);
-    // try {
-    //   await axios.post("http://localhost:8000/api/v1/account/clfavorite", {
-    //     userId: user?._id,
-    //   });
-    // } catch (error) {
-    //   push("/500")
-    // }
-    // setLoading(false);
+    setLoading(true);
+
+    try {
+      await axios.post("http://localhost:8000/api/v1/account/clfavorite", {
+        userId: user?._id,
+      });
+    } catch (error) {
+      push("/500");
+    }
+
+    setLoading(false);
   };
 
   const removeItemHandler = async (index, item) => {
     const updatedItems = [...items];
     updatedItems.splice(index, 1);
     setItems(updatedItems);
-    // setLoading(true);
-    // try {
-    //   await axios.post("http://localhost:8000/api/v1/account/refavorite", {
-    //     accountId: item?._id,
-    //     userId: user?._id,
-    //   });
-    // } catch (error) {
-    //   push("/500")
-    // }
-    // setLoading(false);
+
+    setLoading(true);
+
+    try {
+      await axios.post("http://localhost:8000/api/v1/account/refavorite", {
+        accountId: item?._id,
+        userId: user?._id,
+      });
+    } catch (error) {
+      push("/500");
+    }
+
+    setLoading(false);
   };
 
   const notification = () => {

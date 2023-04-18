@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { toast } from "react-hot-toast";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -11,6 +12,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const getUser = async () => {
+    setLoading(true);
+
     try {
       const response = await axios.post("http://localhost:8000/api/v1/user/");
 
@@ -23,6 +26,8 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       setUser(null);
     }
+
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -46,7 +51,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     Cookies.remove("token");
-    // config.headers.remove("token");
+    toast.success("Амжилттай гарлаа.");
     push("/");
   };
 

@@ -1,10 +1,11 @@
-import { Plus } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
+import { Plus } from "lucide-react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export const MobileNavbar = ({ user, logout, hamburger, showNotification }) => {
-  const router = useRouter();
+  const { push } = useRouter();
 
   return (
     <div
@@ -23,35 +24,31 @@ export const MobileNavbar = ({ user, logout, hamburger, showNotification }) => {
           </p>
           {!user ? (
             <div className="flex flex-col gap-2 w-full px-2">
-              <div
+              <Link
+                href={"/auth/signin"}
                 className="btn transition-colors w-full h-[32px] rounded-full flex items-center justify-center cursor-pointer"
-                onClick={() => router.push("/auth/signin")}
               >
                 <p className="font-medium">Нэвтрэх</p>
-              </div>
-              <div
+              </Link>
+              <Link
+                href={"/auth/signup"}
                 className="w-full h-[32px] rounded-full flex items-center justify-center border hover:border-[#027ffe] border-[#44BAF0]  transition-colors cursor-pointer"
-                onClick={() => router.push("/auth/signup")}
               >
                 <p className="hover:text-[#027ffe] text-[#44BAF0] transition-colors font-medium">
                   Бүртгүүлэх
                 </p>
-              </div>
+              </Link>
             </div>
           ) : (
             <div className="flex flex-col gap-2 w-full px-2">
-              <div
+              <Link
+                href={"/profile"}
                 className="w-full h-[32px] rounded-full flex items-center justify-center border hover:border-[#027ffe] border-[#44BAF0] transition-colors cursor-pointer"
-                onClick={() =>
-                  router.push({
-                    pathname: "/profile",
-                  })
-                }
               >
                 <p className="hover:text-[#027ffe] text-[#44BAF0] transition-colors font-medium">
                   Профайл
                 </p>
-              </div>
+              </Link>
               <div
                 className="btn transition-colors w-full rounded-full h-[32px] flex items-center justify-center cursor-pointer"
                 onClick={() => logout()}
@@ -62,7 +59,7 @@ export const MobileNavbar = ({ user, logout, hamburger, showNotification }) => {
                 className="group flex items-center gap-1 cursor-pointer mt-3 mb-2"
                 onClick={() => {
                   if (user) {
-                    router.push("/cart");
+                    push("/cart");
                   } else {
                     showNotification();
                   }
@@ -84,15 +81,17 @@ export const MobileNavbar = ({ user, logout, hamburger, showNotification }) => {
                   </div>
                 </span>
               </div>
-              <p className="group text-[#027ffe] hover:text-[#44BAF0] transition-colors duration-200 cursor-pointer flex items-center gap-1 text-[19px]">
-                Шинэ бараа нэмэх
-                <span>
-                  <Plus
-                    size={22}
-                    className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200"
-                  />
-                </span>
-              </p>
+              <Link href={"/add_item"}>
+                <p className="group text-[#027ffe] hover:text-[#44BAF0] transition-colors duration-200 cursor-pointer flex items-center gap-1 text-[19px]">
+                  Зар нэмэх
+                  <span>
+                    <Plus
+                      size={22}
+                      className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200"
+                    />
+                  </span>
+                </p>
+              </Link>
             </div>
           )}
         </div>
