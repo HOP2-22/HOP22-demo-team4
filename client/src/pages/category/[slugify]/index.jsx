@@ -1,12 +1,12 @@
 import axios from "axios";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 import { Layout } from "@/components/layout/Layout";
 import { Container } from "@/components/Container";
 import { SideBar } from "@/components/category/SideBar";
 import { Paginate } from "@/components/Paginate";
 import { CategoryCard } from "@/components/category/CategoryCard";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { Empty } from "@/components/category/Empty";
 
 const Category = ({
@@ -24,8 +24,6 @@ const Category = ({
   const { slugify } = query;
 
   useEffect(() => {
-    console.log(pagination);
-
     if (!categories.find((catItem) => catItem.slugify == slugify)) {
       back();
     }

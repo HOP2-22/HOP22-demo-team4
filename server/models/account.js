@@ -5,6 +5,10 @@ const accountSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter the title of the item"],
     trim: true,
+    minLength: [
+      20,
+      "The length of the item title must be at most 250 characters",
+    ],
     maxLength: [
       250,
       "The length of the item title must be at most 250 characters",

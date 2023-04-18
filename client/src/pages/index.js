@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
+import HomeCarousel from "@/components/home/HomeCarousel";
 import { Layout } from "@/components/layout/Layout";
 import { Container } from "@/components/Container";
 import { HomeFilter } from "@/components/home/HomeFilter";
 import { HomeCards } from "@/components/home/HomeCards";
-import { useRouter } from "next/router";
 import { AuthContext } from "@/provider/AuthContext";
-import HomeCarousel from "@/components/home/HomeCarousel";
 
 const Home = () => {
   const types = [
@@ -36,6 +36,7 @@ const Home = () => {
   useEffect(() => {
     const getCategory = async () => {
       setLoading(true);
+
       try {
         const index = types.findIndex((item) => item.name === currentType);
 
@@ -49,6 +50,7 @@ const Home = () => {
       } catch (error) {
         push("/500");
       }
+
       setLoading(false);
     };
 

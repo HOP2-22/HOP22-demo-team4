@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+
 import HomeFilterOptions from "./HomeFilterOptions";
+
+import { AiOutlineSearch } from "react-icons/ai";
 
 export const HomeFilter = ({
   currentType,
@@ -29,7 +31,7 @@ export const HomeFilter = ({
       }, 1500);
       return () => clearTimeout(timer);
     }
-  }, [searchValue]);
+  }, [searchValue, firstAllCategories]);
 
   const searchInputHandler = (event) => {
     setSearchValue(event.target.value);
@@ -47,7 +49,7 @@ export const HomeFilter = ({
           <input
             onFocus={onFocus}
             onBlur={onBlur}
-            className="w-full sm:w-[250px] placeholder:text-[13px] h-[37px] pl-3 rounded-full outline outline-black/60 focus:outline-[#44BAF0]"
+            className="w-full sm:w-[250px] placeholder:text-[13px] h-[37px] pl-3 rounded-full outline outline-black/50 focus:outline-[#44BAF0]"
             value={searchValue}
             onChange={searchInputHandler}
             placeholder="Категорынхоо нэрээр хайна уу"

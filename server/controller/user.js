@@ -31,7 +31,8 @@ exports.checkUser = asyncHandler(async (req, res, next) => {
 });
 
 exports.getUsers = asyncHandler(async (req, res, next) => {
-  const users = await User.find({}).populate({ path: "publishedAccounts" });
+  // const users = await User.find({}).populate({ path: "publishedAccounts" });
+  const users = await User.find({}).select("name email");
 
   res.status(200).json({
     success: true,
@@ -81,38 +82,20 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
     );
 
   res.status(200).json({
-    isDone: true,
+    success: true,
     data: user,
   });
 });
 
-exports.verifyUser = asyncHandler(async (req, res, next) => {
-  if (!req.body.email) throw new MyError(`Write your email address`, 200);
-
-  let characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-  let stringId = "";
-  for (let i = 0; i < 5; i++) {
-    stringId += characters.charAt(Math.floor(Math.random() * 62));
-  }
-
-  await sendEmail({
-    id: req.body.email,
-    subject: "register",
-    message: `verify code "${stringId}"`,
-  });
-
-  res.status(200).json({
-    success: true,
-    data: {
-      verifyCode: stringId,
-    },
-    message: "verify code sent",
-  });
-});
-
 exports.register = asyncHandler(async (req, res, next) => {
+  const checkEmail = await User.findOne({ email: req.body.email });
+
+  if (checkEmail !== null)
+    return res.status(200).json({
+      success: false,
+      message: `${req.body.email} бүртгэлтэй байна`,
+    });
+
   const user = await User.create(req.body);
 
   const token = user.getJWT();
@@ -157,18 +140,21 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email }).exec();
 
   if (!user)
-    throw new MyError(`Any user found like that ${req.body.email} email`, 200);
+    throw new MyError(
+      `${req.body.email} ийм и-мэйлтэй хэрэглэгч олдсонгүй`,
+      200
+    );
 
   const resetToken = user.generatePasswordChangeToken();
 
   await user.save();
 
-  const link = `http://localhost:3000/register/changePassword/${resetToken}`;
+  const link = `http://localhost:3000/auth/${resetToken}`;
 
   await sendEmail({
     id: req.body.email,
-    subject: "Blog website Change Password",
-    message: `click on it to change your password.<br><br><a href="${link}">${link}</a>`,
+    subject: "SWAPZONE саятын нууц үг солих линк",
+    message: `Энэ нь дээр дарж нууц үгээ солино уу.<br><br><a href="${link}">${link}</a>`,
   });
 
   res.status(200).json({
@@ -198,7 +184,7 @@ exports.updatePass = asyncHandler(async (req, res, next) => {
   await user.save();
 
   res.status(200).json({
-    isDone: true,
+    success: true,
     user: user,
   });
 });

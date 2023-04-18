@@ -8,13 +8,12 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 export const Paginate = ({ pagination }) => {
   const { handleToTop } = useContext(AuthContext);
 
-  const router = useRouter();
-  const { query } = useRouter();
+  const { query, push, asPath } = useRouter();
 
   return (
     <div className="col-span-10 w-full flex items-center justify-end gap-10 pt-8">
       <div className="text-2xl font-medium text-black/80">
-        Page: {query.page ? query.page : "1"}
+        Хуудас: {query.page ? query.page : "1"}
       </div>
       <div className="flex items-center gap-3">
         <div
@@ -30,8 +29,8 @@ export const Paginate = ({ pagination }) => {
                 delete query.page;
                 delete query.slugify;
 
-                router.push({
-                  pathname: router.asPath.split("?")[0],
+                push({
+                  pathname: asPath.split("?")[0],
                   query: {
                     ...query,
                   },
@@ -39,8 +38,8 @@ export const Paginate = ({ pagination }) => {
               } else {
                 delete query.slugify;
 
-                router.push({
-                  pathname: router.asPath.split("?")[0],
+                push({
+                  pathname: asPath.split("?")[0],
                   query: {
                     ...query,
                     page: pagination.prevPage,
@@ -62,8 +61,8 @@ export const Paginate = ({ pagination }) => {
             delete query.slugify;
             if (pagination.nextPage !== "last page") {
               handleToTop();
-              router.push({
-                pathname: router.asPath.split("?")[0],
+              push({
+                pathname: asPath.split("?")[0],
                 query: {
                   ...query,
                   page: pagination.nextPage,

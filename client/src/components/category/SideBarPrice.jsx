@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 export const SideBarPrice = () => {
   const { query, push, asPath } = useRouter();

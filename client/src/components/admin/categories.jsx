@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
 export default function Categories({ data }) {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div
       className=" w-[150px] overflow-hidden h-[250px] xsm:h-[210px] sm:h-[190px] lg:h-[220px] 2xl:h-[210px] 3xl:h-[230px] cursor-pointer"

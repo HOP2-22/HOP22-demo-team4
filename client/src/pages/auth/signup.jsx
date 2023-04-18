@@ -1,276 +1,171 @@
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  TextField,
-  OutlinedInput,
-  FormControl,
-  Stack,
-} from "@mui/material";
-import { useContext, useState } from "react";
-import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-import IconButton from "@mui/material/IconButton";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
-
+import { useContext, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import { toast } from "react-hot-toast";
+import Cookies from "js-cookie";
+
 import { AuthContext } from "../../provider/AuthContext";
+import AuthForm from "@/components/auth/AuthForm";
+import AuthButton from "@/components/auth/AuthButton";
+import Head from "next/head";
+
 const image =
   "https://res.cloudinary.com/dymjjmeyc/image/upload/v1679913069/AccountTrader/0x0_zfidbn.jpg";
 
 export const SignUp = () => {
-  const { userData, setUserData, userName, createUser, setUserName } =
-    useContext(AuthContext);
-  const [check, setCheck] = useState("");
-  const [checkPassword, setCheckPassword] = useState(false);
-  const [match, setMatch] = useState(false);
-  const checkPass = () => {
-    if (userData.password.length === 8) {
-      setCheckPassword(false);
-      if (userData.password === check) {
-        setMatch(false);
-        createUser();
-      } else {
-        setMatch(true);
-      }
-    } else {
-      setCheckPassword(true);
+  const { push } = useRouter();
+  const { user, setUser, setLoading } = useContext(AuthContext);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    verify: "",
+  });
+
+  const signup = async () => {
+    setLoading(true);
+
+    if (
+      (formData.name.length ||
+        formData.email.length ||
+        formData.password.length ||
+        formData.verify.length) === 0
+    )
+      return toast.error("Талбарыг зөв гүйцэт бөглө.");
+
+    if (formData.password !== formData.verify)
+      return toast.error("Нууц үгүүдийг адилхан бичнэ үү.");
+
+    try {
+      const user = await axios.post(
+        "http://localhost:8000/api/v1/user/auth/signup",
+        {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        }
+      );
+
+      if (!user.data.success) return toast.error(user.data.message);
+
+      Cookies.set("token", user.data.data.token);
+
+      setUser(user.data.data.user);
+
+      toast.success("Амжилттай бүртгүүллээ.");
+
+      push("/");
+    } catch (error) {
+      console.log(error);
+    }
+
+    setLoading(false);
+  };
+
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const verifyRef = useRef();
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      if (formData.name.length === 0) return nameRef.current.focus();
+      if (formData.email.length === 0) return emailRef.current.focus();
+      if (formData.password.length === 0) return passwordRef.current.focus();
+      if (formData.verify.length === 0) return verifyRef.current.focus();
+      signup();
     }
   };
-  // const createUser = async () => {
-  //   try {
-  //     await axios.post("http://localhost:8000/api/v1/user/auth/signup", {
-  //       userName,
-  //       userData,
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  const [showPassword, setShowPassword] = useState(false);
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-  const router = useRouter();
-  return (
-    <Box sx={styles.mainContainer}>
-      <Container>
-        <Box sx={styles.center}>
-          <Box sx={styles.signBox}>
-            <Typography sx={styles.topic}>Бүртгүүлэх</Typography>
-            <Box>
-              <Box>
-                <Typography sx={styles.infos}>Нэр</Typography>
-              </Box>
-              <TextField
-                id="outlined-basic"
-                variant="outlined"
-                sx={styles.textInput}
-                onChange={(e) =>
-                  setUserName({ ...userName, name: e.target.value })
-                }
-              />
-              <Box sx={styles.firstPadding}>
-                <Typography sx={styles.infos}>И-мэйл</Typography>
-              </Box>
-              <TextField
-                id="outlined-basic"
-                variant="outlined"
-                sx={styles.textInput}
-                onChange={(e) =>
-                  setUserData({ ...userData, email: e.target.value })
-                }
-              />
-              <Box sx={styles.inputPadding}>
-                <Typography sx={styles.infos}>Нууц үг</Typography>
-              </Box>
-              <FormControl
-                sx={{ width: "100%", backgroundColor: "#F7F7F7" }}
-                variant="outlined"
-              >
-                <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
-                <OutlinedInput
-                  id="outlined-adornment-password"
-                  type={showPassword ? "text" : "password"}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  label="Password"
-                  onChange={(e) =>
-                    setUserData({ ...userData, password: e.target.value })
-                  }
-                />
-              </FormControl>
-              <Box sx={styles.inputPadding}>
-                <Typography sx={styles.infos}>
-                  Нууц үгээ баталгаажуулах
-                </Typography>
-              </Box>
-              <FormControl
-                sx={{ width: "100%", backgroundColor: "#F7F7F7" }}
-                variant="outlined"
-              >
-                <InputLabel
-                  htmlFor="outlined-adornment-password"
-                  onChange={(e) => setCheck(e.target.value)}
-                ></InputLabel>
-                <OutlinedInput
-                  id="outlined-adornment-password"
-                  type={showPassword ? "text" : "password"}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  label="Password"
-                />
-              </FormControl>
-              <Button
-                style={styles.SignUpButton}
-                onClick={() => {
-                  // checkPass();
-                  createUser();
-                  // router.push("/");
-                  console.log("err");
-                }}
-              >
-                <Typography>Бүртгүүлэх</Typography>
-              </Button>
-            </Box>
-            <Box>
-              <Box sx={styles.secondSection}>
-                <Typography sx={styles.alreadyUser}>
-                  Хэрвээ та хэрэглэгч бол?
-                </Typography>
-                <Typography
-                  sx={styles.signInTypography}
-                  onClick={() => {
-                    router.push("/auth/signin");
-                  }}
-                >
-                  Нэвтрэх
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
-      </Container>
-    </Box>
-  );
-};
 
-const styles = {
-  mainContainer: {
-    backgroundImage: `url(${image})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    display: "flex",
-    flexDirection: "column",
-    height: "100vh",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  center: { display: "flex", justifyContent: "center", alignItems: "center" },
-  signBox: {
-    width: "550px",
-    backgroundColor: "#fff",
-    borderRadius: "10px",
-    padding: "60px 35px 35px 35px",
-    display: "flex",
-    flexDirection: "column",
-  },
-  topic: {
-    fontSize: "38px",
-    fontWeight: 400,
-    lineHeight: "1.2",
-    fontFamily: "inherit",
-    color: "#55555",
-    textAlign: "center",
-    paddingBottom: "50px",
-  },
-  width100: {
-    width: 100,
-  },
-  infos: {
-    fontFamily: "inherit",
-    fontSize: "16px",
-    color: "#555",
-    lineHeight: "1.5",
-    fontWeight: 600,
-  },
-  SignUpButton: {
-    backgroundColor: "#333333",
-    borderRadius: "10px",
-    width: "100%",
-    height: "60px",
-    marginTop: "10px",
-    fontFamily: "inherit",
-    fontSize: "16px",
-    color: "#ffffff",
-    fontWeight: 600,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  secondSection: {
-    width: "100%",
-    textAlign: "center",
-    paddingTop: "55px",
-    display: "flex",
-    justifyContent: "center",
-  },
-  signInTypography: {
-    borderBottom: "1px solid #99999",
-    textDecoration: "underline",
-    fontFamily: "inherit",
-    fontSize: "14px",
-    lineHeight: "1.5",
-    marginLeft: "8px",
-    fontWeight: 400,
-    color: "#999",
-  },
-  alreadyUser: {
-    fontFamily: "inherit",
-    fontSize: "14px",
-    color: "#999",
-    fontWeight: 400,
-  },
-  textInput: {
-    width: "100%",
-    fontSize: "18px",
-    lineHeight: "1.2",
-    height: "60px",
-    backgroundColor: "#F7F7F7",
-  },
-  firstPadding: {
-    paddingBottom: "5px",
-    paddingTop: "6px",
-  },
-  inputPadding: {
-    paddingBottom: "9px",
-    paddingTop: "13px",
-    display: "flex",
-  },
+  const handleNameValue = (event) => {
+    setFormData({ ...formData, name: event.target.value });
+  };
+
+  const handleEmailValue = (event) => {
+    setFormData({ ...formData, email: event.target.value });
+  };
+
+  const handlePassValue = (event) => {
+    setFormData({ ...formData, password: event.target.value });
+  };
+
+  const handleVerifyValue = (event) => {
+    setFormData({ ...formData, verify: event.target.value });
+  };
+
+  useEffect(() => {
+    if (user !== null) push("/");
+  }, [user]);
+
+  return (
+    <div className="relative w-full h-screen">
+      <Head>
+        <title>Signup - SwapZone</title>
+        <meta name="description" content="Generated by create next app" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <img
+        src={image}
+        className="object-cover object-center w-full h-full"
+        alt=""
+      />
+      <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black/30 px-3 xsm:px-6 sm:px-0">
+        <div className="bg-white rounded-[15px] w-full sm:w-[420px] px-5 pt-8">
+          <p className="w-full text-center text-[24px] font-semibold">
+            Бүртгүүлэх
+          </p>
+          <div className="pt-[30px] pb-10 flex flex-col gap-5">
+            <AuthForm
+              type={"text"}
+              inputRef={nameRef}
+              title={"Нэр:"}
+              handleValue={handleNameValue}
+              keyDownFunc={handleKeyDown}
+              value={formData.name}
+              placeholder={"Нэр ээ бичнэ үү"}
+            />
+            <AuthForm
+              type={"email"}
+              inputRef={emailRef}
+              title={"И-мэйл:"}
+              handleValue={handleEmailValue}
+              keyDownFunc={handleKeyDown}
+              value={formData.email}
+              placeholder={"И-мэйл ээ бичнэ үү"}
+            />
+            <AuthForm
+              type={"password"}
+              inputRef={passwordRef}
+              title={"Нууц үг:"}
+              handleValue={handlePassValue}
+              keyDownFunc={handleKeyDown}
+              value={formData.password}
+              placeholder={"Нууц үг ээ бичнэ үү"}
+            />
+            <AuthForm
+              type={"password"}
+              inputRef={verifyRef}
+              // title={"Нууц үг:"}
+              handleValue={handleVerifyValue}
+              keyDownFunc={handleKeyDown}
+              value={formData.verify}
+              placeholder={"Нууц үг ээ давтан бичнэ үү"}
+            />
+            <AuthButton title={"Бүртгүүлэх"} onClickFunc={signup} />
+            <div className="flex justify-center">
+              <Link href={"/auth/signin"}>
+                <p className="cursor-pointer bg-clip-text text-transparent bg-gradient-to-t from-pink-500 to-violet-500 border-b-[1.5px] border-gradient">
+                  Бүртгүүлэх ээ зогсоогоод нэвтрэх үү ?
+                </p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default SignUp;

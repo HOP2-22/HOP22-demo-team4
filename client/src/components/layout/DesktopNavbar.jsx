@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useRouter } from "next/router";
 
 import { HamburgerMenu } from "./HamburgerMenu";
+import NavbarHoverButton from "./NavbarHoverButton";
+import { AuthContext } from "@/provider/AuthContext";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
-import { useRouter } from "next/router";
-import NavbarHoverButton from "./NavbarHoverButton";
 import { Plus } from "lucide-react";
-// import { toast } from "react-hot-toast";
+import Link from "next/link";
 
 export const DesktopNavbar = ({
   user,
@@ -16,21 +17,26 @@ export const DesktopNavbar = ({
   setHamburger,
   showNotification,
 }) => {
-  const router = useRouter();
+  const { push } = useRouter();
   const [account, setAccount] = useState(false);
 
   return (
     <div>
       <div className="hidden md:flex gap-14 items-center">
-        <p className="group text-[#027ffe] hover:text-[#44BAF0] transition-colors duration-200 cursor-pointer flex items-center gap-1 text-[19px]">
-          Шинэ бараа нэмэх
-          <span>
-            <Plus
-              size={22}
-              className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200"
-            />
-          </span>
-        </p>
+        {user && (
+          <Link href={"/add_item"}>
+            <p className="group text-[#027ffe] hover:text-[#44BAF0] transition-colors duration-200 cursor-pointer flex items-center gap-1 text-[19px]">
+              Зар нэмэх
+              <span>
+                <Plus
+                  size={22}
+                  className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200"
+                />
+              </span>
+            </p>
+          </Link>
+        )}
+
         <div className="relative group">
           <div
             className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200 flex gap-1 items-center text-[19px] cursor-pointer"
@@ -53,7 +59,7 @@ export const DesktopNavbar = ({
           className="group flex items-center gap-1 cursor-pointer"
           onClick={() => {
             if (user) {
-              router.push("/cart");
+              push("/cart");
             } else {
               showNotification();
             }

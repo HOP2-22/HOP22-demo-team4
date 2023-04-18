@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 import { AuthContext } from "@/provider/AuthContext";
 
@@ -10,11 +12,13 @@ export const Guard = ({ children }) => {
   useEffect(() => {
     const checkUser = async () => {
       setLoading(true);
+
       try {
         const response = await axios.post("http://localhost:8000/api/v1/user/");
 
         if (response.data.data.data.exp * 1000 <= Date.now()) {
           logout();
+          toast.error("Та дахин нэвтэрнэ үү.");
           push("/auth/signin");
           return;
         }
@@ -22,8 +26,10 @@ export const Guard = ({ children }) => {
         setUser(response.data.data.user);
       } catch (error) {
         push("/");
+        toast.error("Энэ хуудас хамгаалагдсан байна та эхлээд нэвтэрнэ үү.");
         setUser(null);
       }
+
       setLoading(false);
     };
     checkUser();
