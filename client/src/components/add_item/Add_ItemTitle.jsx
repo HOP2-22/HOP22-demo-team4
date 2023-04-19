@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Add_ItemTitle = () => {
   return (
-    <div>Add_ItemTitle</div>
-  )
-}
+    <div className="w-full">
+      <p className="pl-[20%] text-[26px] sm:text-[32px]"> Зар нэмэх</p>
+    </div>
+  );
+};
 
-export default Add_ItemTitle
+export default Add_ItemTitle;
