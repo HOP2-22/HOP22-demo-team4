@@ -9,6 +9,9 @@ import Add_ItemChooseCategory from "@/components/add_item/Add_ItemChooseCategory
 import { AuthContext } from "@/provider/AuthContext";
 import { Guard } from "@/components/Guard";
 import Add_ItemButton from "@/components/add_item/Add_ItemButton";
+import Add_ItemTitleAndPrice from "@/components/add_item/Add_ItemTitleAndPrice";
+import Add_ItemImages from "@/components/add_item/Add_ItemImages";
+import Add_ItemDescription from "@/components/add_item/Add_ItemDescription";
 
 const index = () => {
   const { user } = useContext(AuthContext);
@@ -22,7 +25,7 @@ const index = () => {
 
   const [descCount, setDescCount] = useState(0);
   const [descs, setDescs] = useState(
-    new Array(imageCount).fill({
+    new Array(descCount).fill({
       title: "",
       desc: "",
     })
@@ -59,6 +62,8 @@ const index = () => {
         category: infoAccount.catId,
         owner: user._id,
       });
+
+      toast.success("Амжилттай зар нэмэгдлээ.");
     } catch (error) {
       console.log(error);
     }
@@ -67,7 +72,7 @@ const index = () => {
   return (
     <Guard>
       <Layout title={"Add_item"}>
-        <Container>
+        <Container className={"pt-[70px]"}>
           <Add_ItemTitle />
           <Add_ItemChooseCategory />
           <Add_ItemTitleAndPrice />
