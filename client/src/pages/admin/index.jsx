@@ -153,7 +153,7 @@ export default function dashboard() {
             <button> User</button>
           </div>
           <div className="">
-            <div>Category</div>
+            <button>Category</button>
           </div>
         </div>
       </div>
