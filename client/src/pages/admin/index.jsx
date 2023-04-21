@@ -5,6 +5,7 @@ import index from "../profile";
 import Users from "@/components/admin/user";
 import Accounts from "@/components/admin/accounts";
 import Categories from "@/components/admin/categories";
+import GuardFromUser from "@/components/GuardFromUser";
 
 export default function dashboard() {
   const [createCategory, setCreateCateory] = useState(Boolean);
@@ -146,8 +147,6 @@ export default function dashboard() {
           </div>
         </div>
         <div className="flex">
-          
-
           <div className="">
             <div>Accounts</div>
             {/* <button
@@ -171,7 +170,7 @@ export default function dashboard() {
                   </div>
                 );
               })} */}
-            {/* </div> */} 
+            {/* </div> */}
           </div>
           <div className="">
             <div> User</div>
@@ -214,7 +213,7 @@ export default function dashboard() {
             </button> */}
 
             {/* <div className="flex w-[600px] overflow-x-auto"> */}
-              {/* {categories?.map((item, index) => {
+            {/* {categories?.map((item, index) => {
                 return (
                   <div className="flex" key={index}>
                     <Categories data={item} />

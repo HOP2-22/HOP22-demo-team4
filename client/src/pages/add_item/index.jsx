@@ -13,12 +13,12 @@ import Add_ItemTitleAndPrice from "@/components/add_item/Add_ItemTitleAndPrice";
 import Add_ItemImages from "@/components/add_item/Add_ItemImages";
 import Add_ItemDescription from "@/components/add_item/Add_ItemDescription";
 
-const index = () => {
+const index = ({ categories }) => {
   const { user } = useContext(AuthContext);
 
-  const [infoAccount, setAccount] = useState({
+  const [infoAccount, setInfoAccount] = useState({
     title: "",
-    price: 0,
+    price: 1,
     catId: "",
     mainImageUrl: "",
   });
@@ -31,10 +31,13 @@ const index = () => {
     })
   );
 
-  const [imageCount, setImageCount] = useState(1);
-  const [images, setImages] = useState(new Array(imageCount).fill(""));
+  const [images, setImages] = useState(new Array(0).fill(""));
 
   const add_item = async () => {
+    if (infoAccount.catId === (undefined || null || "none")) {
+      toast.error("Тоглоомоо сонгоно уу.");
+    }
+
     if (infoAccount.title.length < 20) {
       toast.error("Title дooд талдаа  20 тэмдэгтээс бүрдэнэ.");
     } else if (infoAccount.title.length > 250) {
@@ -72,11 +75,23 @@ const index = () => {
   return (
     <Guard>
       <Layout title={"Add_item"}>
-        <Container className={"pt-[70px]"}>
+        <Container className={"pt-[80px] px-5 sm:px-0 grid grid-cols-12 gap-5"}>
           <Add_ItemTitle />
-          <Add_ItemChooseCategory />
-          <Add_ItemTitleAndPrice />
-          <Add_ItemImages />
+          <Add_ItemChooseCategory
+            data={categories}
+            choosenCat={infoAccount}
+            setChoosenCatId={setInfoAccount}
+          />
+          <Add_ItemTitleAndPrice
+            infoAccount={infoAccount}
+            setInfoAccount={setInfoAccount}
+            images={images}
+            setImages={setImages}
+          />
+          <Add_ItemImages
+            infoAccount={infoAccount}
+            setInfoAccount={setInfoAccount}
+          />
           <Add_ItemDescription />
           <Add_ItemButton func={add_item} />
         </Container>
@@ -86,3 +101,15 @@ const index = () => {
 };
 
 export default index;
+
+export async function getServerSideProps() {
+  const res = await fetch("http://localhost:8000/api/v1/category");
+
+  const data = await res.json();
+
+  return {
+    props: {
+      categories: data.data,
+    },
+  };
+}
