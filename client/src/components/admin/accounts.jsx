@@ -6,7 +6,7 @@ export default function Accounts({ data }) {
 
   return (
     <div className="my-2 h-[130px] lg:h-[150px] col-span-12 xl:col-span-6  w-[500px] bg-white flex overflow-hidden shadow-2xl rounded-[3px]">
-      <img src={data?.mainImage} className="w-[200px]" alt="pic"/>
+      <img src={data?.mainImage} className="w-[200px]" alt="pic" />
       <div className="flex flex-col px-[10px] py-1 sm:py-3 justify-between">
         <div className="tesxt-xl">{data?.title}</div>
         <div className="text-[13px] w-full flex flex-wrap">
