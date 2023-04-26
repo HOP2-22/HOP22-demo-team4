@@ -7,6 +7,7 @@ import {
   AccountInfo,
   Title,
   Images,
+  PhoneImages,
 } from "@/components/accountDetail/AccountDetailImages";
 
 const CategoryAccount = ({ data }) => {
@@ -16,6 +17,7 @@ const CategoryAccount = ({ data }) => {
       <Container className={"px-5 sm:px-0"}>
         <Box sx={{ paddingTop: "70px", width: "100%" }}>
           <Images data={data} />
+          <PhoneImages data={data} />
           <Title title={data.title} createdAt={data.createdAt} />
           <AccountInfo data={data} />
           <Price price={data.price} />
