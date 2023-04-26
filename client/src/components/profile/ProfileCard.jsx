@@ -1,8 +1,12 @@
+import Image from "next/image";
+
 export const ProfileCard = ({ data }) => {
   return (
     <div className="group relative my-2 h-[130px] 3xl:h-[150px] col-span-12 sm:col-span-10 lg:col-span-6 w-full bg-white flex overflow-hidden shadow-2xl rounded-[3xl]">
       <div className="w-5/12 relative">
-        <img
+        <Image
+          width={200}
+          height={200}
           src={`${data?.mainImage}`}
           className="object-cover w-full h-full"
           draggable="false"
@@ -12,7 +16,9 @@ export const ProfileCard = ({ data }) => {
             !data?.sold ? "hidden" : "flex"
           } absolute top-0 left-0 w-full h-full z-20 items-center justify-center`}
         >
-          <img
+          <Image
+            width={200}
+            height={200}
             src={
               "https://res.cloudinary.com/dymjjmeyc/image/upload/v1680453056/5a04b8549cf05203c4b603af_orffzp.png"
             }

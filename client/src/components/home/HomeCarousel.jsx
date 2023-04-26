@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import Image from "next/image";
 
 const imageData = [
   {
@@ -16,7 +17,9 @@ const imageData = [
 ];
 
 const renderSlides = imageData.map((item, index) => (
-  <img
+  <Image
+    width={500}
+    height={500}
     key={index}
     src={item.url}
     alt={item.alt}
@@ -32,7 +35,7 @@ export const HomeCarousel = () => {
       setCurrentIndex(
         currentIndex + 1 < imageData.length ? currentIndex + 1 : 1
       );
-    }, 5000);
+    }, [1000]);
 
     return () => clearInterval(interval);
   }, []);
@@ -42,7 +45,7 @@ export const HomeCarousel = () => {
       <Carousel
         showThumbs={false}
         showArrows={false}
-        autoPlay={false}
+        // autoPlay={true}
         infiniteLoop={true}
         selectedItem={imageData[currentIndex]}
       >

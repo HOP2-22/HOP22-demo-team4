@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export const CategoryCard = ({ data }) => {
@@ -7,7 +8,9 @@ export const CategoryCard = ({ data }) => {
         href={`/category/${data?.category.slugify}/${data?._id}`}
         className="w-5/12 relative cursor-pointer"
       >
-        <img
+        <Image
+          width={100}
+          height={100}
           src={`${data?.mainImage}`}
           className="object-cover w-full h-full"
           draggable="false"
@@ -17,7 +20,9 @@ export const CategoryCard = ({ data }) => {
             !data?.sold ? "hidden" : "flex"
           } absolute top-0 left-0 w-full h-full z-20 items-center justify-center`}
         >
-          <img
+          <Image
+            width={200}
+            height={200}
             src={
               "https://res.cloudinary.com/dymjjmeyc/image/upload/v1680453056/5a04b8549cf05203c4b603af_orffzp.png"
             }
