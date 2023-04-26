@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { TableCell, TableRow, Box } from "@mui/material";
+import Image from "next/image";
 
 import { XCircleIcon } from "@heroicons/react/24/solid";
 
@@ -11,10 +12,11 @@ export const CartItem = ({ item, removeItemHandler, index }) => {
           href={`/category/${item?.category.slugify}/${item?._id}`}
           className="min-w-[180px]"
         >
-          <img
+          <Image
             src={item?.mainImage}
             alt={item?.name}
             width={200}
+            height={200}
             className="object-cover"
             draggable="false"
           />

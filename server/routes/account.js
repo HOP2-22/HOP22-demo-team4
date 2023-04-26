@@ -3,22 +3,28 @@ const express = require("express");
 const { protect, authorize } = require("../middleWare/protect");
 
 const {
-  getAccounts,
-  getAccount,
+  getCategoryAccounts,
   getUserAccounts,
-  createAccount,
-  deleteAccount,
-  updateAccount,
   getLatestAccountsByCategory,
+  getAccount,
+} = require("../controller/account-get");
+
+const {
+  createAccount,
+  updateAccount,
+  deleteAccount,
+} = require("../controller/account-controller");
+
+const {
   purchaseAccount,
   addFavorite,
   removeFavorite,
   clearFavorite,
-} = require("../controller/account");
+} = require("../controller/account-favorite");
 
 const router = express.Router();
 
-router.route("/").get(getAccounts).post(createAccount);
+router.route("/").get(getCategoryAccounts).post(createAccount);
 
 router.post("/purchase", purchaseAccount);
 

@@ -1,20 +1,23 @@
 const express = require("express");
 
-// const { protect, authorize } = require("../middleWare/protect");
+const { protect, authorize } = require("../middleWare/protect");
+
+const router = express.Router();
+
+const { getCategoryAccounts } = require("../controller/account-get");
 
 const {
   getCategories,
   getCategory,
+  getCategoryByType,
+} = require("../controller/category-get");
+
+const {
   createCategory,
+  addTypeToCategory,
   updateCategory,
   deleteCategory,
-  getCategoryByType,
-  addTypeToCategory,
-} = require("../controller/category");
-
-const { getCategoryAccounts } = require("../controller/account");
-
-const router = express.Router();
+} = require("../controller/category-controller");
 
 router.route("/accounts").post(getCategoryAccounts);
 

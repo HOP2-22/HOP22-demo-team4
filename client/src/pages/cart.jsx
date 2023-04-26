@@ -1,6 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
 import { Container } from "@/components/Container";
@@ -16,7 +16,7 @@ const Cart = () => {
   const { user, setLoading } = useContext(AuthContext);
   const { push } = useRouter();
 
-  const [items, setItems] = useState(user?.userFavorite);
+  const [items, setItems] = useState([]);
 
   const clear = async () => {
     setItems([]);
@@ -76,6 +76,10 @@ const Cart = () => {
       </span>
     ));
   };
+
+  useEffect(() => {
+    setItems(user?.userFavorite || []);
+  }, [user]);
 
   return (
     <Guard>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -31,7 +32,9 @@ const Category = ({
 
   return (
     <Layout title={title}>
-      <img
+      <Image
+        width={200}
+        height={200}
         className="hidden md:block md:h-[250px] lg:h-[320px] w-full object-cover mt-[70px] fixed -z-10"
         src={category}
         draggable="false"

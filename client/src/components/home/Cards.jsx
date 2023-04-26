@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 import Card from "./Card";
 
@@ -28,7 +29,7 @@ export default function Cards({ title, link, type }) {
   if (loading) {
     return (
       <>
-        <img src="loading.gif" />
+        <Image width={200} height={200} src="loading.gif" />
       </>
     );
   }
