@@ -10,6 +10,7 @@ export const CategoryCard = ({ data }) => {
         <img
           src={`${data?.mainImage}`}
           className="object-cover w-full h-full"
+          draggable="false"
         />
         <div
           className={`${
