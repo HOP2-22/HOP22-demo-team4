@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { toast } from "react-hot-toast";
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
