@@ -23,15 +23,14 @@ const index = ({ categories }) => {
     mainImageUrl: "",
   });
 
-  const [descCount, setDescCount] = useState(0);
-  const [descs, setDescs] = useState(
-    new Array(descCount).fill({
+  const [descs, setDescs] = useState([
+    {
       title: "",
       desc: "",
-    })
-  );
+    },
+  ]);
 
-  const [images, setImages] = useState(new Array(0).fill(""));
+  const [images, setImages] = useState([]);
 
   const add_item = async () => {
     if (infoAccount.catId === (undefined || null || "none")) {
@@ -39,21 +38,22 @@ const index = ({ categories }) => {
     }
 
     if (infoAccount.title.length < 20) {
-      toast.error("Title дooд талдаа  20 тэмдэгтээс бүрдэнэ.");
+      return toast.error("Title дooд талдаа  20 тэмдэгтээс бүрдэнэ.");
     } else if (infoAccount.title.length > 250) {
-      toast.error("Title дээд талдаа  250 тэмдэгтээс бүрдэнэ.");
+      return toast.error("Title дээд талдаа  250 тэмдэгтээс бүрдэнэ.");
     }
 
-    if (price === 0) toast.error("Үнэ ээ оруулж өгнө үү.");
-
-    if (typeof price !== "number")
-      toast.error("Үнэ ийн утгад зөвхөн тоо бичнэ үү.");
+    if (infoAccount.price === 0) return toast.error("Үнэ ээ оруулж өгнө үү.");
 
     if (infoAccount.mainImageUrl.length === 0)
-      toast.error("Гол зураг аа оруулна уу.");
+      return toast.error("Гол зураг аа оруулна уу.");
 
     if (descs.length === 0)
-      toast.error("Багадаа 1 дэлэгрэнгүй мэдээлэл оруулж өгнө үү.");
+      return toast.error("Багадаа 1 дэлэгрэнгүй мэдээлэл оруулж өгнө үү.");
+
+    if (descs.slice(-1)[0].title === "" || descs.slice(-1)[0].desc === "") {
+      return toast.error("Сүүлийн дэлэгрэнгүй хоосон байна.");
+    }
 
     try {
       axios.post("http://localhost:8000/api/v1/account", {
@@ -76,7 +76,10 @@ const index = ({ categories }) => {
     <Guard>
       <Layout title={"Add_item"}>
         <Container className={"pt-[80px] px-5 sm:px-0 grid grid-cols-12 gap-5"}>
-          <Add_ItemTitle />
+          <Add_ItemTitle
+            infoAccount={infoAccount}
+            setInfoAccount={setInfoAccount}
+          />
           <Add_ItemChooseCategory
             data={categories}
             choosenCat={infoAccount}
@@ -91,8 +94,10 @@ const index = ({ categories }) => {
           <Add_ItemImages
             infoAccount={infoAccount}
             setInfoAccount={setInfoAccount}
+            images={images}
+            setImages={setImages}
           />
-          <Add_ItemDescription />
+          <Add_ItemDescription descs={descs} setDescs={setDescs} />
           <Add_ItemButton func={add_item} />
         </Container>
       </Layout>
