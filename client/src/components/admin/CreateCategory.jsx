@@ -24,14 +24,12 @@ export default function CreateCategory() {
         photo: photo,
         coverPhoto: cover,
         owner: "6432dc43110e5800093aedc1",
-        type: type[i].tp,
       });
       console.log(hi);
     } catch (error) {
       console.log(error);
     }
   };
-
   return (
     <div className="first-letter:border rounded-2xl px-5 py-[30px] md:text-3xl lg:text-3xl bg-white mr-0">
       <div className="grid grid-cols-12 grid-rows-2">
@@ -41,7 +39,7 @@ export default function CreateCategory() {
             <input
               type="url"
               placeholder="Cover Photo"
-              className=" border h-full rounded-xl w-full"
+              className=" border  rounded-xl w-full"
               value={name}
               onChange={(event) => {
                 setName(event.target.value);
@@ -67,7 +65,7 @@ export default function CreateCategory() {
         </div>
         <div className="col-span-8 grid grid-cols-2">
           <div className="col-span-1 flex flex-col">
-            <div className="">Category Image URL</div>
+            <div className="">Image URL</div>
             <input
               type="url"
               placeholder="Image URL"
@@ -83,7 +81,7 @@ export default function CreateCategory() {
             <input
               type="url"
               placeholder="Cover Photo"
-              className=" border h-full rounded-xl"
+              className=" border rounded-xl"
               value={cover}
               onChange={(event) => {
                 setCover(event.target.value);

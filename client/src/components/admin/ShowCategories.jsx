@@ -12,13 +12,14 @@ export default function ShowCategories() {
       } catch (error) {
         console.log(error);
       }
-    }; getCategories()
-  },[]);
+    };
+    getCategories();
+  }, []);
   return (
-    <div>
+    <div className="flex gap-[25px] flex-wrap justify-between">
       {category?.map((item, index) => {
         return (
-          <div key={index}>
+          <div className="flex-1 flex justify-center" key={index}>
             <Categories data={item} />
           </div>
         );
