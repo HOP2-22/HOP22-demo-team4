@@ -14,17 +14,21 @@ const accountSchema = new mongoose.Schema({
       "The length of the item title must be at most 250 characters",
     ],
   },
+
   mainImage: {
     type: String,
     required: [true, "give a main image"],
   },
+
   images: {
     type: [String],
   },
+
   price: {
     type: Number,
     required: [true, "give a price of item"],
   },
+
   descriptions: {
     type: [
       {
@@ -39,19 +43,30 @@ const accountSchema = new mongoose.Schema({
       },
     ],
   },
+
   sold: {
     type: Boolean,
     default: false,
   },
+
+  permission: {
+    type: Boolean,
+    default: false,
+  },
+
   category: {
     unique: false,
     type: mongoose.Schema.ObjectId,
     ref: "categories",
   },
+
   owner: {
+    unique: false,
     type: mongoose.Schema.ObjectId,
     ref: "users",
+    required: true,
   },
+
   createdAt: {
     type: Date,
     default: Date.now,

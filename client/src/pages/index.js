@@ -30,7 +30,7 @@ const Home = () => {
 
   const { setLoading } = useContext(AuthContext);
 
-  const [category, setCategory] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [firstAllCategories, setFirstAllCategories] = useState([]);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const Home = () => {
         );
 
         setFirstAllCategories(res.data.data);
-        setCategory(res.data.data);
+        setCategories(res.data.data);
       } catch (error) {
         push("/500");
       }
@@ -69,10 +69,10 @@ const Home = () => {
             searchValue={searchValue}
             setSearchValue={setSearchValue}
             firstAllCategories={firstAllCategories}
-            setCategory={setCategory}
+            setCategories={setCategories}
           />
-          {category.length > 0 ? (
-            <HomeCards category={category} />
+          {categories.length > 0 ? (
+            <HomeCards categories={categories} />
           ) : (
             <div className="w-full h-full sm:pt-2 px-5 sm:px-0">
               <p className="text-[20px]">Ийм нэртэй категор олдсонгүй.</p>

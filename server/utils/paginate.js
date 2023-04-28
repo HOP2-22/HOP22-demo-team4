@@ -18,5 +18,6 @@ module.exports = async (model, page, limit) => {
     nextPage,
     prevPage,
   };
+
   return pagination;
 };

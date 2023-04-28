@@ -30,7 +30,7 @@ const resetToken = () => {
 
     try {
       const updated = await axios.post(
-        "http://localhost:8000/api/v1/user/auth/updatePassword",
+        "http://localhost:8000/api/v1/user/updatePassword",
         { resetToken: query.resetToken, password: formData.password }
       );
 

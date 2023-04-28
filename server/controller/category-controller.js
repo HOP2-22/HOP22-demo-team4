@@ -3,7 +3,7 @@ const Category = require("../models/category");
 const MyError = require("../utils/myError");
 const asyncHandler = require("../middleWare/asyncHandler");
 
-exports.addTypeToCategory = asyncHandler(async (req, res, next) => {
+exports.addType = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   const { type } = req.body;
 
@@ -23,6 +23,14 @@ exports.addTypeToCategory = asyncHandler(async (req, res, next) => {
 });
 
 exports.createCategory = asyncHandler(async (req, res, next) => {
+  const field = await Category.findOne({ name: req.body.name });
+
+  if (!field)
+    return res.status(404).json({
+      success: false,
+      message: "There are category like that name , name is unique",
+    });
+
   const category = await Category.create(req.body);
 
   res.status(200).json({

@@ -66,35 +66,3 @@ exports.clearFavorite = asyncHandler(async (req, res, next) => {
     data: user,
   });
 });
-
-exports.purchaseAccount = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.body.userId);
-
-  if (!user)
-    throw new MyError(
-      "There is no user with this " + req.body.userId + " ID",
-      200
-    );
-
-  const account = await Account.findById(req.body.accountId);
-
-  if (!account)
-    throw new MyError(
-      "There is no account with this " + req.body.accountId + " ID",
-      200
-    );
-
-  if (account.sold === true)
-    throw new MyError("This account already purchased", 200);
-
-  user.purchasedccount.push(account);
-  user.save();
-
-  account.sold = true;
-  account.save();
-
-  res.status(200).json({
-    success: true,
-    data: { purchasedAccount: account, user },
-  });
-});
