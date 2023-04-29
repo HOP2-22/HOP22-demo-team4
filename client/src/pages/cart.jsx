@@ -23,7 +23,7 @@ const Cart = () => {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:8000/api/v1/account/clfavorite", {
+      await axios.post("http://localhost:8000/api/v1/account/clear", {
         userId: user?._id,
       });
     } catch (error) {
@@ -41,7 +41,7 @@ const Cart = () => {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:8000/api/v1/account/refavorite", {
+      await axios.post("http://localhost:8000/api/v1/account/remove", {
         accountId: item?._id,
         userId: user?._id,
       });

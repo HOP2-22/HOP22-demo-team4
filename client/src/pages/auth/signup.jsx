@@ -40,7 +40,7 @@ export const SignUp = () => {
 
     try {
       const user = await axios.post(
-        "http://localhost:8000/api/v1/user/auth/signup",
+        "http://localhost:8000/api/v1/user/signup",
         {
           name: formData.name,
           email: formData.email,

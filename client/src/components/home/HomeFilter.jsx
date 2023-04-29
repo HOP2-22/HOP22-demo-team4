@@ -11,7 +11,7 @@ export const HomeFilter = ({
   searchValue,
   setSearchValue,
   firstAllCategories,
-  setCategory,
+  setCategories,
 }) => {
   useEffect(() => {
     if (searchValue.length > 0) {
@@ -22,12 +22,12 @@ export const HomeFilter = ({
           item.name.toLowerCase().includes(searchValue.toLowerCase())
         );
 
-        setCategory(newArr);
+        setCategories(newArr);
       }, 1500);
       return () => clearTimeout(timer);
     } else if (searchValue === "") {
       const timer = setTimeout(() => {
-        setCategory(firstAllCategories);
+        setCategories(firstAllCategories);
       }, 1500);
       return () => clearTimeout(timer);
     }
