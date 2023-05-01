@@ -2,8 +2,8 @@ import React from "react";
 
 import AdminSideBar from "@/components/admin/AdminSideBar";
 
-const AdminHome = () => {
-  return <AdminSideBar></AdminSideBar>;
+const Users = () => {
+  return <AdminSideBar>Users</AdminSideBar>;
 };
 
-export default AdminHome;
+export default Users;
