@@ -32,8 +32,8 @@ exports.getCategory = asyncHandler(async (req, res, next) => {
   category.accounts.map((item) => {
     if (
       item.price > req.query.price["$gte"] &&
-      item.price < req.query.price["$lte"]
-      // && item.permission === true
+      item.price < req.query.price["$lte"] &&
+      item.permission === false
     ) {
       length++;
     }
@@ -58,7 +58,7 @@ exports.getCategory = asyncHandler(async (req, res, next) => {
   const accounts = await Account.find(
     {
       category: category._id,
-      // permission: true,
+      permission: false,
       ...req.query,
     },
     select

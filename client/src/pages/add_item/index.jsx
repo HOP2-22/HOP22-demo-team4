@@ -79,7 +79,7 @@ const Add_Item = ({ categories }) => {
   };
 
   return (
-    <Guard>
+    <Guard role="user">
       <Layout title={"Add_item"}>
         <Container className={"pt-[80px] px-5 sm:px-0 grid grid-cols-12 gap-5"}>
           <Add_ItemTitle

@@ -13,7 +13,7 @@ const Profile = () => {
   const [typeAccounts, setTypeAccounts] = useState(false);
 
   return (
-    <Guard>
+    <Guard role="user">
       <Layout title={"Profile"}>
         <Container className="pt-[70px]">
           <ProfileTitles

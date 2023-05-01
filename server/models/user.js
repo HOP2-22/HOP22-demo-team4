@@ -51,6 +51,13 @@ const userSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+
+    updatedUser: {
+      type: mongoose.Schema.ObjectId,
+      ref: "users",
+      unique: false,
+      required: true,
+    },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );

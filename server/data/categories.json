@@ -1,0 +1,764 @@
+[
+    {
+        "_id": "6432dda5ae106857e17f63e2",
+        "name": "PUBG mobile",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681111435/zi4n7N_hjppfg.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681111514/YlweER_ydr97t.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "BR",
+            "MOBA",
+            "AA"
+        ],
+        "createdAt": "2023-04-09T15:45:41.438Z",
+        "slugify": "pubg-mobile",
+        "__v": 1,
+        "id": "6432dda5ae106857e17f63e2"
+    },
+    {
+        "_id": "6432e0f4a3c8fe695ec1b537",
+        "name": "VALORANT",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681055874/category%20photo%20and%20cover%20photo/famhjmzlofeelne161do.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681055971/category%20photo%20and%20cover%20photo/E2VwG4SVEAESZCl_dtmkpq.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "MOBA",
+            "fps"
+        ],
+        "createdAt": "2023-04-09T15:59:48.974Z",
+        "slugify": "valorant",
+        "__v": 0,
+        "id": "6432e0f4a3c8fe695ec1b537"
+    },
+    {
+        "_id": "6432e1c7a3c8fe695ec1b54f",
+        "name": "Minecraft",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681056173/category%20photo%20and%20cover%20photo/v1palupaw4oujilzxkul.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681111368/A1IlDu_jrqh03.png",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "sandBox"
+        ],
+        "createdAt": "2023-04-09T16:03:19.494Z",
+        "slugify": "minecraft",
+        "__v": 0,
+        "id": "6432e1c7a3c8fe695ec1b54f"
+    },
+    {
+        "_id": "6433b439eb7508d9430a08c0",
+        "name": "Roblox",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681110049/d4evnvbzuz1xtc1lzfpc.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681111145/Lr4KZJ_jfkhgs.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "sandBox"
+        ],
+        "createdAt": "2023-04-10T07:01:13.133Z",
+        "slugify": "roblox",
+        "__v": 0,
+        "id": "6433b439eb7508d9430a08c0"
+    },
+    {
+        "_id": "6433b7ee1aec3527cb36f558",
+        "name": "GRAND THEFT AUTO V",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681110996/images_idriev.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681111082/S1KxLt_dpoqbf.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA"
+        ],
+        "createdAt": "2023-04-10T07:17:02.372Z",
+        "slugify": "grand-theft-auto-v",
+        "__v": 0,
+        "id": "6433b7ee1aec3527cb36f558"
+    },
+    {
+        "_id": "6433bafb1aec3527cb36f596",
+        "name": "No Man's sky",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681111745/No_Man_27s_Sky_kwlbyf.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681111793/h5s928kl4boeef6txisc.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA"
+        ],
+        "createdAt": "2023-04-10T07:30:03.690Z",
+        "slugify": "no-man-s-sky",
+        "__v": 0,
+        "id": "6433bafb1aec3527cb36f596"
+    },
+    {
+        "_id": "6433c11a0981e9ee7f52580e",
+        "name": "FORTNITE",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122478/apps.13950.70702278257994163.eb8febd9-1124-4e74-9587-d5082fbfffb5_fmoedc.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681113196/lX59Ix_nv2fgb.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "BR"
+        ],
+        "createdAt": "2023-04-10T07:56:10.277Z",
+        "slugify": "fortnite",
+        "__v": 0,
+        "id": "6433c11a0981e9ee7f52580e"
+    },
+    {
+        "_id": "6433c2d00981e9ee7f525827",
+        "name": "Apex Legends",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122024/91X744yj1xL_owttck.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681113665/OfMJRz_mpfq6m.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "BR"
+        ],
+        "createdAt": "2023-04-10T08:03:28.294Z",
+        "slugify": "apex-legends",
+        "__v": 0,
+        "id": "6433c2d00981e9ee7f525827"
+    },
+    {
+        "_id": "6433d79413e919d56295b87f",
+        "name": "Counter-Strike: Global Offensive",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681115781/no-complete-game-2cap-counter-strike-global-offensive-csgo-pc-original-imagf9uspghpcjye_zzzu50.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681115996/images_lrsohm.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "fps"
+        ],
+        "createdAt": "2023-04-10T09:32:04.016Z",
+        "slugify": "counter-strike-global-offensive",
+        "__v": 0,
+        "id": "6433d79413e919d56295b87f"
+    },
+    {
+        "_id": "6433db2113e919d56295b899",
+        "name": "League of legends",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681119723/coven-morgana-league-of-legends-4k-iphone-x-wallpaper-ilikewallpaper_com_k9l9ka.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681119399/league-of-legends-hd-cool-gaming_bG1la2qUmZqaraWkpJRoZWVlrWZqaWo_uikd1o.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "MOBA"
+        ],
+        "createdAt": "2023-04-10T09:47:13.692Z",
+        "slugify": "league-of-legends",
+        "__v": 0,
+        "id": "6433db2113e919d56295b899"
+    },
+    {
+        "_id": "6433db7b13e919d56295b8b5",
+        "name": "Dota 2",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681119946/b03a9ab25a3e9449a6bc4645f97ba213_inwsig.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681119859/dota2heroes1_hu5626a5530a4f166e3ee07641bbd434cd_487182_1920x1080_resize_q100_lanczos_tya2sd.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "MOBA"
+        ],
+        "createdAt": "2023-04-10T09:48:43.034Z",
+        "slugify": "dota-2",
+        "__v": 0,
+        "id": "6433db7b13e919d56295b8b5"
+    },
+    {
+        "_id": "6433dbcb13e919d56295b8b9",
+        "name": "Arena of Valor",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681119535/3668336_zhtsxc.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681119622/2020-arena-of-valor-z6_f9hdva.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "MOBA"
+        ],
+        "createdAt": "2023-04-10T09:50:03.057Z",
+        "slugify": "arena-of-valor",
+        "__v": 0,
+        "id": "6433dbcb13e919d56295b8b9"
+    },
+    {
+        "_id": "6433e1e808351c11076d061a",
+        "name": "Rust",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681121233/enihR6QwSYiWCNl2HdPfV6R6_zuzxiz.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681121479/rust-hero_yrfxmm.png",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "BR",
+            "sandBox",
+            "MOBA",
+            "fps"
+        ],
+        "createdAt": "2023-04-10T10:16:08.789Z",
+        "slugify": "rust",
+        "__v": 0,
+        "id": "6433e1e808351c11076d061a"
+    },
+    {
+        "_id": "6433e20a296587f939371e45",
+        "name": "Call of Duty",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681121785/ykECKp_v92yrd.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681121613/header_fzvfsb.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "BR",
+            "AA",
+            "fps"
+        ],
+        "createdAt": "2023-04-10T10:16:42.156Z",
+        "slugify": "call-of-duty",
+        "__v": 0,
+        "id": "6433e20a296587f939371e45"
+    },
+    {
+        "_id": "6433e2f0296587f939371e4d",
+        "name": "World of Warships",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681121981/egs-worldofwarships-wargaminggrouplimited-g2-00-1000x405-360ae3d48402_cruekc.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681121931/Promoslides_3-6_Bagration_RU_T7_CA_1920x1080_WG_SPb_WoWSL.jpg.108062231830a837897704058fc48e9c_ib9oft.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "strategy"
+        ],
+        "createdAt": "2023-04-10T10:20:32.152Z",
+        "slugify": "world-of-warships",
+        "__v": 0,
+        "id": "6433e2f0296587f939371e4d"
+    },
+    {
+        "_id": "6433e3e7296587f939371e50",
+        "name": "Smite",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122203/49CRox_ycte12.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122105/vXWmQq_r0fwb7.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "MOBA"
+        ],
+        "createdAt": "2023-04-10T10:24:39.556Z",
+        "slugify": "smite",
+        "__v": 0,
+        "id": "6433e3e7296587f939371e50"
+    },
+    {
+        "_id": "6433e4d7296587f939371e54",
+        "name": "Paladins",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122471/Paladins__28video_game_29_rtgtkb.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122480/MV5BMzI3ZjY0ZGMtMTFhOC00MDBmLTgzNjEtOTA4NTQzYzFiNmM3XkEyXkFqcGdeQXVyNTk5Nzg0MDE_._V1__kvuzzh.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "fps"
+        ],
+        "createdAt": "2023-04-10T10:28:39.524Z",
+        "slugify": "paladins",
+        "__v": 0,
+        "id": "6433e4d7296587f939371e54"
+    },
+    {
+        "_id": "6433e562296587f939371e58",
+        "name": "The Elder Scrolls",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122601/article-02-a-large_ghcqra.webp",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122582/capsule_616x353_erlyk5.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "rpg"
+        ],
+        "createdAt": "2023-04-10T10:30:58.796Z",
+        "slugify": "the-elder-scrolls",
+        "__v": 0,
+        "id": "6433e562296587f939371e58"
+    },
+    {
+        "_id": "6433e5c8296587f939371e5c",
+        "name": "Guild Wars 2",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122730/Gw2-boxfront_fx7el8.png",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122721/og-img.f6214476_vsrtwv.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "rpg"
+        ],
+        "createdAt": "2023-04-10T10:32:40.155Z",
+        "slugify": "guild-wars-2",
+        "__v": 0,
+        "id": "6433e5c8296587f939371e5c"
+    },
+    {
+        "_id": "6433e680296587f939371e60",
+        "name": "Sea of Thieves",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122883/Sea_of_thieves_cover_art_tsd0yo.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122875/maxresdefault_skon1w.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA"
+        ],
+        "createdAt": "2023-04-10T10:35:44.480Z",
+        "slugify": "sea-of-thieves",
+        "__v": 0,
+        "id": "6433e680296587f939371e60"
+    },
+    {
+        "_id": "6433e6d908351c11076d063c",
+        "name": "Elden Ring",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122770/elden-ring-button-03-1623460560664_tp7jb6.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122938/elden-ring-shadow-of-the-erdtree_bW5pbmaUmZqaraWkpJRmbmdlrWZlbWU_ydzuzv.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "strategy",
+            "rpg"
+        ],
+        "createdAt": "2023-04-10T10:37:13.259Z",
+        "slugify": "elden-ring",
+        "__v": 0,
+        "id": "6433e6d908351c11076d063c"
+    },
+    {
+        "_id": "6433e75e296587f939371e6d",
+        "name": "Final Fantasy XIV",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123120/ExAIYa_qftmff.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123086/rdZaYt_rm1qsm.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "rpg"
+        ],
+        "createdAt": "2023-04-10T10:39:26.311Z",
+        "slugify": "final-fantasy-xiv",
+        "__v": 0,
+        "id": "6433e75e296587f939371e6d"
+    },
+    {
+        "_id": "6433e814296587f939371e77",
+        "name": "2K21",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123321/apps.57379.14264324671165343.db82f2c3-fdc7-40c5-a140-7e3ace8903a5_najoub.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123232/egs-megasale-gameart-free-nba2k-1920x1080-1920x1080-a04d9dcfc7a6_srvta4.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "sports"
+        ],
+        "createdAt": "2023-04-10T10:42:28.472Z",
+        "slugify": "2k21",
+        "__v": 0,
+        "id": "6433e814296587f939371e77"
+    },
+    {
+        "_id": "6433e879296587f939371e79",
+        "name": "2K22",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123422/latest_ziphie.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123414/nba-2k22-arcade-edition_pvp1jf.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "sports"
+        ],
+        "createdAt": "2023-04-10T10:44:09.754Z",
+        "slugify": "2k22",
+        "__v": 0,
+        "id": "6433e879296587f939371e79"
+    },
+    {
+        "_id": "6433e90c08351c11076d063e",
+        "name": "Assassin’s Creed Valhalla",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123196/AC_20KINGDOM_20PREORDER_STANDARD_20EDITION_EPIC_Key_Art_Portrait_640x854-640x854-288120c5573756cb988b6c1968cebd86_m0aaqx.png",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123574/img.php_iikzx0.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "strategy",
+            "rpg"
+        ],
+        "createdAt": "2023-04-10T10:46:36.438Z",
+        "slugify": "assassin-s-creed-valhalla",
+        "__v": 0,
+        "id": "6433e90c08351c11076d063e"
+    },
+    {
+        "_id": "6433e967296587f939371e83",
+        "name": "FIFA 21",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123657/FIFA_21_Standard_Edition_Cover_alws6k.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123622/Fifa_1592566574619_1592566698613_ghh9qu.png",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "sports"
+        ],
+        "createdAt": "2023-04-10T10:48:07.613Z",
+        "slugify": "fifa-21",
+        "__v": 0,
+        "id": "6433e967296587f939371e83"
+    },
+    {
+        "_id": "6433e96d296587f939371e85",
+        "name": "2K23",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123533/images_wkelqz.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123502/images_zh2gnv.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "sports"
+        ],
+        "createdAt": "2023-04-10T10:48:13.782Z",
+        "slugify": "2k23",
+        "__v": 0,
+        "id": "6433e96d296587f939371e85"
+    },
+    {
+        "_id": "6433e9b208351c11076d0642",
+        "name": "Scrap Mechanic",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681122873/MV5BYmMyMTk1ZmQtZTY2Ni00MTMxLTliNTktNzQ5ZmZmMDdlN2I3XkEyXkFqcGdeQXVyNzk0ODcyNDQ_._V1_FMjpg_UX1000__gsh5j7.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123678/knqnfhwjhm051_vwm7pb.png",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "strategy"
+        ],
+        "createdAt": "2023-04-10T10:49:22.114Z",
+        "slugify": "scrap-mechanic",
+        "__v": 0,
+        "id": "6433e9b208351c11076d0642"
+    },
+    {
+        "_id": "6433ea49296587f939371e87",
+        "name": "WWE 2K22",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123886/WWE_2K22_cover_ryqy83.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123894/wwe2k22_mvvexc.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "sports"
+        ],
+        "createdAt": "2023-04-10T10:51:53.782Z",
+        "slugify": "wwe-2k22",
+        "__v": 0,
+        "id": "6433ea49296587f939371e87"
+    },
+    {
+        "_id": "6433eab4296587f939371e89",
+        "name": "UFC 4",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123939/apps.25581.13599923485239258.f803db44-60cb-4ce5-a94d-1e775e6a5cdd_zqfdmt.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123968/0dbc09111108501.5ffc2266a3897_fm7dnf.png",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "sports"
+        ],
+        "createdAt": "2023-04-10T10:53:40.465Z",
+        "slugify": "ufc-4",
+        "__v": 0,
+        "id": "6433eab4296587f939371e89"
+    },
+    {
+        "_id": "6433eac508351c11076d0644",
+        "name": "Valheim",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123962/game-steam-valheim-cover_hwproo.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123916/fcegdj3orai61_n6fp6p.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "strategy",
+            "rpg"
+        ],
+        "createdAt": "2023-04-10T10:53:57.327Z",
+        "slugify": "valheim",
+        "__v": 0,
+        "id": "6433eac508351c11076d0644"
+    },
+    {
+        "_id": "6433eb79296587f939371e8d",
+        "name": "Overwatch",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124120/overwatch-2-button-fin-1656022954568_tabwxt.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124106/maxresdefault_jscvbs.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "fps"
+        ],
+        "createdAt": "2023-04-10T10:56:57.809Z",
+        "slugify": "overwatch",
+        "__v": 0,
+        "id": "6433eb79296587f939371e8d"
+    },
+    {
+        "_id": "6433ec11296587f939371e93",
+        "name": "HeartStone",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124331/138585_IGDB-272x380_ye0mwc.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124316/hearthstone-heroes-of-warcraft-5x-booster-pack-pc-game-battle-net-europe-cover_czi0yf.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "CG"
+        ],
+        "createdAt": "2023-04-10T10:59:29.644Z",
+        "slugify": "heartstone",
+        "__v": 0,
+        "id": "6433ec11296587f939371e93"
+    },
+    {
+        "_id": "6433ec2308351c11076d0646",
+        "name": "Red Dead Redemption 2",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124131/Red_Dead_Redemption_II_xoadll.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124368/EIw3XImUUAA-PdW_ghrpgc.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "MOBA",
+            "rpg",
+            "fps"
+        ],
+        "createdAt": "2023-04-10T10:59:47.635Z",
+        "slugify": "red-dead-redemption-2",
+        "__v": 0,
+        "id": "6433ec2308351c11076d0646"
+    },
+    {
+        "_id": "6433eca0296587f939371e9d",
+        "name": "Mobile Legends",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124416/X4CgS6NWW7Q4YbiJP-PEqCsxqxXxM3TtCUIjKebYOBX66-24KsN9-ruUPsE7MW63G2E_gugnql.png",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124436/images_bjdjkg.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "MOBA",
+            "BR",
+            "AA"
+        ],
+        "createdAt": "2023-04-10T11:01:52.340Z",
+        "slugify": "mobile-legends",
+        "__v": 0,
+        "id": "6433eca0296587f939371e9d"
+    },
+    {
+        "_id": "6433ed4808351c11076d064c",
+        "name": "7 Days To Die",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124439/7_Days_To_Die_cover_art_zuw8nj.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124544/fnjlse7tpr831_hpgndp.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "rpg",
+            "strategy"
+        ],
+        "createdAt": "2023-04-10T11:04:40.988Z",
+        "slugify": "7-days-to-die",
+        "__v": 0,
+        "id": "6433ed4808351c11076d064c"
+    },
+    {
+        "_id": "6433ee06296587f939371ead",
+        "name": "Yu-Gi-Oh! Duel Links",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124795/mainvisual-vrains_sp_fexeej.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124769/header_m34ji2.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "CG"
+        ],
+        "createdAt": "2023-04-10T11:07:50.462Z",
+        "slugify": "yu-gi-oh-duel-links",
+        "__v": 0,
+        "id": "6433ee06296587f939371ead"
+    },
+    {
+        "_id": "6433ee8d08351c11076d0656",
+        "name": "Raft",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124958/MV5BOTBiNGQzMTktMDMzOS00MzIyLTg4YTUtZWY3MTY3YzBjMjZjXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1__p9ea1v.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681124902/oogmnqahxpr31_h1kfjh.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "rpg",
+            "strategy"
+        ],
+        "createdAt": "2023-04-10T11:10:05.623Z",
+        "slugify": "raft",
+        "__v": 0,
+        "id": "6433ee8d08351c11076d0656"
+    },
+    {
+        "_id": "6433ef01296587f939371eb3",
+        "name": "MORTAL KOMBAT 11",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681125080/Mortal_Kombat_11_cover_art_blbq8v.png",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681125065/header_f4pwww.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "rpg"
+        ],
+        "createdAt": "2023-04-10T11:12:01.711Z",
+        "slugify": "mortal-kombat-11",
+        "__v": 0,
+        "id": "6433ef01296587f939371eb3"
+    },
+    {
+        "_id": "6433ef7408351c11076d0658",
+        "name": "Genshin Impact",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681125059/genshintall_1200x1600-4a5697be3925e8cb1f59725a9830cafc_qb60ki.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681125220/img.php_arnsci.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "rpg",
+            "strategy"
+        ],
+        "createdAt": "2023-04-10T11:13:56.976Z",
+        "slugify": "genshin-impact",
+        "__v": 0,
+        "id": "6433ef7408351c11076d0658"
+    },
+    {
+        "_id": "6433f03808351c11076d0660",
+        "name": "Terraria",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681125343/Terraria_Steam_artwork_yg7fdm.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681125404/ingame_21x9_jiabbh.png",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "rpg",
+            "strategy"
+        ],
+        "createdAt": "2023-04-10T11:17:12.319Z",
+        "slugify": "terraria",
+        "__v": 0,
+        "id": "6433f03808351c11076d0660"
+    },
+    {
+        "_id": "6433f187296587f939371edc",
+        "name": "FIFA 22",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123779/i473168_esjjak.webp",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681123771/capsule_616x353_wgqlz2.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "sports"
+        ],
+        "createdAt": "2023-04-10T11:22:47.188Z",
+        "slugify": "fifa-22",
+        "__v": 0,
+        "id": "6433f187296587f939371edc"
+    },
+    {
+        "_id": "6433f21c296587f939371ee0",
+        "name": "Plants vs zombies 2",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681125853/gPvvHebjw57njA4ykb_NQUwx1Y1LRZLkkDUoICxpgqoswUK4gS5HgOH9phZ0KbNN9A_lek6xa.png",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681125871/PvZ2_kexgpm.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "rpg"
+        ],
+        "createdAt": "2023-04-10T11:25:16.075Z",
+        "slugify": "plants-vs-zombies-2",
+        "__v": 0,
+        "id": "6433f21c296587f939371ee0"
+    },
+    {
+        "_id": "6433f23e08351c11076d0666",
+        "name": "Fallout 4",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681125836/913m4BOW-NL._AC_UF1000_1000_QL80__kh29fr.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681125866/img.php_wpo6re.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "rpg",
+            "strategy"
+        ],
+        "createdAt": "2023-04-10T11:25:50.297Z",
+        "slugify": "fallout-4",
+        "__v": 0,
+        "id": "6433f23e08351c11076d0666"
+    },
+    {
+        "_id": "6433f2f508351c11076d0668",
+        "name": "Kenshi",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681126050/latest_wi3o8y.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681126105/56vgjed1ha581_ryagvm.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "rpg",
+            "strategy"
+        ],
+        "createdAt": "2023-04-10T11:28:53.703Z",
+        "slugify": "kenshi",
+        "__v": 0,
+        "id": "6433f2f508351c11076d0668"
+    },
+    {
+        "_id": "6433f33b296587f939371f00",
+        "name": "NHL 22",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681126079/CrosbyTip_16x9.0_kbx4pv.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681126126/maxresdefault_eesm3g.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "sports"
+        ],
+        "createdAt": "2023-04-10T11:30:03.359Z",
+        "slugify": "nfl-22",
+        "__v": 0,
+        "id": "6433f33b296587f939371f00"
+    },
+    {
+        "_id": "6433f38408351c11076d066d",
+        "name": "The Witcher 3: Wild Hunt",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681126227/220px-Witcher_3_cover_art_ssldyw.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681126263/witcher-3-wild-hunt-ultra-wide-view-wallpaper-1920x540-85118_70_j96yfl.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "AA",
+            "sandBox",
+            "rpg",
+            "strategy"
+        ],
+        "createdAt": "2023-04-10T11:31:16.876Z",
+        "slugify": "the-witcher-3-wild-hunt",
+        "__v": 0,
+        "id": "6433f38408351c11076d066d"
+    },
+    {
+        "_id": "6433f459296587f939371f09",
+        "name": "Pokémon Trading Card Game Online",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681126424/pokemon-trading-card-game---button-1558057647970_xkrcaj.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681126447/Pok_C3_A9mon_TCG_Online_Logo_bjaasb.png",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "CG"
+        ],
+        "createdAt": "2023-04-10T11:34:49.548Z",
+        "slugify": "pokemon-trading-card-game-online",
+        "__v": 0,
+        "id": "6433f459296587f939371f09"
+    },
+    {
+        "_id": "6434c6dd5f829c60c3ef8449",
+        "name": "Hyper Space",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681180261/hyperscape---season-2--1920x1080-1920x1080-484b31ca5ebc_vayv3c.png",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681180250/8kbrowsenew_ybxpqe.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "BR"
+        ],
+        "createdAt": "2023-04-11T02:33:02.002Z",
+        "slugify": "hyper-space",
+        "__v": 0,
+        "id": "6434c6dd5f829c60c3ef8449"
+    },
+    {
+        "_id": "6434c7d85f829c60c3ef8455",
+        "name": "Destiny 2",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681180575/AKC68m_gset03.jpg",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681180536/Q687iz_s06jcp.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [
+            "fps",
+            "rpg"
+        ],
+        "createdAt": "2023-04-11T02:37:12.119Z",
+        "slugify": "destiny-2",
+        "__v": 0,
+        "id": "6434c7d85f829c60c3ef8455"
+    },
+    {
+        "_id": "6439329425e07f2e6a5dc9ee",
+        "name": "Jstris",
+        "photo": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681297853/vzz2zfylfwjjjnuvozv4.png",
+        "coverPhoto": "https://res.cloudinary.com/dymjjmeyc/image/upload/v1681297867/images_vsokz1.jpg",
+        "owner": "6432dc43110e5800093aedc1",
+        "type": [],
+        "createdAt": "2023-04-14T11:01:40.151Z",
+        "slugify": "jstris",
+        "__v": 0,
+        "id": "6439329425e07f2e6a5dc9ee"
+    }
+]

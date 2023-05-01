@@ -11,7 +11,6 @@ import {
 } from "@/components/accountDetail/AccountDetailImages";
 
 const Account = ({ data }) => {
-  console.log(data);
   return (
     <Layout>
       <Container className={"px-5 sm:px-0"}>

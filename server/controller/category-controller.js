@@ -1,4 +1,5 @@
 const Category = require("../models/category");
+const User = require("../models/user");
 
 const MyError = require("../utils/myError");
 const asyncHandler = require("../middleWare/asyncHandler");
@@ -40,16 +41,32 @@ exports.createCategory = asyncHandler(async (req, res, next) => {
 });
 
 exports.updateCategory = asyncHandler(async (req, res, next) => {
-  const category = await Category.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
+  const adminId = req.body.adminId;
+  delete req.body.adminId;
+
+  const category = await Category.findById(req.params.id);
 
   if (!category)
     throw new MyError(
       "There is no category with this " + req.params.id + " ID",
       200
     );
+
+  for (let item in req.body) {
+    category[item] = req.body[item];
+  }
+
+  if (adminId) {
+    const user = await User.findById(adminId);
+
+    if (!user) throw new MyError("There are no admin like that id", 404);
+
+    if (user.role === "admin") {
+      category.updatedUser === adminId;
+    }
+  }
+
+  await category.save();
 
   res.status(200).json({
     success: true,

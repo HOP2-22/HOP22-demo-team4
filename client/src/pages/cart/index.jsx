@@ -82,7 +82,7 @@ const Cart = () => {
   }, [user]);
 
   return (
-    <Guard>
+    <Guard role="user">
       <Layout title={"Сагс"}>
         <Container className="px-4 sm:px-0 pt-[90px]">
           <p className="mb-4 text-[26px] font-semibold">Сагс</p>

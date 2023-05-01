@@ -59,16 +59,28 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
 });
 
 exports.updateUser = asyncHandler(async (req, res, next) => {
-  const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
+  const adminId = req.body.adminId;
+  delete req.body.adminId;
+
+  const user = await User.findById(req.params.id);
 
   if (!user)
     throw new MyError(
       "There is no user with this " + req.params.id + " ID",
       200
     );
+
+  for (let item in req.body) {
+    user[item] = req.body[item];
+  }
+
+  if (adminId) {
+    const user = await User.findById(adminId);
+
+    if (user.role === "admin") {
+      user.updatedUser === adminId;
+    }
+  }
 
   res.status(200).json({
     success: true,

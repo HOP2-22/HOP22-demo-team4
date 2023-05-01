@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 
 import { AuthContext } from "@/provider/AuthContext";
 
-export const Guard = ({ children }) => {
+export const Guard = ({ children, role, setShow }) => {
   const { push } = useRouter();
   const { logout, setLoading, setUser } = useContext(AuthContext);
 
@@ -23,7 +23,15 @@ export const Guard = ({ children }) => {
           return;
         }
 
-        setUser(response.data.data.user);
+        if (response.data.data.user.role !== role) {
+          push("/");
+          toast.error(
+            `Таны [${response.data.data.user.role}] энэ эрх энэ хуудасруу нэвтэрхээс хамгаалагдсан байна.`
+          );
+          return;
+        }
+
+        if (role === "admin") setShow(true);
       } catch (error) {
         push("/");
         toast.error("Энэ хуудас хамгаалагдсан байна та эхлээд нэвтэрнэ үү.");

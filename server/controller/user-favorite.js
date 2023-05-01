@@ -37,7 +37,6 @@ exports.removeFavorite = asyncHandler(async (req, res, next) => {
     { $pull: { userFavorite: { $in: [`${req.body.accountId}`] } } }
   );
 
-  console.log(newUser);
   if (newUser.modifiedCount === 1)
     throw new MyError(
       "There is no account with this " + req.body.accountId + " ID"
