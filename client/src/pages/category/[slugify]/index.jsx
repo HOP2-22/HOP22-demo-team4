@@ -31,7 +31,7 @@ const Category = ({ paginate, min, data, max, step, categories, error }) => {
             currentCat={data.name}
             categories={categories}
           />
-          {error ? (
+          {data.accounts.length === 0 ? (
             <Empty />
           ) : (
             <>
@@ -64,7 +64,7 @@ export async function getServerSideProps(context) {
         query.page ? query.page : 1
       }&price[$gte]=${query.min ? query.min : 0}&price[$lte]=${
         query.max ? query.max : 6969696999
-      }&sort=${query.d ? query.d : ""} ${query.p ? query.p : ""}`,
+      }&sort=${query.p ? query.p : ""} ${query.d ? query.d : ""}`,
       { slugify: query.slugify }
     );
 
@@ -80,8 +80,8 @@ export async function getServerSideProps(context) {
     };
   } catch (error) {
     return {
-      notFound: true,
-      fallback: true,
+      // notFound: true,
+      // fallback: true,
       props: {
         data: "",
       },

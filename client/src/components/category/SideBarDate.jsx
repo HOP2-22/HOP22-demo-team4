@@ -11,7 +11,7 @@ export const SideBarDate = () => {
       push({
         pathname: asPath.split("?")[0],
         query: {
-          d: "date",
+          d: "createdAt",
           ...query,
         },
       });
@@ -30,7 +30,7 @@ export const SideBarDate = () => {
       push({
         pathname: asPath.split("?")[0],
         query: {
-          d: "-date",
+          d: "-createdAt",
           ...query,
         },
       });
@@ -43,9 +43,9 @@ export const SideBarDate = () => {
       <select
         className="w-full border border-black hover:border-[#44BAF0] rounded-[5px] text-[12px] py-[6px] cursor-pointer"
         value={
-          query.d === "-date"
+          query.d === "-createdAt"
             ? "decrease"
-            : query.d === "date"
+            : query.d === "createdAt"
             ? "increase"
             : "none"
         }

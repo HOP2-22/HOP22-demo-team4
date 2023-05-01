@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children, hamburger, setHamburger }) => {
   const { push } = useRouter();
   const [loading, setLoading] = useState();
 
@@ -71,6 +71,9 @@ export const AuthProvider = ({ children }) => {
         logout,
 
         handleToTop,
+
+        hamburger,
+        setHamburger,
       }}
     >
       {children}
