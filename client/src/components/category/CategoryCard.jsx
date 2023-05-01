@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export const CategoryCard = ({ data }) => {
+export const CategoryCard = ({ data, slugify }) => {
   return (
     <div className="group relative my-2 h-[130px] lg:h-[150px] col-span-12 xl:col-span-6 w-full bg-white flex overflow-hidden shadow-2xl rounded-[3px]">
       <Link
-        href={`/category/${data?.category.slugify}/${data?._id}`}
+        href={`/category/${slugify}/${data?._id}`}
         className="w-5/12 relative cursor-pointer"
       >
         <Image
@@ -30,7 +30,7 @@ export const CategoryCard = ({ data }) => {
           />
         </div>
       </Link>
-      <div className="w-7/12 flex flex-col px-[10px] py-1 sm:py-3 justify-between">
+      <div className="w-7/12 flex flex-col px-[10px] py-1 sm:py-3 justify-between overflow-scroll">
         <Link href={`/category/${data?.category.slugify}/${data?._id}`}>
           <p className="w-full cursor-pointer">
             {data?.title.slice(0, 52)} {data?.title.length > 52 && "..."}

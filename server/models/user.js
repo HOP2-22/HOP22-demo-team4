@@ -24,20 +24,16 @@ const userSchema = new mongoose.Schema(
       default: "user",
     },
     purchasedAccounts: {
-      type: [
-        {
-          type: mongoose.Schema.ObjectId,
-          ref: "accounts",
-        },
-      ],
+      type: [mongoose.Schema.ObjectId],
+      ref: "accounts",
     },
     userFavorite: {
-      type: [
-        {
-          type: mongoose.Schema.ObjectId,
-          ref: "accounts",
-        },
-      ],
+      type: [mongoose.Schema.ObjectId],
+      ref: "accounts",
+    },
+    chatrooms: {
+      type: [mongoose.Schema.ObjectId],
+      ref: "chatrooms",
     },
     password: {
       type: String,

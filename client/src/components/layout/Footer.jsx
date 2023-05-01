@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { Container } from "../Container";
 
 export const Footer = () => {
@@ -7,8 +8,8 @@ export const Footer = () => {
       <Container className={"grid grid-cols-2 gap-4 items-center px-5 sm:px-0"}>
         <div className="relative w-full">
           <Image
-            width={200}
-            height={200}
+            width={400}
+            height={400}
             src="https://res.cloudinary.com/dymjjmeyc/image/upload/v1680950252/rlyvfvI_mff9dw.jpg"
             className="w-full h-[120px] rounded-[15px] object-cover"
             alt=""
@@ -23,8 +24,8 @@ export const Footer = () => {
         </div>
         <div className="relative w-full">
           <Image
-            width={200}
-            height={200}
+            width={400}
+            height={400}
             src="https://res.cloudinary.com/dymjjmeyc/image/upload/v1680949311/5538374_f9hv6h.jpg"
             className="w-full h-[120px] rounded-[15px] object-cover"
             alt=""

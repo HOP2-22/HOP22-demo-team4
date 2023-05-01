@@ -5,7 +5,7 @@ import { AuthContext } from "@/provider/AuthContext";
 
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-export const Paginate = ({ pagination }) => {
+export const Paginate = ({ paginate }) => {
   const { handleToTop } = useContext(AuthContext);
 
   const { query, push, asPath } = useRouter();
@@ -18,14 +18,14 @@ export const Paginate = ({ pagination }) => {
       <div className="flex items-center gap-3">
         <div
           className={`w-10 h-10 flex justify-center items-center ${
-            pagination.prevPage === "open page"
+            paginate?.prevPage === "open page"
               ? "bg-[#00bfe0]/80"
               : "bg-[#00bfe0] cursor-pointer"
           } text-white font-black rounded-[8px]`}
           onClick={() => {
             if (query.page) {
               handleToTop();
-              if (pagination.prevPage === 1) {
+              if (paginate?.prevPage === 1) {
                 delete query.page;
                 delete query.slugify;
 
@@ -42,7 +42,7 @@ export const Paginate = ({ pagination }) => {
                   pathname: asPath.split("?")[0],
                   query: {
                     ...query,
-                    page: pagination.prevPage,
+                    page: paginate?.prevPage,
                   },
                 });
               }
@@ -53,19 +53,19 @@ export const Paginate = ({ pagination }) => {
         </div>
         <div
           className={`w-10 h-10 flex justify-center items-center ${
-            pagination.nextPage === "last page"
+            paginate?.nextPage === "last page"
               ? "bg-[#00bfe0]/80"
               : "bg-[#00bfe0] cursor-pointer"
           } text-white font-black rounded-[8px]`}
           onClick={() => {
             delete query.slugify;
-            if (pagination.nextPage !== "last page") {
+            if (paginate?.nextPage !== "last page") {
               handleToTop();
               push({
                 pathname: asPath.split("?")[0],
                 query: {
                   ...query,
-                  page: pagination.nextPage,
+                  page: paginate?.nextPage,
                 },
               });
             }

@@ -1,7 +1,5 @@
 const Account = require("../models/account");
-const Category = require("../models/category");
 
-const filteredPaginate = require("../utils/filteredPaginate");
 const paginate = require("../utils/paginate");
 const MyError = require("../utils/myError");
 
@@ -19,7 +17,7 @@ exports.getAccounts = asyncHandler(async (req, res, next) => {
   const accounts = await Account.find(
     {
       ...req.query,
-      permission: true,
+      permission: false,
     },
     select
   )
@@ -38,12 +36,11 @@ exports.getAccounts = asyncHandler(async (req, res, next) => {
   });
 });
 
-exports.getCategoryAccounts = asyncHandler(async (req, res, next) => {});
-
 exports.getAccount = asyncHandler(async (req, res, next) => {
-  const account = await Account.findById(req.params.id)
-    .populate("category")
-    .populate("owner");
+  const account = await Account.findById(req.params.id).populate([
+    "category",
+    "owner",
+  ]);
 
   if (!account)
     throw new MyError(

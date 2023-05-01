@@ -4,7 +4,7 @@ import React from "react";
 const Add_ItemImage = ({ link }) => {
   return (
     <div className="w-[100px] h-[100px] rounded-[12px] object-cover object-center">
-      <img
+      <Image
         src={link}
         draggable="false"
         alt="mainImage"

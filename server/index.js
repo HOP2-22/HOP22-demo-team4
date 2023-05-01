@@ -7,6 +7,8 @@ const cors = require("cors");
 const user = require("./routes/user");
 const category = require("./routes/category");
 const account = require("./routes/account");
+const message = require("./routes/message");
+const chatroom = require("./routes/chatroom");
 const errorHandler = require("./middleWare/error");
 
 connectDB();
@@ -40,6 +42,8 @@ app.use(cors(corsOptions));
 app.use("/api/v1/user", user);
 app.use("/api/v1/category", category);
 app.use("/api/v1/account", account);
+app.use("/api/v1/message", message);
+app.use("/api/v1/room", chatroom);
 
 app.use(errorHandler);
 

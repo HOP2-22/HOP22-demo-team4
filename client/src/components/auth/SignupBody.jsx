@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
+import Link from "next/link";
+
 import AuthForm from "./AuthForm";
 import AuthButton from "./AuthButton";
-import Link from "next/link";
 
 const SignupBody = ({ formData, setFormData, signup }) => {
   const nameRef = useRef();

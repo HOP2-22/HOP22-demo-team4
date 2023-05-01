@@ -7,7 +7,10 @@ export const SideBarSlider = ({ min, max, step }) => {
   const { push, asPath, query } = useRouter();
 
   const minDistance = step;
-  const [sliderValue, setSliderValue] = useState([min, max]);
+  const [sliderValue, setSliderValue] = useState([
+    query.min ? query.min : min,
+    query.max ? query.max : max,
+  ]);
 
   const sliderHandle = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {

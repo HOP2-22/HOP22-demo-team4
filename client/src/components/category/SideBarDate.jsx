@@ -30,7 +30,7 @@ export const SideBarDate = () => {
       push({
         pathname: asPath.split("?")[0],
         query: {
-          dataHandler: "-date",
+          d: "-date",
           ...query,
         },
       });

@@ -8,7 +8,7 @@ import { ProfileTitles } from "@/components/profile/ProfileTitles";
 import { ProfileCards } from "@/components/profile/ProfileCards";
 import { ProfileBackgroundForDivide } from "@/components/profile/ProfileBackgroundForDivide";
 
-export const Profile = () => {
+const Profile = () => {
   const { user } = useContext(AuthContext);
   const [typeAccounts, setTypeAccounts] = useState(false);
 

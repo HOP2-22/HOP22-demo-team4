@@ -1,7 +1,5 @@
 import axios from "axios";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 import { Layout } from "@/components/layout/Layout";
 import { Container } from "@/components/Container";
@@ -10,33 +8,14 @@ import { Paginate } from "@/components/Paginate";
 import { CategoryCard } from "@/components/category/CategoryCard";
 import { Empty } from "@/components/category/Empty";
 
-const Category = ({
-  pagination,
-  min,
-  data,
-  max,
-  step,
-  title,
-  categories,
-  error,
-  category,
-}) => {
-  const { back, query } = useRouter();
-  const { slugify } = query;
-
-  useEffect(() => {
-    if (!categories.find((catItem) => catItem.slugify == slugify)) {
-      back();
-    }
-  }, []);
-
+const Category = ({ paginate, min, data, max, step, categories, error }) => {
   return (
-    <Layout title={title}>
+    <Layout title={data.name}>
       <Image
-        width={200}
-        height={200}
+        width={1000}
+        height={1000}
         className="hidden md:block md:h-[250px] lg:h-[320px] w-full object-cover mt-[70px] fixed -z-10"
-        src={category}
+        src={data.coverPhoto}
         draggable="false"
       />
       <Container
@@ -49,7 +28,7 @@ const Category = ({
             min={min}
             max={max}
             step={step}
-            currentCat={title}
+            currentCat={data.name}
             categories={categories}
           />
           {error ? (
@@ -57,14 +36,20 @@ const Category = ({
           ) : (
             <>
               <div className="w-full md:w-[70%] grid grid-cols-12 gap-x-5 2xl:gap-x-8 gap-y-0">
-                {data?.map((item, index) => {
-                  return <CategoryCard key={index} data={item} />;
+                {data?.accounts?.map((item, index) => {
+                  return (
+                    <CategoryCard
+                      key={index}
+                      data={item}
+                      slugify={data.slugify}
+                    />
+                  );
                 })}
               </div>
             </>
           )}
         </div>
-        {!error && <Paginate pagination={pagination} />}
+        {!error && <Paginate paginate={paginate} />}
       </Container>
     </Layout>
   );
@@ -74,42 +59,31 @@ export async function getServerSideProps(context) {
   const { query } = context;
 
   try {
-    const data = await axios.get(`http://localhost:8000/api/v1/category`);
-
     const response = await axios.post(
-      `http://localhost:8000/api/v1/category/accounts?page=${
+      `http://localhost:8000/api/v1/category/slugify?page=${
         query.page ? query.page : 1
       }&price[$gte]=${query.min ? query.min : 0}&price[$lte]=${
         query.max ? query.max : 6969696999
-      }&sort=${query.p && query.p} ${query.d && query.d}`,
+      }&sort=${query.d ? query.d : ""} ${query.p ? query.p : ""}`,
       { slugify: query.slugify }
     );
 
     return {
       props: {
-        category: response.data.data[0].category.coverPhoto,
-        title: response.data.data[0].category.name,
-        data: response.data.data,
-        pagination: response.data.pagination,
-        min: response.data.min,
-        max: response.data.max,
-        step: response.data.step,
-        categories: data.data.data,
+        data: response?.data?.data,
+        paginate: response?.data?.paginate,
+        min: response?.data?.min,
+        max: response?.data?.max,
+        step: response?.data?.step,
+        categories: response?.data?.categories,
       },
     };
   } catch (error) {
-    const data = await axios.get(`http://localhost:8000/api/v1/category`);
-
-    const category = data.data.data.filter(
-      (item) => item.slugify === query.slugify
-    );
-
     return {
+      notFound: true,
+      fallback: true,
       props: {
-        title: query.slugify,
-        categories: data.data.data,
-        category: category[0].coverPhoto,
-        error: true,
+        data: "",
       },
     };
   }

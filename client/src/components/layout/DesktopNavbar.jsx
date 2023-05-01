@@ -1,14 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import { Plus } from "lucide-react";
 
 import { HamburgerMenu } from "./HamburgerMenu";
 import NavbarHoverButton from "./NavbarHoverButton";
-import { AuthContext } from "@/provider/AuthContext";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
-import { Plus } from "lucide-react";
-import Link from "next/link";
 
 export const DesktopNavbar = ({
   user,

@@ -18,8 +18,8 @@ const imageData = [
 
 const renderSlides = imageData.map((item, index) => (
   <Image
-    width={500}
-    height={500}
+    width={1000}
+    height={1000}
     key={index}
     src={item.url}
     alt={item.alt}

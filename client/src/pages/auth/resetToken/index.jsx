@@ -9,7 +9,7 @@ import ResetTokenBody from "@/components/auth/ResetTokenBody";
 import AuthTitle from "@/components/auth/AuthTitle";
 import AuthBgCover from "@/components/auth/AuthBgCover";
 
-const resetToken = () => {
+const ResetToken = () => {
   const { user, setLoading } = useContext(AuthContext);
 
   const { push, query } = useRouter();
@@ -71,4 +71,4 @@ const resetToken = () => {
   );
 };
 
-export default resetToken;
+export default ResetToken;
