@@ -26,8 +26,7 @@ exports.createAccount = asyncHandler(async (req, res, next) => {
 
 exports.updateAccount = asyncHandler(async (req, res, next) => {
   const account = await Account.findById(req.params.id)
-    .populate("category")
-    .populate("owner")
+    .populate(["category", "owner"])
     .exec();
 
   if (!account)

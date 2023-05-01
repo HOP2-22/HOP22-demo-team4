@@ -14,7 +14,7 @@ exports.addType = asyncHandler(async (req, res, next) => {
 
   category.type = [...category.type, type];
 
-  category.save();
+  await category.save();
 
   res.status(200).json({
     success: true,

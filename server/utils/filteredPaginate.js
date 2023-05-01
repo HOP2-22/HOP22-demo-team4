@@ -1,4 +1,6 @@
 module.exports = async (total, page, limit) => {
+  if (total === 0) total = 1;
+
   const pageCount = Math.ceil(total / limit);
   const start = (page - 1) * limit + 1;
   let end = start + limit - 1;

@@ -41,7 +41,7 @@ const Home = () => {
         const index = types.findIndex((item) => item.name === currentType);
 
         const res = await axios.post(
-          "http://localhost:8000/api/v1/category/type",
+          "http://localhost:8000/api/v1/category/type?select=name photo slugify",
           { type: types[index].tp }
         );
 

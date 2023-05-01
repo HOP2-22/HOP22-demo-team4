@@ -30,8 +30,10 @@ exports.checkUser = asyncHandler(async (req, res, next) => {
 });
 
 exports.getUsers = asyncHandler(async (req, res, next) => {
-  // const users = await User.find({}).populate({ path: "publishedAccounts" });
-  const users = await User.find({}).select("name email");
+  const users = await User.find({})
+    .populate("publishedAccounts")
+    .populate({ path: "chatrooms", populate: "messages" })
+    .select("name email chatrooms");
 
   res.status(200).json({
     success: true,

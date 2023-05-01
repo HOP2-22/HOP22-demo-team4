@@ -23,7 +23,6 @@ const Add_ItemImages = ({ infoAccount, setInfoAccount, images, setImages }) => {
             getDownloadURL(imageRef).then((url) => {
               setInfoAccount({ ...infoAccount, mainImageUrl: url });
             });
-            console.log("successfully uploaded");
           })
           .catch((error) => {
             console.log(error);
@@ -47,7 +46,6 @@ const Add_ItemImages = ({ infoAccount, setInfoAccount, images, setImages }) => {
             getDownloadURL(imagesRef).then((url) => {
               setImages((prevArr) => [...prevArr, url]);
             });
-            console.log("successfully uploaded");
           })
           .catch((error) => {
             console.log(error);

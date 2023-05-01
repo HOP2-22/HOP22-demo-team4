@@ -6,8 +6,8 @@ const accountSchema = new mongoose.Schema({
     required: [true, "Please enter the title of the item"],
     trim: true,
     minLength: [
-      20,
-      "The length of the item title must be at most 250 characters",
+      10,
+      "The length of the item title must be at most 10 characters",
     ],
     maxLength: [
       250,
@@ -45,6 +45,11 @@ const accountSchema = new mongoose.Schema({
   },
 
   sold: {
+    type: Boolean,
+    default: false,
+  },
+
+  reported: {
     type: Boolean,
     default: false,
   },

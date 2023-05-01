@@ -10,9 +10,6 @@ import AuthBgCover from "@/components/auth/AuthBgCover";
 import AuthTitle from "@/components/auth/AuthTitle";
 import SignupBody from "@/components/auth/SignupBody";
 
-const image =
-  "https://res.cloudinary.com/dymjjmeyc/image/upload/v1679913069/AccountTrader/0x0_zfidbn.jpg";
-
 export const SignUp = () => {
   const { push } = useRouter();
   const { user, setUser, setLoading } = useContext(AuthContext);

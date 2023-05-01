@@ -1,19 +1,16 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from "react";
-
-import { toast } from "react-hot-toast";
-import { AuthContext } from "@/provider/AuthContext";
 import Head from "next/head";
+import { toast } from "react-hot-toast";
+
+import { AuthContext } from "@/provider/AuthContext";
 import AuthBgCover from "@/components/auth/AuthBgCover";
 import AuthTitle from "@/components/auth/AuthTitle";
 import ForgetBody from "@/components/auth/ForgetBody";
 
-const image =
-  "https://res.cloudinary.com/dymjjmeyc/image/upload/v1679913069/AccountTrader/0x0_zfidbn.jpg";
-
-const forget = () => {
+const Forget = () => {
   const { user, setLoading } = useContext(AuthContext);
 
   const { push } = useRouter();
@@ -63,4 +60,4 @@ const forget = () => {
   );
 };
 
-export default forget;
+export default Forget;

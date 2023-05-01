@@ -10,7 +10,7 @@ import {
   PhoneImages,
 } from "@/components/accountDetail/AccountDetailImages";
 
-const CategoryAccount = ({ data }) => {
+const Account = ({ data }) => {
   console.log(data);
   return (
     <Layout>
@@ -28,7 +28,7 @@ const CategoryAccount = ({ data }) => {
   );
 };
 
-export default CategoryAccount;
+export default Account;
 
 export async function getServerSideProps(context) {
   const id = context.query.account;
