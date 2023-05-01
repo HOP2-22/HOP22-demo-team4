@@ -10,14 +10,16 @@ exports.getAccounts = asyncHandler(async (req, res, next) => {
   const page = parseInt(req.query.page) || 1;
   const limit = req.query.limit || 1000000;
 
-  [("page", "select", "sort", "limit")].map((el) => delete req.query[el]);
+  [("page", "select", "sort")].map((el) => delete req.query[el]);
+
+  if (limit) delete req.query["limit"];
 
   const pagination = await paginate(Account, page, limit);
 
   const accounts = await Account.find(
     {
       ...req.query,
-      permission: false,
+      // permission: false,
     },
     select
   )

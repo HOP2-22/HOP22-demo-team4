@@ -4,6 +4,8 @@ import { toast } from "react-hot-toast";
 
 import { Layout } from "@/components/layout/Layout";
 import { Container } from "@/components/Container";
+import { useRouter } from "next/router";
+
 import Add_ItemTitle from "@/components/add_item/Add_ItemTitle";
 import Add_ItemChooseCategory from "@/components/add_item/Add_ItemChooseCategory";
 import { AuthContext } from "@/provider/AuthContext";
@@ -14,6 +16,8 @@ import Add_ItemImages from "@/components/add_item/Add_ItemImages";
 import Add_ItemDescription from "@/components/add_item/Add_ItemDescription";
 
 const Add_Item = ({ categories }) => {
+  const { push } = useRouter();
+
   const { user } = useContext(AuthContext);
 
   const [infoAccount, setInfoAccount] = useState({

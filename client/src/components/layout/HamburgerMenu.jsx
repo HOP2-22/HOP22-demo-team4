@@ -1,4 +1,9 @@
-export const HamburgerMenu = ({ hamburger, setHamburger }) => {
+import { AuthContext } from "@/provider/AuthContext";
+import { useContext } from "react";
+
+export const HamburgerMenu = () => {
+  const { hamburger, setHamburger } = useContext(AuthContext);
+
   return (
     <div
       className={`${

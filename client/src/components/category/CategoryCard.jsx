@@ -30,12 +30,10 @@ export const CategoryCard = ({ data, slugify }) => {
           />
         </div>
       </Link>
-      <div className="w-7/12 flex flex-col px-[10px] py-1 sm:py-3 justify-between overflow-scroll">
-        <Link href={`/category/${data?.category.slugify}/${data?._id}`}>
-          <p className="w-full cursor-pointer">
-            {data?.title.slice(0, 52)} {data?.title.length > 52 && "..."}
-          </p>
-        </Link>
+      <div className="w-7/12 flex flex-col px-[10px] py-1 sm:py-3 justify-between overflow-y-scroll">
+        <p className="w-full cursor-pointer">
+          {data?.title.slice(0, 52)} {data?.title.length > 52 && "..."}
+        </p>
         <div className="text-[13px] w-full flex flex-wrap">
           <div className="w-full mb-2">
             {data?.descriptions[0]?.title}
