@@ -7,23 +7,14 @@ const Account = require("./models/account");
 const Message = require("./models/message");
 const Chatroom = require("./models/chatroom");
 const connectDB = require("./config/DB");
-const accountsJsonData = require("./data/accounts.json");
+
+const users = require("./data/accounts.json");
+const categories = require("./data/accounts.json");
+const accounts = require("./data/accounts.json");
+const messages = require("./data/accounts.json");
+const chatrooms = require("./data/accounts.json");
 
 connectDB();
-
-// const users = JSON.parse(
-//   fs.readFileSync(__dirname + "/data/users.json", "utf-8")
-// );
-// const categories = JSON.parse(
-//   fs.readFileSync(__dirname + "/data/categories.json", "utf-8")
-// );
-const accounts = accountsJsonData;
-// const messages = JSON.parse(
-//   fs.readFileSync(__dirname + "/data/messages.json", "utf-8")
-// );
-// const chatrooms = JSON.parse(
-//   fs.readFileSync(__dirname + "/data/chatrooms.json", "utf-8")
-// );
 
 const importData = async () => {
   try {

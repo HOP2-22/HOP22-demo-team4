@@ -11,6 +11,13 @@ const chatroomSchema = new mongoose.Schema(
         ref: "users",
       },
     ],
+
+    updatedUser: {
+      type: mongoose.Schema.ObjectId,
+      ref: "users",
+      unique: false,
+      required: true,
+    },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );

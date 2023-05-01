@@ -37,13 +37,12 @@ export const SignIn = () => {
         return toast.error("Талбарыг зөв гүйцэт бөглө.");
 
       setUser(response.data.data.user);
+      Cookies.set("token", response.data.data.token);
 
       if (response.data.data.user.role === "admin") {
         push("/admin");
         return;
       }
-
-      Cookies.set("token", response.data.data.token);
 
       toast.success("Амжилттай нэвтэрлээ.");
 

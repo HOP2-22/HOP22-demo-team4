@@ -1,4 +1,5 @@
 const Account = require("../models/account");
+const User = require("../models/user");
 
 const MyError = require("../utils/myError");
 const asyncHandler = require("../middleWare/asyncHandler");
@@ -25,6 +26,9 @@ exports.createAccount = asyncHandler(async (req, res, next) => {
 });
 
 exports.updateAccount = asyncHandler(async (req, res, next) => {
+  const adminId = req.body.adminId;
+  delete req.body.adminId;
+
   const account = await Account.findById(req.params.id)
     .populate(["category", "owner"])
     .exec();
@@ -37,6 +41,14 @@ exports.updateAccount = asyncHandler(async (req, res, next) => {
 
   for (let item in req.body) {
     account[item] = req.body[item];
+  }
+
+  if (adminId) {
+    const user = await User.findById(adminId);
+
+    if (user.role === "admin") {
+      account.updatedUser === adminId;
+    }
   }
 
   await account.save();

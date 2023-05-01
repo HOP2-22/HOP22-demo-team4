@@ -76,6 +76,13 @@ const accountSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+
+  updatedUser: {
+    type: mongoose.Schema.ObjectId,
+    ref: "users",
+    unique: false,
+    required: true,
+  },
 });
 
 const Account = mongoose.model("accounts", accountSchema);

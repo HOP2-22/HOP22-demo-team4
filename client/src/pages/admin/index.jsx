@@ -3,7 +3,7 @@ import React from "react";
 import AdminSideBar from "@/components/admin/AdminSideBar";
 
 const AdminHome = () => {
-  return <AdminSideBar></AdminSideBar>;
+  return <AdminSideBar>asdasdasdadas</AdminSideBar>;
 };
 
 export default AdminHome;

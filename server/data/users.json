@@ -1,0 +1,40 @@
+[
+    {
+        "_id": "64267d84f4fd40092d951234",
+        "name": "user1",
+        "email": "user1@gmail.com",
+        "role": "user",
+        "googleId": "Not google account",
+        "createdAt": "2023-03-31T06:28:20.064Z",
+        "__v": 8,
+        "purchasedAccounts": [],
+        "resetPasswordExpire": "2023-04-21T07:18:09.401Z",
+        "resetPasswordToken": "18f1b2ad6e6a54cc5eeab93caa87a56576ddbfc3f44c7c4c3a81109f9c39cc96",
+        "userFavorite": [
+            "6434dc765f829c60c3ef84f4"
+        ],
+        "chatrooms": [
+            "644efc6ffc38cc7224e36361",
+            "644f02217e33e1261ae70566",
+            "644f04f952763ba2b39befcc"
+        ],
+        "id": "64267d84f4fd40092d951234"
+    },
+    {
+        "_id": "6432dc43110e5800093aedc1",
+        "name": "admin",
+        "email": "admin@gmail.com",
+        "role": "admin",
+        "purchasedAccounts": [],
+        "userFavorite": [],
+        "googleId": "Not google account",
+        "createdAt": "2023-04-09T15:39:47.840Z",
+        "__v": 3,
+        "chatrooms": [
+            "644efc6ffc38cc7224e36361",
+            "644f02217e33e1261ae70566",
+            "644f04f952763ba2b39befcc"
+        ],
+        "id": "6432dc43110e5800093aedc1"
+    }
+]
