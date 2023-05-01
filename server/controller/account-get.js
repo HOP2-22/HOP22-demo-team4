@@ -17,7 +17,7 @@ exports.getAccounts = asyncHandler(async (req, res, next) => {
   const accounts = await Account.find(
     {
       ...req.query,
-      permission: false,
+      // permission: false,
     },
     select
   )
