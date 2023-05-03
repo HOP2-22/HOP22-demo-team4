@@ -30,18 +30,19 @@ export default function Categories({ data }) {
     ));
   };
   return (
-    <div onClick={() => router.push(`admin/categories/${data?.slugify}`)} className=" w-[300px] items-center bg-white overflow-hidden h-[180px] flex flex-col">
+    <div onClick={() => router.push(`./categories/${data?.id}`)} className=" w-[300px] items-center bg-white overflow-hidden h-[180px] flex flex-col">
       <div className="h-[150px]">
         <Image
           width={300}
           height={10}
           style={{ height: "180px" }}
           src={data.coverPhoto}
+          alt="game photo"
         />
       </div>
       <div className="flex justify-between w-full">
         <div className="text-center text-2xl text-white">{data.name}</div>
-        <div class="mb-2">
+        <div className="mb-2">
           
         </div>
       </div>
