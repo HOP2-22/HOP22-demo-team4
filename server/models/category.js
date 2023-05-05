@@ -50,7 +50,6 @@ const categorySchema = new mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: "users",
       unique: false,
-      required: true,
     },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }

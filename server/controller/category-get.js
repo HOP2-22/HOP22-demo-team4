@@ -16,6 +16,15 @@ exports.getCategories = asyncHandler(async (req, res, next) => {
   });
 });
 
+exports.getCategoryById = asyncHandler(async (req, res, next) => {
+  const category = await Category.findById(req.params.id);
+
+  res.status(200).json({
+    success: true,
+    data: category,
+  });
+});
+
 exports.getCategory = asyncHandler(async (req, res, next) => {
   const category = await Category.findOne({
     slugify: req.body.slugify,

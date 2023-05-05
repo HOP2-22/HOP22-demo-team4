@@ -13,6 +13,7 @@ export default function Card({ data }) {
         height={200}
         src={data.photo}
         className="rounded-[15px]"
+        alt=""
       />
       <div className="text-lg text-slate-950">{data.name}</div>
     </div>

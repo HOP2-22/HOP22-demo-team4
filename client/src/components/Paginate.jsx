@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { AuthContext } from "@/provider/AuthContext";
 
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const Paginate = ({ paginate }) => {
   const { handleToTop } = useContext(AuthContext);
@@ -12,16 +12,13 @@ export const Paginate = ({ paginate }) => {
 
   return (
     <div className="col-span-10 w-full flex items-center justify-end gap-10 pt-8">
-      <div className="text-2xl font-medium text-black/80">
-        Хуудас: {query.page ? query.page : "1"}
-      </div>
       <div className="flex items-center gap-3">
-        <div
-          className={`w-10 h-10 flex justify-center items-center ${
+        <ChevronLeft
+          className={`text-[24px] flex justify-center items-center ${
             paginate?.prevPage === "open page"
-              ? "bg-[#00bfe0]/80"
-              : "bg-[#00bfe0] cursor-pointer"
-          } text-white font-black rounded-[8px]`}
+              ? "text-[#40abdd]/80"
+              : "text-[#40abdd] cursor-pointer"
+          } text-white font-black rounded-[12px]`}
           onClick={() => {
             if (query.page) {
               handleToTop();
@@ -48,15 +45,55 @@ export const Paginate = ({ paginate }) => {
               }
             }
           }}
-        >
-          <BsChevronLeft />
-        </div>
+        />
+
         <div
-          className={`w-10 h-10 flex justify-center items-center ${
-            paginate?.nextPage === "last page"
-              ? "bg-[#00bfe0]/80"
-              : "bg-[#00bfe0] cursor-pointer"
-          } text-white font-black rounded-[8px]`}
+          className={`w-9 h-9 flex justify-center items-center ${
+            paginate?.prevPage === "open page"
+              ? "hidden"
+              : "bg-[#40abdd] hover:bg-[#44BAF0] transition-colors duration-200 cursor-pointer"
+          } text-white font-black rounded-[12px]`}
+          onClick={() => {
+            handleToTop();
+            delete query.page;
+            delete query.slugify;
+
+            push({
+              pathname: asPath.split("?")[0],
+              query: {
+                ...query,
+              },
+            });
+          }}
+        >
+          1
+        </div>
+
+        <div
+          className={`w-9 h-9 flex justify-center items-center ${
+            paginate?.prevPage < 2 || paginate?.prevPage === "open page"
+              ? "hidden"
+              : "bg-[#40abdd]"
+          } text-white font-black rounded-[12px]`}
+        >
+          . . .
+        </div>
+
+        <div
+          className={`w-9 h-9 flex justify-center items-center bg-[#027ffe] text-white font-black rounded-[12px]`}
+        >
+          {paginate?.prevPage === "open page" ? 1 : paginate?.prevPage + 1}
+        </div>
+
+        <div
+          className={`${
+            paginate?.prevPage === "open page" && paginate?.pageCount > 1
+              ? "bg-[#40abdd] hover:bg-[#44BAF0] transition-colors duration-200 cursor-pointer"
+              : paginate?.pageCount > 2 &&
+                paginate?.pageCount > paginate?.prevPage + 1
+              ? "bg-[#40abdd] hover:bg-[#44BAF0] transition-colors duration-200 cursor-pointer"
+              : "hidden"
+          } w-9 h-9 flex justify-center items-center  text-white font-black rounded-[12px]`}
           onClick={() => {
             delete query.slugify;
             if (paginate?.nextPage !== "last page") {
@@ -71,8 +108,55 @@ export const Paginate = ({ paginate }) => {
             }
           }}
         >
-          <BsChevronRight />
+          {paginate?.prevPage === "open page" ? 2 : paginate?.prevPage + 2}
         </div>
+
+        <div
+          className={`${
+            paginate?.prevPage === "open page" && paginate?.pageCount > 2
+              ? "bg-[#40abdd] hover:bg-[#44BAF0] transition-colors duration-200 cursor-pointer"
+              : paginate?.pageCount > 3 &&
+                paginate?.pageCount > paginate?.prevPage + 2
+              ? "bg-[#40abdd] hover:bg-[#44BAF0] transition-colors duration-200 cursor-pointer"
+              : "hidden"
+          } w-9 h-9 flex justify-center items-center  text-white font-black rounded-[12px]`}
+          onClick={() => {
+            delete query.slugify;
+            if (paginate?.nextPage !== "last page") {
+              handleToTop();
+              push({
+                pathname: asPath.split("?")[0],
+                query: {
+                  ...query,
+                  page: paginate?.nextPage + 1,
+                },
+              });
+            }
+          }}
+        >
+          {paginate?.prevPage === "open page" ? 3 : paginate?.prevPage + 3}
+        </div>
+
+        <ChevronRight
+          className={`text-[24px] flex justify-center items-center ${
+            paginate?.nextPage === "last page"
+              ? "text-[#40abdd]/80"
+              : "text-[#40abdd] cursor-pointer"
+          } text-white font-black rounded-[12px]`}
+          onClick={() => {
+            delete query.slugify;
+            if (paginate?.nextPage !== "last page") {
+              handleToTop();
+              push({
+                pathname: asPath.split("?")[0],
+                query: {
+                  ...query,
+                  page: paginate?.nextPage,
+                },
+              });
+            }
+          }}
+        />
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { TableCell, TableRow, Box } from "@mui/material";
 import Image from "next/image";
@@ -5,6 +6,12 @@ import Image from "next/image";
 import { XCircleIcon } from "@heroicons/react/24/solid";
 
 export const CartItem = ({ item, removeItemHandler, index }) => {
+  const { push } = useRouter();
+
+  const buy = () => {
+    push(`/payment?d=${item?._id}`);
+  };
+
   return (
     <TableRow className="border-b">
       <TableCell component="th" scope="row">
@@ -36,7 +43,10 @@ export const CartItem = ({ item, removeItemHandler, index }) => {
         </button>
       </TableCell>
       <TableCell align="center">
-        <Box className="mx-auto w-14 h-8 flex justify-center items-center rounded-[8px] btn transition-colors cursor-pointer">
+        <Box
+          className="mx-auto w-14 h-8 flex justify-center items-center rounded-[8px] btn transition-colors cursor-pointer"
+          onClick={() => buy()}
+        >
           <p>Buy</p>
         </Box>
       </TableCell>
