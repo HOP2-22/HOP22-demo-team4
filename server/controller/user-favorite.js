@@ -23,7 +23,7 @@ exports.addFavorite = asyncHandler(async (req, res, next) => {
 });
 
 exports.removeFavorite = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.body.userId).populate("userFavorite");
+  const user = await User.findById(req.body.userId);
 
   if (!user)
     throw new MyError(
@@ -36,10 +36,10 @@ exports.removeFavorite = asyncHandler(async (req, res, next) => {
     { $pull: { userFavorite: { $in: [`${req.body.accountId}`] } } }
   );
 
-  if (newUser.modifiedCount === 1)
-    throw new MyError(
-      "There is no account with this " + req.body.accountId + " ID"
-    );
+  // if (newUser.modifiedCount === 1)
+  //   throw new MyError(
+  //     "There is no account with this " + req.body.accountId + " ID"
+  //   );
 
   res.status(200).json({
     success: true,

@@ -11,6 +11,8 @@ const AccountDetailPrice = ({ data, price }) => {
   const { push } = useRouter();
 
   const addCart = async () => {
+    if (!user) return toast.error("Сагсанд нэмэхийн тулд эхлээд нэвтэрнэ үү.");
+
     if (data.sold) return toast.error("Энэ бараа аль хэдийн зарагдсан байна.");
 
     const isOkey = user.userFavorite.some((item) => {
@@ -33,6 +35,8 @@ const AccountDetailPrice = ({ data, price }) => {
   };
 
   const buy = () => {
+    if (!user) return toast.error("Худалдаж авахийн тулд эхлээд нэвтэрнэ үү.");
+
     if (data.sold) return toast.error("Энэ бараа аль хэдийн зарагдсан байна.");
 
     push(`/payment?d=${data?._id}`);
