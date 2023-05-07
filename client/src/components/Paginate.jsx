@@ -18,7 +18,7 @@ export const Paginate = ({ paginate }) => {
             paginate?.prevPage === "open page"
               ? "text-[#40abdd]/80"
               : "text-[#40abdd] cursor-pointer"
-          } text-white font-black rounded-[12px]`}
+          } font-black rounded-[12px]`}
           onClick={() => {
             if (query.page) {
               handleToTop();
@@ -142,7 +142,7 @@ export const Paginate = ({ paginate }) => {
             paginate?.nextPage === "last page"
               ? "text-[#40abdd]/80"
               : "text-[#40abdd] cursor-pointer"
-          } text-white font-black rounded-[12px]`}
+          } font-black rounded-[12px]`}
           onClick={() => {
             delete query.slugify;
             if (paginate?.nextPage !== "last page") {
