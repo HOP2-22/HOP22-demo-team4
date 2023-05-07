@@ -1,5 +1,4 @@
 const User = require("../models/user");
-const Account = require("../models/account");
 
 const MyError = require("../utils/myError");
 const asyncHandler = require("../middleWare/asyncHandler");

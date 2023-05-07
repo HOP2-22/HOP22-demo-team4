@@ -28,7 +28,6 @@ const messageSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: "users",
     unique: false,
-    required: true,
   },
 });
 

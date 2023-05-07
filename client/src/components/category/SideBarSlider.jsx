@@ -64,6 +64,7 @@ export const SideBarSlider = ({ min, max, step }) => {
           step={step}
           max={max}
           sx={{ color: "#44BAF0" }}
+          alt=""
         />
       </div>
     </div>

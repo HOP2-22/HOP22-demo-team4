@@ -13,13 +13,14 @@ import { useRouter } from "next/router";
 import { Guard } from "@/components/Guard";
 
 const Cart = () => {
-  const { user, setLoading } = useContext(AuthContext);
+  const { user, setLoading, setUser } = useContext(AuthContext);
   const { push } = useRouter();
 
   const [items, setItems] = useState([]);
 
   const clear = async () => {
     setItems([]);
+    setUser({ ...user, userFavorite: [] });
     setLoading(true);
 
     try {

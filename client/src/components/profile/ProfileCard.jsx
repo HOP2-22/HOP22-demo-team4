@@ -10,6 +10,7 @@ export const ProfileCard = ({ data }) => {
           src={`${data?.mainImage}`}
           className="object-cover w-full h-full"
           draggable="false"
+          alt=""
         />
         <div
           className={`${
@@ -24,6 +25,7 @@ export const ProfileCard = ({ data }) => {
             }
             className="w-[75%]"
             draggable="false"
+            alt=""
           />
         </div>
       </div>

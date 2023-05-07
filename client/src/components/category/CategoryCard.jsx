@@ -14,6 +14,7 @@ export const CategoryCard = ({ data, slugify }) => {
           src={`${data?.mainImage}`}
           className="object-cover w-full h-full"
           draggable="false"
+          alt=""
         />
         <div
           className={`${
@@ -27,6 +28,7 @@ export const CategoryCard = ({ data, slugify }) => {
               "https://res.cloudinary.com/dymjjmeyc/image/upload/v1680453056/5a04b8549cf05203c4b603af_orffzp.png"
             }
             className="w-[75%]"
+            alt=""
           />
         </div>
       </Link>

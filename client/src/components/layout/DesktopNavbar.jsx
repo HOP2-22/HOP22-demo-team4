@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 import { HamburgerMenu } from "./HamburgerMenu";
@@ -13,8 +11,6 @@ import {
 } from "lucide-react";
 
 export const DesktopNavbar = ({ user, logout }) => {
-  const { push } = useRouter();
-
   return (
     <>
       <div className="hidden md:flex gap-6 items-center">

@@ -8,6 +8,7 @@ const {
   getCategories,
   getCategory,
   getCategoryByType,
+  getCategoryById,
 } = require("../controller/category-get");
 
 const {
@@ -18,6 +19,7 @@ const {
 } = require("../controller/category-controller");
 
 router.route("/").get(getCategories).post(createCategory);
+router.route("/:id").get(getCategoryById);
 router.post("/type", getCategoryByType);
 router.post("/type/:id", addType);
 

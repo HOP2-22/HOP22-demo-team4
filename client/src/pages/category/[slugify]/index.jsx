@@ -17,6 +17,7 @@ const Category = ({ paginate, min, data, max, step, categories, error }) => {
         className="hidden md:block md:h-[250px] lg:h-[320px] w-full object-cover mt-[70px] fixed -z-10"
         src={data.coverPhoto}
         draggable="false"
+        alt=""
       />
       <Container
         className={
