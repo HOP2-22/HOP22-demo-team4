@@ -9,19 +9,46 @@ import AccountDetailDesktopImages from "@/components/accountDetail/AccountDetail
 import AccountDetailDescriptions from "@/components/accountDetail/AccountDetailDescriptions";
 import AccountDetailPrice from "@/components/accountDetail/AccountDetailPrice";
 import AccountDetailSimilarItems from "@/components/accountDetail/AccountDetailSimilarItems";
+import { useEffect, useState } from "react";
 
 const Account = ({ data }) => {
+  const [accounts, setAccounts] = useState([]);
+
+  console.log(data);
+
+  useEffect(() => {
+    setAccounts([]);
+
+    const shuffled = data?.category.accounts.slice();
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    setAccounts(shuffled.slice(0, 5));
+  }, []);
+
   return (
     <Layout>
-      <Container className={"px-5 sm:px-0"}>
-        <Box sx={{ paddingTop: "70px", width: "100%" }}>
-          {/* <AccountDetailDesktopImages data={data} /> */}
-          {/* <AccountDetailPhoneImages data={data} /> */}
-          <AccountDetailTitle title={data.title} createdAt={data.createdAt} />
-          <AccountDetailDescriptions data={data} />
-          <AccountDetailPrice price={data.price} data={data} />
-          <AccountDetailSimilarItems category={data.category} />
-        </Box>
+      <Container className={"px-5 pt-[70px] sm:px-0"}>
+        {/* <AccountDetailDesktopImages data={data} /> */}
+        {/* <AccountDetailPhoneImages data={data} /> */}
+        <AccountDetailTitle title={data.title} createdAt={data.createdAt} />
+        <AccountDetailDescriptions data={data} />
+        <AccountDetailPrice price={data.price} data={data} />
+        <AccountDetailSimilarItems
+          slugify={data?.category.slugify}
+          accounts={accounts}
+          title={"Төстэй бараанууд:"}
+          category={data.category}
+        />
+        <AccountDetailSimilarItems
+          slugify={data?.category.slugify}
+          accounts={data?.owner?.publishedAccounts.slice(0, 5)}
+          title={`${data?.owner.name} хэрэглэгчийн бараанууд:`}
+          category={data.category}
+        />
       </Container>
     </Layout>
   );

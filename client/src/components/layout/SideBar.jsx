@@ -11,12 +11,9 @@ import {
   ShoppingCart,
   UserCog,
 } from "lucide-react";
-import { useRouter } from "next/router";
 
 const SideBar = () => {
   const { user, hamburger, setHamburger, logout } = useContext(AuthContext);
-
-  const { push } = useRouter();
 
   return (
     <div
@@ -25,28 +22,28 @@ const SideBar = () => {
       } transition-transform duration-200 absolute z-50 top-0 left-0 w-full h-screen flex justify-end`}
     >
       <div className="w-1/4 h-full" onClick={() => setHamburger(false)}></div>
-      <div className="z-[60] w-3/4 h-full bg-white px-6 py-5 flex flex-col gap-5">
+      <div className="relative z-[60] w-3/4 h-full bg-white px-6 py-5 flex flex-col gap-5">
         <HamburgerMenu />
         <div className="h-full flex flex-col">
           <Link
             onClick={() => setHamburger(false)}
             href={user ? "/chat" : "/auth/signin"}
-            className="flex items-center gap-6 my-3"
+            className="flex items-center gap-6 my-3 group"
           >
             <MessageCircle
               size={30}
-              className="text-[#027ffe] hover:text-[#44BAF0] transition-colors duration-200"
+              className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200"
             />
-            <span className="w-[120px] absolute right-[95px] text-[20px] font-semibold text-[#027ffe]">
+            <span className="w-[120px] absolute left-[100px] text-[20px] font-semibold text-[#027ffe] group-hover:text-[#44BAF0] transition">
               Chat
             </span>
           </Link>
           <Link
             onClick={() => setHamburger(false)}
             href={user ? "/cart" : "/auth/signin"}
-            className="flex items-center gap-6 my-3"
+            className="flex items-center gap-6 my-3 group"
           >
-            <span className="relative transition-transform scale-125 transform group hover:translate-x-2">
+            <span className="relative transition-transform scale-125 transform hover:translate-x-2">
               <ShoppingCart className="text-[27px] text-[#027ffe] group-hover:text-[#44BAF0] transition-colors" />
               <div
                 className={`${
@@ -58,35 +55,35 @@ const SideBar = () => {
                 </p>
               </div>
             </span>
-            <span className="w-[120px] absolute right-[95px] text-[20px] font-semibold text-[#027ffe]">
+            <span className="w-[120px] absolute left-[100px] text-[20px] font-semibold text-[#027ffe] group-hover:text-[#44BAF0] transition">
               Сагс
             </span>
           </Link>
           <Link
             onClick={() => setHamburger(false)}
             href={user ? "/profile" : "/auth/signin"}
-            className="flex items-center gap-6 my-3"
+            className="flex items-center gap-6 my-3 group"
           >
             <UserCog
               size={30}
-              className="text-[#027ffe] hover:text-[#44BAF0] transition-colors duration-200"
+              className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200"
             />
-            <span className="w-[120px] absolute right-[95px] text-[20px] font-semibold text-[#027ffe]">
+            <span className="w-[120px] absolute left-[100px] text-[20px] font-semibold text-[#027ffe] group-hover:text-[#44BAF0] transition">
               Профайл
             </span>
           </Link>
           <Link
             onClick={() => setHamburger(false)}
             href={user ? "/add_item" : "/auth/signin"}
-            className="flex items-center gap-6 my-3"
+            className="flex items-center gap-6 my-3 group"
           >
-            <div className="px-[2px] py-[2px] rounded-full border-2 group border-[#027ffe] hover:border-[#44BAF0] transition-colors duration-200 cursor-pointer">
+            <div className="px-[2px] py-[2px] rounded-full border-2 group border-[#027ffe] group-hover:border-[#44BAF0] transition-colors duration-200 cursor-pointer">
               <Plus
                 size={24}
                 className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200"
               />
             </div>
-            <span className="w-[120px] absolute right-[95px] text-[20px] font-semibold text-[#027ffe]">
+            <span className="w-[120px] absolute left-[100px] text-[20px] font-semibold text-[#027ffe] group-hover:text-[#44BAF0] transition">
               Бараа нэмэх
             </span>
           </Link>
@@ -102,9 +99,9 @@ const SideBar = () => {
               >
                 <LogOut
                   size={30}
-                  className="text-[#027ffe] hover:text-[#44BAF0] transition-colors duration-200"
+                  className="text-[#027ffe] group-hover:text-[#44BAF0] transition-colors duration-200"
                 />
-                <span className="w-[120px] absolute right-[95px] text-[20px] font-semibold text-[#027ffe]">
+                <span className="w-[120px] absolute left-[100px] text-[20px] font-semibold text-[#027ffe] group-hover:text-[#44BAF0] transition">
                   Гарах
                 </span>
               </Link>

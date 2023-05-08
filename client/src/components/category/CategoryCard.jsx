@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export const CategoryCard = ({ data, slugify }) => {
+export const CategoryCard = ({ data, slugify, className }) => {
   return (
-    <div className="group relative my-2 h-[130px] lg:h-[150px] col-span-12 xl:col-span-6 w-full bg-white flex overflow-hidden shadow-2xl rounded-[3px]">
+    <div
+      className={`grow group relative my-2 h-[130px] lg:h-[150px] col-span-12 xl:col-span-6 bg-white flex overflow-hidden shadow-2xl rounded-[3px] ${className}`}
+    >
       <Link
         href={`/category/${slugify}/${data?._id}`}
         className="w-5/12 relative cursor-pointer"
@@ -32,7 +34,7 @@ export const CategoryCard = ({ data, slugify }) => {
           />
         </div>
       </Link>
-      <div className="w-7/12 flex flex-col px-[10px] py-1 sm:py-3 justify-between overflow-y-scroll">
+      <div className="w-7/12 flex flex-col px-[10px] py-1 sm:py-3 justify-between">
         <p className="w-full cursor-pointer">
           {data?.title.slice(0, 52)} {data?.title.length > 52 && "..."}
         </p>
@@ -43,19 +45,19 @@ export const CategoryCard = ({ data, slugify }) => {
               {data?.descriptions[0]?.desc}
             </span>
           </div>
-          <p className="w-1/2">
+          <p className="w-full sm:w-1/2">
             Үнэ:
             <span className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500">
               {data?.price}
             </span>
           </p>
-          <p className="w-1/2">
+          <p className="w-full sm:w-1/2">
             Хэн:
             <span className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500 cursor-pointer">
               <Link href={`/user/${data?.owner._id}`}>{data?.owner.name}</Link>
             </span>
           </p>
-          <p className="w-full">
+          <p className="w-full flex flex-col sm:flex-row">
             Нийтэлсэн өдөр:
             <span className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500">
               {data.createdAt.slice(0, 19).replace("T", " ")}

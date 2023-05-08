@@ -52,7 +52,7 @@ export const HomeFilter = ({
             className="w-full sm:w-[250px] placeholder:text-[13px] h-[37px] pl-3 rounded-full outline outline-black/50 focus:outline-[#44BAF0]"
             value={searchValue}
             onChange={searchInputHandler}
-            placeholder="Категорынхоо нэрээр хайна уу"
+            placeholder="Тоглоомныхоо нэрээр хайна уу"
           />
           <div className="absolute top-0 right-[5px] h-full flex items-center">
             <AiOutlineSearch

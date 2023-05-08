@@ -61,7 +61,11 @@ const Home = () => {
     <>
       <Layout title={"Home "}>
         <HomeCarousel />
-        <Container className={"pt-[20px]"}>
+        <Container
+          className={
+            "pt-[20px] w-full sm:w-[600px] md:w-[700px] lg:w-[970px] xl:w-[1180px] 2xl:w-[1380px] 3xl:w-[1730px]"
+          }
+        >
           <HomeFilter
             currentType={currentType}
             setCurrentType={setCurrentType}
