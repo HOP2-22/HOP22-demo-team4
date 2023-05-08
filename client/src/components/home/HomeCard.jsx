@@ -10,7 +10,7 @@ export const HomeCard = ({ data }) => {
   return (
     <Link
       href={`/category/${data?.slugify}`}
-      className="relative group w-full rounded-[15px] overflow-hidden h-[230px] xsm:h-[210px] sm:h-[190px] lg:h-[220px] 2xl:h-[210px] 3xl:h-[230px] cursor-pointer"
+      className="relative group w-full rounded-[15px] overflow-hidden h-[230px] xsm:h-[210px] sm:h-[170px] lg:h-[200px] xl:h-[210px] 3xl:h-[230px] cursor-pointer"
       onClick={() => {
         handleToTop();
       }}

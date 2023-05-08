@@ -39,10 +39,15 @@ exports.getAccounts = asyncHandler(async (req, res, next) => {
 });
 
 exports.getAccount = asyncHandler(async (req, res, next) => {
-  const account = await Account.findById(req.params.id).populate([
-    "category",
-    "owner",
-  ]);
+  const account = await Account.findById(req.params.id)
+    .populate({
+      path: "category",
+      populate: { path: "accounts", populate: "owner" },
+    })
+    .populate({
+      path: "owner",
+      populate: { path: "publishedAccounts", populate: "owner" },
+    });
 
   if (!account)
     throw new MyError(
