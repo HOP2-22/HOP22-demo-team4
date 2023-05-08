@@ -25,6 +25,6 @@ router.post("/type/:id", addType);
 
 router.post("/slugify", getCategory);
 
-router.route("/:id").put(updateCategory).delete(deleteCategory);
+router.route("/:id").put(updateCategory).delete(deleteCategory).get(getCategoryById);
 
 module.exports = router;
