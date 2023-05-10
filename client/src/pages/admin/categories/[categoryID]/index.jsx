@@ -5,25 +5,22 @@ import { Edit } from "lucide-react";
 import { useRouter } from "next/router";
 
 const AdminCategory = ({ data }) => {
+  console.log(data.data)
+  const router = useRouter();
   return (
     <AdminSideBar>
       <EditCategory data={data} />
+      {/* <div>where : {router.query.categoryID}</div> */}
     </AdminSideBar>
   );
 };
 
 export default AdminCategory;
-
 export async function getServerSideProps(context) {
-  const { categoryId } = context.query;
-
-  const { data } = await axios.get(
-    `http://localhost:8000/api/v1/category/${categoryId}`
-  );
-    console.log(data)
+  const id = context.query.categoryID;
+  const data = await axios.get(`http://localhost:8000/api/v1/category/${id}`);
+  
   return {
-    props: {
-      data: data.data,
-    },
+    props: { data: data.data.data },
   };
 }

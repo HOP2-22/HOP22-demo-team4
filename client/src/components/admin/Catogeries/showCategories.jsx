@@ -9,9 +9,9 @@ export default function ShowCategories() {
       try {
         const cates = await axios.get(`http://localhost:8000/api/v1/category/`);
         setCategory(cates.data.data);
-        for(let n = 0 ; n < cates.data.data.length ; n++){
-          console.log(cates.data.data[n].name)
-        }
+        // for(let n = 0 ; n < cates.data.data.length ; n++){
+        //   console.log(cates.data.data[n].name)
+        // }
         
       } catch (error) {
         console.log(error);

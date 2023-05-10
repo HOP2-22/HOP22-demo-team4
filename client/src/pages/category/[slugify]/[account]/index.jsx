@@ -65,7 +65,9 @@ export default Account;
 export async function getServerSideProps(context) {
   const id = context.query.account;
 
-  const res = await axios.get(`http://localhost:8000/api/v1/account/${id}`);
+  const res = await fetch(`http://localhost:8000/api/v1/account/${id}`);
+
+  const data = await res.json();
 
   return {
     props: { data: res.data.data },

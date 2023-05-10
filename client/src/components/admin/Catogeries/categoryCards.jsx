@@ -31,7 +31,7 @@ export default function Categories({ data }) {
   };
   return (
     <div
-      // onClick={() => router.push(`./categories/${data?.id}`)}
+      onClick={() => router.push(`./categories/${data?.id}`)}
       className="group w-[300px] items-center bg-white overflow-hidden h-[180px] flex flex-col shadow-2xl rounded-lg transition hover:scale-110 delay-150 duration-300"
     >
       <div className="h-[150px]">
@@ -44,8 +44,8 @@ export default function Categories({ data }) {
           className="h-[180px] w-full object-cover"
         />
       </div>
-      <div className="flex  w-full justify-center items-center bg-gradient-to-b from-transparent to-[#027ffe]/80 ">
-        <div className="text-2xl text-white absolute bottom-0 text-center transition group-hover:-translate-y-6 duration-300 group-hover:">
+      <div className="flex h-full absolute opacity-100 xsm:opacity-0 group-hover:opacity-100 xsm:-translate-y-12 group-hover:translate-y-12 transition duration-200 w-full justify-center items-center bg-gradient-to-b from-transparent to-[#2137BC]">
+        <div className="text-2xl text-white  bottom-0 text-center transition group-hover:translate-y-3 duration-300">
           {data.name}
         </div>
       </div>
