@@ -5,7 +5,6 @@ import {
   IconButton,
   Grid,
 } from "@mui/material";
-import Image from "next/image";
 import InfoIcon from "@mui/icons-material/Info";
 import Link from "next/link";
 
@@ -17,17 +16,19 @@ export const AdminAccountImage = ({ data }) => {
       sx={{
         display: "flex",
         flexDirection: "row",
-        overflowY: "auto",
+        overflowY: "scroll",
         margin: "0px",
-        padding: "0px",
+        padding: "70px",
         gap: 1,
       }}
     >
       {data.map((item, index) => {
-        console.log(item);
         return (
-          <Link href={`admin/accounts/${data?._id}`}>
-            <Box sx={{ width: "300px", height: "250px", display: "flex" }}>
+          <Link href={`/admin/account/${item?._id}`} key={index}>
+            <Box
+              sx={{ width: "300px", height: "250px", display: "flex" }}
+              key={index}
+            >
               <ImageListItem key={index}>
                 <img
                   src={item.mainImage}
