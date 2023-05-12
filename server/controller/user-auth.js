@@ -15,10 +15,7 @@ exports.register = asyncHandler(async (req, res, next) => {
       message: `${req.body.email} бүртгэлтэй байна`,
     });
 
-  const user = (await User.create(req.body)).populate([
-    "publishedAccounts",
-    "chatrooms",
-  ]);
+  const user = await User.create(req.body);
 
   const token = user.getJWT();
 
@@ -46,8 +43,9 @@ exports.login = asyncHandler(async (req, res, next) => {
   const token = user.getJWT();
 
   const callBackUser = await User.findOne({ email: email }).populate([
+    "purchasedAccounts",
+    "userFavorite",
     "publishedAccounts",
-    "chatrooms",
   ]);
 
   res.status(200).json({

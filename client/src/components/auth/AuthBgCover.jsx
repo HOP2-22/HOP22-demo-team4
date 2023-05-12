@@ -8,8 +8,8 @@ const AuthBgCover = () => {
   return (
     <Image
       src={image}
-      width={400}
-      height={400}
+      width={1000}
+      height={1000}
       className="object-cover object-center w-full h-full"
       alt=""
     />

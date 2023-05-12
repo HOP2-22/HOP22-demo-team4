@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { CategoryCard } from "../category/CategoryCard";
 
 const AccountDetailSimilarItems = ({ accounts, slugify, title }) => {
@@ -9,7 +9,7 @@ const AccountDetailSimilarItems = ({ accounts, slugify, title }) => {
         <div className="mt-[20px]  h-full overflow-x-auto whitespace-nowrap scroll-smooth scrollbar-hide relative flex gap-10">
           {accounts?.map((item, index) => {
             return (
-              <div>
+              <div key={index}>
                 <CategoryCard
                   data={item}
                   slugify={slugify}

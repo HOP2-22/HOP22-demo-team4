@@ -54,7 +54,9 @@ export const CategoryCard = ({ data, slugify, className }) => {
           <p className="w-full sm:w-1/2">
             Хэн:
             <span className="pl-1 bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-violet-500 cursor-pointer">
-              <Link href={`/user/${data?.owner._id}`}>{data?.owner.name}</Link>
+              <Link href={`/profile/user/${data?.owner._id}`}>
+                {data?.owner.name}
+              </Link>
             </span>
           </p>
           <p className="w-full flex flex-col sm:flex-row">

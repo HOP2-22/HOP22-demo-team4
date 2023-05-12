@@ -17,10 +17,21 @@ export const DesktopNavbar = ({ user, logout }) => {
         {user ? (
           <>
             <Link href={"/chat"}>
-              <MessageCircle
-                size={30}
-                className="text-[#027ffe] hover:text-[#44BAF0] transition-colors duration-200"
-              />
+              <span className="relative transition-transform scale-125 transform group hover:translate-x-2">
+                <MessageCircle
+                  size={30}
+                  className="text-[#027ffe] hover:text-[#44BAF0] transition-colors duration-200"
+                />
+                <div
+                  className={`${
+                    user && user?.chatrooms?.length > 0 ? "flex" : "hidden"
+                  } absolute -right-[5px] -top-[7px] w-5 h-5 justify-center items-center bg-pink-600 transition-colors rounded-full`}
+                >
+                  <p className="text-white text-[14px]">
+                    {user?.chatrooms?.length}
+                  </p>
+                </div>
+              </span>
             </Link>
             <Link href={"/cart"}>
               <span className="relative transition-transform scale-125 transform group hover:translate-x-2">
