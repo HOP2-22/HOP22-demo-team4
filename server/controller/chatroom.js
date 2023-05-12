@@ -28,13 +28,25 @@ exports.createRoom = asyncHandler(async (req, res, next) => {
   const chatroom = await Chatroom.create(req.body);
 
   req.body.members.map(async (memberId) => {
-    const user = await User.findById(memberId);
+    try {
+      const user = await User.findById(memberId);
 
-    if (!user) throw new MyError("User not found", 400);
+      if (!user) throw new MyError("User not found", 400);
 
-    user.chatrooms = [...user.chatrooms, chatroom._id];
+      user.chatrooms = [...user.chatrooms, chatroom.id];
 
-    await user.save();
+      user.userFavorite = user.userFavorite.filter(
+        (item) => item !== req.body.accountId
+      );
+
+      await user.save();
+
+      const account = await User.findByIdAndUpdate(req.body.userId, {
+        sold: true,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   });
 
   res.status(200).json({

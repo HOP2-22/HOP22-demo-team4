@@ -4,6 +4,7 @@ const chatroomSchema = new mongoose.Schema(
   {
     name: {
       type: "string",
+      required: true,
     },
     members: [
       {

@@ -14,8 +14,6 @@ import { useEffect, useState } from "react";
 const Account = ({ data }) => {
   const [accounts, setAccounts] = useState([]);
 
-  console.log(data);
-
   useEffect(() => {
     setAccounts([]);
 
@@ -45,7 +43,9 @@ const Account = ({ data }) => {
         />
         <AccountDetailSimilarItems
           slugify={data?.category.slugify}
-          accounts={data?.owner?.publishedAccounts.slice(0, 5)}
+          accounts={data?.owner?.publishedAccounts
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 5)}
           title={`${data?.owner.name} хэрэглэгчийн бараанууд:`}
           category={data.category}
         />

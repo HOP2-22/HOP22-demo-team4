@@ -13,11 +13,7 @@
         "userFavorite": [
             "6434dc765f829c60c3ef84f4"
         ],
-        "chatrooms": [
-            "644efc6ffc38cc7224e36361",
-            "644f02217e33e1261ae70566",
-            "644f04f952763ba2b39befcc"
-        ],
+        "chatrooms": [],
         "id": "64267d84f4fd40092d951234"
     },
     {
@@ -30,11 +26,7 @@
         "googleId": "Not google account",
         "createdAt": "2023-04-09T15:39:47.840Z",
         "__v": 3,
-        "chatrooms": [
-            "644efc6ffc38cc7224e36361",
-            "644f02217e33e1261ae70566",
-            "644f04f952763ba2b39befcc"
-        ],
+        "chatrooms": [],
         "id": "6432dc43110e5800093aedc1"
     }
 ]

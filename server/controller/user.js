@@ -41,6 +41,21 @@ exports.getUsers = asyncHandler(async (req, res, next) => {
   });
 });
 
+exports.getUser = asyncHandler(async (req, res, next) => {
+  const user = await User.findById(req.params.id).populate({
+    path: "publishedAccounts",
+    populate: "category",
+  });
+
+  if (!user)
+    throw new MyError("THere is no user with" + req.params.id + "this id", 404);
+
+  res.status(200).json({
+    success: true,
+    data: user,
+  });
+});
+
 exports.deleteUser = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.params.id);
 

@@ -29,14 +29,10 @@
             "_id": "6434dc765f829c60c3ef84f7"
         }
     ],
-    "sold": true,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "sold": false,
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:05:10.271Z"
 },
 {
@@ -71,13 +67,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:05:19.405Z"
 },
 {
@@ -112,13 +104,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:05:26.854Z"
 },
 {
@@ -153,13 +141,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:05:32.772Z"
 },
 {
@@ -194,13 +178,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:05:41.889Z"
 },
 {
@@ -235,13 +215,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:05:50.538Z"
 },
 {
@@ -276,13 +252,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:06:00.237Z"
 },
 {
@@ -317,13 +289,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:06:05.936Z"
 },
 {
@@ -358,13 +326,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:06:13.406Z"
 },
 {
@@ -399,13 +363,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:06:20.282Z"
 },
 {
@@ -440,13 +400,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:14:07.691Z"
 },
 {
@@ -481,13 +437,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:14:19.085Z"
 },
 {
@@ -522,13 +474,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:14:24.526Z"
 },
 {
@@ -563,13 +511,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:14:29.343Z"
 },
 {
@@ -604,13 +548,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:14:32.860Z"
 },
 {
@@ -645,13 +585,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:14:38.627Z"
 },
 {
@@ -686,13 +622,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:14:44.262Z"
 },
 {
@@ -727,13 +659,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:14:49.677Z"
 },
 {
@@ -768,13 +696,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:14:55.927Z"
 },
 {
@@ -809,13 +733,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:15:03.832Z"
 },
 {
@@ -850,13 +770,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:15:10.030Z"
 },
 {
@@ -891,13 +807,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:15:17.810Z"
 },
 {
@@ -932,13 +844,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:16:39.114Z"
 },
 {
@@ -973,13 +881,9 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:16:44.632Z"
 },
 {
@@ -1014,12 +918,8 @@
         }
     ],
     "sold": false,
-    "category": {
-        "_id": "6432dda5ae106857e17f63e2",
-        "name": "PUBG mobile",
-        "id": "6432dda5ae106857e17f63e2"
-    },
-    "owner": "64267d84f4fd40092d951234",
-    "updatedUser": "64267d84f4fd40092d951234",
+    "category": "6432dda5ae106857e17f63e2",
+    "owner": "645e25f8c22b1ee9a0818f71",
+    "updatedUser": "645e25f8c22b1ee9a0818f71",
     "createdAt": "2023-04-11T04:16:50.756Z"
 }]

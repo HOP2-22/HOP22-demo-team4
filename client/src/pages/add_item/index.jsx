@@ -60,7 +60,7 @@ const Add_Item = ({ categories }) => {
     }
 
     try {
-      axios.post("http://localhost:8000/api/v1/account", {
+      await axios.post("http://localhost:8000/api/v1/account", {
         title: infoAccount.title,
         mainImage: infoAccount.mainImageUrl,
         images: images,
@@ -68,6 +68,7 @@ const Add_Item = ({ categories }) => {
         descriptions: descs,
         category: infoAccount.catId,
         owner: user._id,
+        updatedUser: user._id,
       });
 
       push(`/`);

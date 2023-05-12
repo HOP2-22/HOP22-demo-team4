@@ -1,5 +1,6 @@
-const User = require("../models/user");
+const Account = require("../models/account");
 
+const User = require("../models/user");
 const MyError = require("../utils/myError");
 const asyncHandler = require("../middleWare/asyncHandler");
 
@@ -14,7 +15,7 @@ exports.addFavorite = asyncHandler(async (req, res, next) => {
 
   user.userFavorite.push(req.body.accountId);
 
-  user.save();
+  await user.save();
 
   res.status(200).json({
     success: true,
@@ -36,13 +37,45 @@ exports.removeFavorite = asyncHandler(async (req, res, next) => {
     { $pull: { userFavorite: { $in: [`${req.body.accountId}`] } } }
   );
 
-  // if (newUser.modifiedCount === 1)
-  //   throw new MyError(
-  //     "There is no account with this " + req.body.accountId + " ID"
-  //   );
+  res.status(200).json({
+    success: true,
+  });
+});
+
+exports.buyAccount = asyncHandler(async (req, res, next) => {
+  const account = await Account.findByIdAndUpdate(req.body.accountId, {
+    sold: true,
+  });
+
+  if (!account)
+    throw new MyError(
+      "There is no account with this " + req.body.accountId + " ID",
+      200
+    );
+
+  const user = await User.findById(req.body.userId);
+
+  if (!user)
+    throw new MyError(
+      "There is no user with this " + req.body.userId + " ID",
+      200
+    );
+
+  user.purchasedAccounts = [...user.purchasedAccounts, req.body.accountId];
+
+  let newFavorite;
+
+  newFavorite = user.userFavorite.filter(
+    (item) => item + "" !== req.body.accountId
+  );
+
+  user.userFavorite = newFavorite;
+
+  await user.save();
 
   res.status(200).json({
     success: true,
+    data: user,
   });
 });
 
@@ -57,7 +90,7 @@ exports.clearFavorite = asyncHandler(async (req, res, next) => {
 
   user.userFavorite = [];
 
-  user.save();
+  await user.save();
 
   res.status(200).json({
     success: true,
