@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { Container } from "@/components/Container";
@@ -9,7 +9,7 @@ import AccountDetailDesktopImages from "@/components/accountDetail/AccountDetail
 import AccountDetailDescriptions from "@/components/accountDetail/AccountDetailDescriptions";
 import AccountDetailPrice from "@/components/accountDetail/AccountDetailPrice";
 import AccountDetailSimilarItems from "@/components/accountDetail/AccountDetailSimilarItems";
-import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Account = ({ data }) => {
   const [accounts, setAccounts] = useState([]);
@@ -30,6 +30,12 @@ const Account = ({ data }) => {
   return (
     <Layout>
       <Container className={"px-5 pt-[70px] sm:px-0"}>
+        <Link
+          href={`/profile/user/${data?.owner._id}`}
+          className="cursor-pointer px-5 sm:px-0 pt-5 text-[22px] sm:text-[24px] xl:text-[28px] pb-8 font-medium"
+        >
+          Хэрэглэгч : {data?.owner.name}
+        </Link>
         {/* <AccountDetailDesktopImages data={data} /> */}
         {/* <AccountDetailPhoneImages data={data} /> */}
         <AccountDetailTitle title={data.title} createdAt={data.createdAt} />

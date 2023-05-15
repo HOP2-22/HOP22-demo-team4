@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 import { AuthContext } from "@/provider/AuthContext";
 

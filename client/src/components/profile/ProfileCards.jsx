@@ -27,7 +27,7 @@ export const ProfileCards = ({ typeAccounts, user }) => {
               return <ProfileCard key={index} data={item} />;
             })
           : user?.publishedAccounts?.map((item, index) => {
-              return <ProfileCard key={index} data={item} />;
+              return <ProfileCard sold={true} key={index} data={item} />;
             })}
       </div>
     </div>

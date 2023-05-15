@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { Slider } from "@mui/material";
 import { useRouter } from "next/router";
 

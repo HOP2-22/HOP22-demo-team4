@@ -19,7 +19,7 @@ const SideBar = () => {
     <div
       className={`${
         !hamburger && "translate-x-full"
-      } transition-transform duration-200 absolute z-50 top-0 left-0 w-full h-screen flex justify-end`}
+      } transition-transform duration-400 absolute z-50 top-0 left-0 w-full h-screen flex justify-end`}
     >
       <div className="w-1/4 h-full" onClick={() => setHamburger(false)}></div>
       <div className="relative z-[60] w-3/4 h-full bg-white px-6 py-5 flex flex-col gap-5">

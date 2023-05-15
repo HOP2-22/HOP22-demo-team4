@@ -2,7 +2,6 @@
 
 body {
   font-family: "Lato", "Roboto", "Sans+Pro";
-  background-color: #f4f4f4;
 }
 
 @tailwind base;
@@ -28,5 +27,3 @@ body {
   border-image: linear-gradient(to right, #ec4899, #8b5cf6);
   border-image-slice: 1;
 }
-
-

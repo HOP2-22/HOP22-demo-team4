@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 import { AuthContext } from "@/provider/AuthContext";
-import { useRouter } from "next/router";
 
 const AccountDetailPrice = ({ data, price }) => {
   const { user, setUser } = useContext(AuthContext);
@@ -11,6 +11,9 @@ const AccountDetailPrice = ({ data, price }) => {
   const { push } = useRouter();
 
   const addCart = async () => {
+    if (data.owner._id === user._id)
+      return toast.error("Та өөрийнхөө барааг сагсанд нэмж чадахгүй");
+
     if (!user) return toast.error("Сагсанд нэмэхийн тулд эхлээд нэвтэрнэ үү.");
 
     if (data.sold) return toast.error("Энэ бараа аль хэдийн зарагдсан байна.");
@@ -35,6 +38,9 @@ const AccountDetailPrice = ({ data, price }) => {
   };
 
   const buy = () => {
+    if (data.owner._id === user._id)
+      return toast.error("Та өөрийнхөө барааг худалдаж авч чадахгүй");
+
     if (!user) return toast.error("Худалдаж авахийн тулд эхлээд нэвтэрнэ үү.");
 
     if (data.sold) return toast.error("Энэ бараа аль хэдийн зарагдсан байна.");
