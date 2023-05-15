@@ -17,11 +17,9 @@ exports.register = asyncHandler(async (req, res, next) => {
 
   const user = await User.create(req.body);
 
-  const token = user.getJWT();
-
   res.status(200).json({
     success: true,
-    data: { token, user },
+    data: user,
     message: "registered successfully",
   });
 });
@@ -46,6 +44,7 @@ exports.login = asyncHandler(async (req, res, next) => {
     "purchasedAccounts",
     "userFavorite",
     "publishedAccounts",
+    "chatrooms",
   ]);
 
   res.status(200).json({

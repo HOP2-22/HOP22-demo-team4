@@ -1,5 +1,6 @@
-import { AuthContext } from "@/provider/AuthContext";
 import { useContext } from "react";
+
+import { AuthContext } from "@/provider/AuthContext";
 
 export const HamburgerMenu = () => {
   const { hamburger, setHamburger } = useContext(AuthContext);

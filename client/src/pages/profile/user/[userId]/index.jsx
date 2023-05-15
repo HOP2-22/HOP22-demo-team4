@@ -19,9 +19,9 @@ const index = ({ data }) => {
               <Link
                 href={`/category/${item?.category.name}/${item._id}`}
                 key={index}
-                className="w-full rounded-[5px] flex flex-col overflow-hidden bg-white cursor-pointer"
+                className="relative w-full rounded-[5px] flex flex-col overflow-hidden bg-white cursor-pointer"
               >
-                <Image
+                <img
                   src={item?.mainImage}
                   width={300}
                   height={300}
@@ -33,6 +33,17 @@ const index = ({ data }) => {
                   <p>Үнэ : {item?.price}</p>
                   <p>Тоглоом : {item?.category.name}</p>
                 </div>
+                {data?.sold && (
+                  <Image
+                    src={
+                      "https://res.cloudinary.com/dymjjmeyc/image/upload/v1680453056/5a04b8549cf05203c4b603af_orffzp.png"
+                    }
+                    alt=""
+                    width={120}
+                    height={120}
+                    className="top-7 left-7 absolute"
+                  />
+                )}
               </Link>
             );
           })}

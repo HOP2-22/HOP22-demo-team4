@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 import { Layout } from "@/components/layout/Layout";
 import { Container } from "@/components/Container";
-import { useRouter } from "next/router";
-
 import Add_ItemTitle from "@/components/add_item/Add_ItemTitle";
 import Add_ItemChooseCategory from "@/components/add_item/Add_ItemChooseCategory";
 import { AuthContext } from "@/provider/AuthContext";
@@ -37,8 +36,19 @@ const Add_Item = ({ categories }) => {
   const [images, setImages] = useState([]);
 
   const add_item = async () => {
-    if (infoAccount.catId === (undefined || null || "none")) {
+    if (infoAccount.catId === "") {
       toast.error("Тоглоомоо сонгоно уу.");
+      return;
+    }
+
+    if (infoAccount.catId === null) {
+      toast.error("Тоглоомоо сонгоно уу.");
+      return;
+    }
+
+    if (infoAccount.catId === undefined) {
+      toast.error("Тоглоомоо сонгоно уу.");
+      return;
     }
 
     if (infoAccount.title.length < 10) {

@@ -1,8 +1,8 @@
 import AccountImages from "@/components/admin/accountDetail/AccountImages";
+import React from "react";
 import AdminSideBar from "@/components/admin/AdminSideBar";
 import { Box } from "@mui/material";
 import axios from "axios";
-import React from "react";
 import AccountPrice from "@/components/admin/accountDetail/AccountPrice";
 import AccountButton from "@/components/admin/accountDetail/AccountButton";
 import AccountDesc from "@/components/admin/accountDetail/AccountDesc";

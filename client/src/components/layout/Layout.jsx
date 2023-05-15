@@ -14,7 +14,7 @@ export const Layout = ({ children, title }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      {children}
+      <main className="bg-[#f4f4f4] grow h-full w-full">{children}</main>
       <Footer />
     </div>
   );

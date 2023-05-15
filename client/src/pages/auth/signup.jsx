@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-hot-toast";
 import Cookies from "js-cookie";
@@ -47,13 +47,9 @@ export const SignUp = () => {
 
       if (!user.data.success) return toast.error(user.data.message);
 
-      Cookies.set("token", user.data.data.token);
-
-      setUser(user.data.data.user);
-
       toast.success("Амжилттай бүртгүүллээ.");
 
-      push("/");
+      push("/auth/signin");
     } catch (error) {
       console.log(error);
     }

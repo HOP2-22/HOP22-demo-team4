@@ -21,6 +21,7 @@ exports.checkUser = asyncHandler(async (req, res, next) => {
     "purchasedAccounts",
     "userFavorite",
     "publishedAccounts",
+    "chatrooms",
   ]);
 
   res.status(200).json({

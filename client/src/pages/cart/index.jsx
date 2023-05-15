@@ -1,16 +1,16 @@
 import axios from "axios";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { toast } from "react-hot-toast";
 
 import { Container } from "@/components/Container";
 import { Layout } from "@/components/layout/Layout";
 import { CartTable } from "@/components/cart/CartTable";
+import { Guard } from "@/components/Guard";
 import { AuthContext } from "@/provider/AuthContext";
 
 import { BsFillTrash3Fill } from "react-icons/bs";
-import { useRouter } from "next/router";
-import { Guard } from "@/components/Guard";
 
 const Cart = () => {
   const { user, setLoading, setUser } = useContext(AuthContext);

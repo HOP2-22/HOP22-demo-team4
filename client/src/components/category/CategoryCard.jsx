@@ -4,13 +4,13 @@ import Link from "next/link";
 export const CategoryCard = ({ data, slugify, className }) => {
   return (
     <div
-      className={`grow group relative my-2 h-[130px] lg:h-[150px] col-span-12 xl:col-span-6 bg-white flex overflow-hidden shadow-2xl rounded-[3px] ${className}`}
+      className={`grow group relative my-2 h-[140px] lg:h-[150px] col-span-12 xl:col-span-6 bg-white flex overflow-hidden shadow-2xl rounded-[3px] ${className}`}
     >
       <Link
         href={`/category/${slugify}/${data?._id}`}
         className="w-5/12 relative cursor-pointer"
       >
-        <Image
+        <img
           width={100}
           height={100}
           src={`${data?.mainImage}`}

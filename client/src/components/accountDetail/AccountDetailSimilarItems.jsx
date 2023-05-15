@@ -1,4 +1,5 @@
 import React from "react";
+
 import { CategoryCard } from "../category/CategoryCard";
 
 const AccountDetailSimilarItems = ({ accounts, slugify, title }) => {
