@@ -29,7 +29,7 @@ const HeadBottom = ({ data }) => {
   //       console.log(error);
   //     }
   //   };
-
+  console.log(data.type)
   const handleChange = (event = React.SyntheticEvent, newValue = String) => {
     setValue(newValue);
   };

@@ -19,7 +19,7 @@ export default AdminCategory;
 export async function getServerSideProps(context) {
   const id = context.query.categoryID;
   const data = await axios.get(`http://localhost:8000/api/v1/category/${id}`);
-
+  
   return {
     props: { data: data.data.data },
   };

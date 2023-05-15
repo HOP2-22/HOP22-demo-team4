@@ -42,7 +42,7 @@ const Home = () => {
 
         const res = await axios.post(
           "http://localhost:8000/api/v1/category/type?select=name photo slugify",
-          { type: types[index].tp }
+          { type:  [index].tp }
         );
 
         setFirstAllCategories(res.data.data);

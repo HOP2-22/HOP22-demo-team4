@@ -25,7 +25,7 @@ const CoverPhoto = ({ data }) => {
         alt="pic"
         className="w-full h-[400px]"
       />
-      <div className="flex flex-col bg-[#b1b0b3] mt-[15px] border-b-2 border-black rounded-t ">
+      <div className="flex flex-col bg-[#b1b0b3] mt-[15px] border-b-2 border-black rounded-t-lg">
         <div className="text-sm h-4 mt-1 mb-1">Cover photo URL*</div>
         <input
           value={coverPhoto}
