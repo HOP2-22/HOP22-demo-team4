@@ -63,7 +63,10 @@ const index = ({ data, accountDetail }) => {
     try {
       await axios.post("http://localhost:8000/api/v1/room", {
         name: `бараа ${accountDetail?.title} ${accountDetail?._id}`,
-        members: [`${user?._id}`, `${accountDetail?.owner._id}`],
+        members: [
+          { user: `${user?._id}` },
+          { user: `${accountDetail?.owner._id}` },
+        ],
         accountId: accountDetail._id,
         userId: user?._id,
       });

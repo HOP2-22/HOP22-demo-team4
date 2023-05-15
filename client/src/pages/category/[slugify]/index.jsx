@@ -9,9 +9,10 @@ import { CategoryCard } from "@/components/category/CategoryCard";
 import { Empty } from "@/components/category/Empty";
 
 const Category = ({ paginate, min, data, max, step, categories, error }) => {
+  console.log(data?.coverPhoto);
   return (
     <Layout title={data.name}>
-      <Image
+      <img
         width={1000}
         height={1000}
         className="hidden md:block md:h-[250px] lg:h-[320px] w-full object-cover mt-[70px] fixed -z-10"

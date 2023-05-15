@@ -40,12 +40,12 @@ exports.login = asyncHandler(async (req, res, next) => {
 
   const token = user.getJWT();
 
-  const callBackUser = await User.findOne({ email: email }).populate([
-    "purchasedAccounts",
-    "userFavorite",
-    "publishedAccounts",
-    "chatrooms",
-  ]);
+  const callBackUser = await User.findOne({ email: email })
+    .populate(["purchasedAccounts", "userFavorite", "publishedAccounts"])
+    .populate({
+      path: "chatrooms",
+      populate: "messages",
+    });
 
   res.status(200).json({
     success: true,
