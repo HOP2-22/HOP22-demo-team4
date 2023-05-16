@@ -3,13 +3,19 @@ const mongoose = require("mongoose");
 const chatroomSchema = new mongoose.Schema(
   {
     name: {
-      type: "string",
+      type: String,
       required: true,
     },
     members: [
       {
-        type: mongoose.Schema.ObjectId,
-        ref: "users",
+        finish: {
+          type: Boolean,
+          default: false,
+        },
+        user: {
+          type: mongoose.Schema.ObjectId,
+          ref: "users",
+        },
       },
     ],
 
