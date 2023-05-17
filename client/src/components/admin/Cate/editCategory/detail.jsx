@@ -69,7 +69,7 @@ export default function Details({ data }) {
                   );
                 })}
               </div>
-              <AddTypeToCate/>
+              <AddTypeToCate type={type}/>
             </div>
           ) : (
             <div></div>
