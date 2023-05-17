@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import CateType from "./cateType";
+import AddTypeToCate from "./addTypeToCate";
 export default function Details({ data }) {
   const [bgChanger, setBgChanger] = useState(false);
   const [name, setName] = useState();
@@ -20,12 +21,12 @@ export default function Details({ data }) {
   return (
     <div className="flex flex-col mt-[10px]">
       <div
-        className={`flex flex-col bg-zinc-400 w-1/2 h-[60px] border-b-2 border-black rounded-t-lg ${
+        className={`flex flex-col bg-zinc-300 w-1/2 h-[60px] border-b-2 border-black rounded-t-lg ${
           bgChanger && "border-b-blue-600 bg-zinc-200"
         }`}
       >
         <div
-          className={`pl-3 text-sm h-4  mt-1 mb-1 ${
+          className={`pl-3 text-sm h-4 mt-1 mb-1 ${
             bgChanger && "text-blue-600 transition duration-150"
           }`}
         >
@@ -38,7 +39,7 @@ export default function Details({ data }) {
           onChange={(event) => {
             setName(event.target.value);
           }}
-          className={`pl-3 text-2xl bg-zinc-400 w-4/5 outline-none ${
+          className={`pl-3 text-2xl bg-zinc-300 w-4/5 outline-none ${
             bgChanger && "bg-zinc-200"
           }`}
         />
@@ -54,14 +55,21 @@ export default function Details({ data }) {
             }
           }}
         >
-          Types 
+          Types
         </button>
-        <div className=" "> 
+        <div className="mt-5 ">
           {showTypes ? (
-            <div className="grid xl:grid-cols-4 3xl:grid-cols-6 2xl:grid-cols-5 grid-flow-row gap-3">
-              {type.map((item, index) => {
-                return <div key={index}><CateType type={item}/></div>
-              })}
+            <div>
+              <div className="grid grid-cols-5 xl:grid-cols-7 3xl:grid-cols-6 2xl:grid-cols-5 grid-flow-row gap-3">
+                {type.map((item, index) => {
+                  return (
+                    <div key={index}>
+                      <CateType type={item} />
+                    </div>
+                  );
+                })}
+              </div>
+              <AddTypeToCate/>
             </div>
           ) : (
             <div></div>

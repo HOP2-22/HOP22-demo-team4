@@ -16,12 +16,14 @@ const {
   updateCategory,
   deleteCategory,
   addType,
+  deleteCategoryType,
 } = require("../controller/category-controller");
 
 router.route("/").get(getCategories).post(createCategory);
 router.route("/:id").get(getCategoryById);
 router.post("/type", getCategoryByType);
 router.post("/type/:id", addType);
+
 
 router.post("/slugify", getCategory);
 

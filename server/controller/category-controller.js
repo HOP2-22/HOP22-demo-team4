@@ -23,6 +23,7 @@ exports.addType = asyncHandler(async (req, res, next) => {
   });
 });
 
+
 exports.createCategory = asyncHandler(async (req, res, next) => {
   const field = await Category.findOne({ name: req.body.name });
 
