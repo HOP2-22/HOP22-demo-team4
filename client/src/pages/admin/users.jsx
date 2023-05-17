@@ -3,7 +3,6 @@ import axios from "axios";
 
 import AdminSideBar from "@/components/admin/AdminSideBar";
 import { Box } from "@mui/material";
-import Data from "@/components/admin/users/userData";
 import UserData from "@/components/admin/users/UserData";
 
 const Users = ({ data }) => {
@@ -11,8 +10,7 @@ const Users = ({ data }) => {
   return (
     <AdminSideBar>
       <Box sx={{ padding: "70px" }}>
-        {/* <UserData data={data} /> */}
-        <Data data={data} />
+        <UserData data={data} />
       </Box>
     </AdminSideBar>
   );
