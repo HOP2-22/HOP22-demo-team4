@@ -11,12 +11,12 @@ const AccountDetailPrice = ({ data, price }) => {
   const { push } = useRouter();
 
   const addCart = async () => {
-    if (data.owner._id === user._id)
+    if (data?.owner._id === user?._id)
       return toast.error("Та өөрийнхөө барааг сагсанд нэмж чадахгүй");
 
     if (!user) return toast.error("Сагсанд нэмэхийн тулд эхлээд нэвтэрнэ үү.");
 
-    if (data.sold) return toast.error("Энэ бараа аль хэдийн зарагдсан байна.");
+    if (data?.sold) return toast.error("Энэ бараа аль хэдийн зарагдсан байна.");
 
     const isOkey = user.userFavorite.some((item) => {
       return item?._id === data._id;
@@ -38,7 +38,7 @@ const AccountDetailPrice = ({ data, price }) => {
   };
 
   const buy = () => {
-    if (data.owner._id === user._id)
+    if (data?.owner._id === user?._id)
       return toast.error("Та өөрийнхөө барааг худалдаж авч чадахгүй");
 
     if (!user) return toast.error("Худалдаж авахийн тулд эхлээд нэвтэрнэ үү.");
