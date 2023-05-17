@@ -13,6 +13,6 @@ const {
 const router = express.Router();
 
 router.route("/").get(getMessages).post(writeMessage);
-router.route("/:id").get(getRoomMessage).put(updateMessage).post(deleteMessage);
+router.route(":id").get(getRoomMessage).put(updateMessage).post(deleteMessage);
 
 module.exports = router;
