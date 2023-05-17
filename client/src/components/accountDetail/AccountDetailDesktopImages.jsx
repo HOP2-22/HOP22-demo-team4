@@ -2,7 +2,10 @@ import { Box } from "@mui/material";
 import Image from "next/image";
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { FreeMode, Navigation, Thumbs, Pagination } from "swiper";
 
 const AccountDetailDesktopImages = ({ data }) => {
   const [allImages, setAllImages] = useState([data.mainImage, ...data.images]);
@@ -16,6 +19,8 @@ const AccountDetailDesktopImages = ({ data }) => {
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
           width: "80%",
+          display: "flex",
+          flexDirection: "row",
         }}
         loop={true}
         spaceBetween={10}
