@@ -3,9 +3,6 @@ import { Box } from "@mui/material";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 
 const AccountDetailPhoneImages = ({ data }) => {
   const [allImages, setAllImages] = useState([data.mainImage, ...data.images]);
