@@ -27,9 +27,9 @@ exports.getRoom = asyncHandler(async (req, res, next) => {
 exports.createRoom = asyncHandler(async (req, res, next) => {
   const chatroom = await Chatroom.create(req.body);
 
-  req.body.members.map(async (member) => {
+  req.body.members.map(async (memberId) => {
     try {
-      const user = await User.findById(member.user);
+      const user = await User.findById(memberId);
 
       if (!user) throw new MyError("User not found", 400);
 

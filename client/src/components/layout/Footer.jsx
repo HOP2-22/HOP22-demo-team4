@@ -4,7 +4,7 @@ import { Container } from "../Container";
 
 export const Footer = () => {
   return (
-    <div className="w-full flex flex-col gap-8 justify-center items-center pt-[120px] bg-[#f4f4f4]">
+    <div className="w-full flex flex-col gap-8 justify-center items-center pt-[120px]">
       <Container className={"grid grid-cols-2 gap-4 items-center px-5 sm:px-0"}>
         <div className="relative w-full">
           <Image

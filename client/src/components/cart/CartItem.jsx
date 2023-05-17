@@ -17,14 +17,14 @@ export const CartItem = ({ item, removeItemHandler, index }) => {
       <TableCell component="th" scope="row">
         <Link
           href={`/category/${item?.category?.slugify}/${item?._id}`}
-          className="min-w-[180px] min-h-[140px]"
+          className="min-w-[180px]"
         >
-          <img
+          <Image
             src={item?.mainImage}
             alt={item?.name}
             width={200}
             height={200}
-            className="object-cover ocject-center h-full"
+            className="object-cover"
             draggable="false"
           />
         </Link>
