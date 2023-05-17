@@ -27,19 +27,17 @@ const Account = ({ data }) => {
     setAccounts(shuffled.slice(0, 5));
   }, []);
 
-  console.log(data);
-
   return (
     <Layout>
       <Container className={"px-5 pt-[70px] sm:px-0"}>
-        <AccountDetailDesktopImages data={data} />
         <Link
-          href={`/profile/user/${data?.owner?._id}`}
+          href={`/profile/user/${data?.owner._id}`}
           className="cursor-pointer px-5 sm:px-0 pt-5 text-[22px] sm:text-[24px] xl:text-[28px] pb-8 font-medium"
         >
-          Хэрэглэгч : {data?.owner?.name}
+          Хэрэглэгч : {data?.owner.name}
         </Link>
-        <AccountDetailPhoneImages data={data} />
+        {/* <AccountDetailDesktopImages data={data} /> */}
+        {/* <AccountDetailPhoneImages data={data} /> */}
         <AccountDetailTitle title={data.title} createdAt={data.createdAt} />
         <AccountDetailDescriptions data={data} />
         <AccountDetailPrice price={data.price} data={data} />
@@ -50,12 +48,12 @@ const Account = ({ data }) => {
           category={data.category}
         />
         <AccountDetailSimilarItems
-          slugify={data?.category?.slugify}
+          slugify={data?.category.slugify}
           accounts={data?.owner?.publishedAccounts
             .sort(() => 0.5 - Math.random())
             .slice(0, 5)}
-          title={`${data?.owner?.name} хэрэглэгчийн бараанууд:`}
-          category={data?.category}
+          title={`${data?.owner.name} хэрэглэгчийн бараанууд:`}
+          category={data.category}
         />
       </Container>
     </Layout>
