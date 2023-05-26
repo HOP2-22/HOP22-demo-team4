@@ -26,7 +26,6 @@ const UserInfo = ({ data }) => {
   };
 
   const editData = async (id) => {
-    console.log(edit);
     try {
       const response = await axios.put(`${process.env.BASE_URL}/user/${id}`, {
         adminId: user?._id,

@@ -23,7 +23,6 @@ const Add_ItemImages = ({ infoAccount, setInfoAccount, images, setImages }) => {
           .then(() => {
             getDownloadURL(imageRef).then((url) => {
               setInfoAccount({ ...infoAccount, mainImageUrl: url });
-              console.log(url);
             });
           })
           .catch((error) => {

@@ -127,8 +127,6 @@ export default Add_Item;
 export async function getServerSideProps() {
   const res = await fetch(`${process.env.BASE_URL}/category`);
 
-  console.log(process.env.BASE_URL);
-
   const data = await res.json();
 
   return {

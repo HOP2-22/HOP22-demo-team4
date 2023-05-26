@@ -19,7 +19,6 @@ const Chat = () => {
         if (item._id === query.id) Room = item;
       });
 
-      console.log(Room);
       setRoom(Room);
     }
   }, [query]);

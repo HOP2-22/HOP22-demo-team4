@@ -39,7 +39,6 @@ const Category = ({ paginate, min, data, max, step, categories, error }) => {
             <>
               <div className="w-full md:w-[70%] grid grid-cols-12 gap-x-5 2xl:gap-x-8 gap-y-0">
                 {data?.accounts?.map((item, index) => {
-                  console.log(item);
                   return (
                     <CategoryCard
                       key={index}

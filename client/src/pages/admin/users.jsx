@@ -6,7 +6,6 @@ import { Box } from "@mui/material";
 import UserData from "@/components/admin/users/UserData";
 
 const Users = ({ data }) => {
-  console.log(data);
   return (
     <AdminSideBar>
       <Box sx={{ padding: "70px" }}>
