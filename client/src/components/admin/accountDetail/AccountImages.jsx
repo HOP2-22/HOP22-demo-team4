@@ -7,7 +7,6 @@ import "swiper/css/pagination";
 const AccountImages = ({ data }) => {
   const images = [data?.mainImage, ...data?.images];
 
-  console.log(data);
   return (
     <Swiper
       slidesPerView={3}

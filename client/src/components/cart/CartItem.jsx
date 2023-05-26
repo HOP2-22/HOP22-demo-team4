@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { TableCell, TableRow, Box } from "@mui/material";
-import Image from "next/image";
 
 import { XCircleIcon } from "@heroicons/react/24/solid";
 
@@ -19,7 +18,7 @@ export const CartItem = ({ item, removeItemHandler, index }) => {
           href={`/category/${item?.category?.slugify}/${item?._id}`}
           className="min-w-[180px]"
         >
-          <Image
+          <img
             src={item?.mainImage}
             alt={item?.name}
             width={200}

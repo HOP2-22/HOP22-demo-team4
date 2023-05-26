@@ -24,7 +24,7 @@ const Cart = () => {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:8000/api/v1/account/clear", {
+      await axios.post(`${process.env.BASE_URL}/account/clear`, {
         userId: user?._id,
       });
     } catch (error) {
@@ -42,7 +42,7 @@ const Cart = () => {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:8000/api/v1/account/remove", {
+      await axios.post(`${process.env.BASE_URL}/account/remove`, {
         accountId: item?._id,
         userId: user?._id,
       });

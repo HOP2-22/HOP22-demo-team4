@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 const SignInButtons = () => {
@@ -8,7 +7,7 @@ const SignInButtons = () => {
         className="w-full h-[50px] rounded-[10px] bg-black flex gap-6 items-center pl-8 xsm:pl-20 sm:pl-14 cursor-pointer"
         onClick={() => {}}
       >
-        <Image
+        <img
           width={32}
           height={32}
           src="https://res.cloudinary.com/dalheltnm/image/upload/v1681460197/Brand%20logo/google-icon_kt3dwd.svg"
@@ -19,7 +18,7 @@ const SignInButtons = () => {
         </p>
       </div>
       <div className="w-full h-[50px] rounded-[10px] bg-gradient-to-b from-[#689edf] to-[#17A9FD] flex gap-6 items-center pl-8 xsm:pl-20 sm:pl-14 cursor-pointer">
-        <Image
+        <img
           width={32}
           height={32}
           src="https://res.cloudinary.com/dalheltnm/image/upload/v1681462186/Brand%20logo/facebook-xxl_q0heqk.png"

@@ -22,7 +22,7 @@ const Add_ItemDescription = ({ descs, setDescs }) => {
   return (
     <div className="col-span-12">
       <Add_ItemEachElementTitle className={"pb-5"}>
-        Зарын дэлэгрэнгүй тайлбар:
+        Зарын дэлгэрэнгүй тайлбар:
       </Add_ItemEachElementTitle>
       <div className="flex flex-col gap-4">
         {descs.map(({ title, desc }, index) => {
@@ -44,7 +44,7 @@ const Add_ItemDescription = ({ descs, setDescs }) => {
                   />
                 </div>
                 <div className="w-full sm:w-[70%]">
-                  <p className="mb-1">Дэлэгрэнгүй:</p>
+                  <p className="mb-1">Дэлгэрэнгүй:</p>
                   <input
                     type="text"
                     className="w-full px-2 py-[6px] focus:outline-[#44BAF0] rounded-[10px]"
@@ -81,7 +81,7 @@ const Add_ItemDescription = ({ descs, setDescs }) => {
               }
             }}
           >
-            Дэлэгрэнгүй нэмэх
+            Дэлгэрэнгүй нэмэх
           </button>
         </div>
       </div>

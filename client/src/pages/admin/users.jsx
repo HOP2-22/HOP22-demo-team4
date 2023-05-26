@@ -19,7 +19,7 @@ const Users = ({ data }) => {
 export default Users;
 
 export async function getServerSideProps() {
-  const res = await axios.get(`http://localhost:8000/api/v1/user`);
+  const res = await axios.get(`${process.env.BASE_URL}/user`);
 
   return {
     props: { data: res.data.data },

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export const CategoryCard = ({ data, slugify, className }) => {
@@ -23,7 +22,7 @@ export const CategoryCard = ({ data, slugify, className }) => {
             !data?.sold ? "hidden" : "flex"
           } absolute top-0 left-0 w-full h-full z-20 items-center justify-center`}
         >
-          <Image
+          <img
             width={200}
             height={200}
             src={
@@ -35,9 +34,11 @@ export const CategoryCard = ({ data, slugify, className }) => {
         </div>
       </Link>
       <div className="w-7/12 flex flex-col px-[10px] py-1 sm:py-3 justify-between">
-        <p className="w-full cursor-pointer">
-          {data?.title.slice(0, 52)} {data?.title.length > 52 && "..."}
-        </p>
+        <Link href={`/category/${slugify}/${data?._id}`}>
+          <p className="w-full cursor-pointer">
+            {data?.title.slice(0, 52)} {data?.title.length > 52 && "..."}
+          </p>
+        </Link>
         <div className="text-[13px] w-full flex flex-wrap">
           <div className="w-full mb-2">
             {data?.descriptions[0]?.title}

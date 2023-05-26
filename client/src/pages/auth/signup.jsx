@@ -36,14 +36,11 @@ export const SignUp = () => {
       return toast.error("Нууц үгүүдийг адилхан бичнэ үү.");
 
     try {
-      const user = await axios.post(
-        "http://localhost:8000/api/v1/user/signup",
-        {
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-        }
-      );
+      const user = await axios.post(`${process.env.BASE_URL}/user/signup`, {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+      });
 
       if (!user.data.success) return toast.error(user.data.message);
 

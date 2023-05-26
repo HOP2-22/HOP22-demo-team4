@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 import { Container } from "@/components/Container";
@@ -21,20 +20,31 @@ const index = ({ data }) => {
                 key={index}
                 className="relative w-full rounded-[5px] flex flex-col overflow-hidden bg-white cursor-pointer"
               >
-                <img
-                  src={item?.mainImage}
-                  width={300}
-                  height={300}
-                  alt=""
-                  className="w-full h-[180px] object-cover object-center"
-                />
+                <div className="relative w-full h-[180px]">
+                  <img
+                    src={item?.mainImage}
+                    width={300}
+                    height={300}
+                    alt=""
+                    className="w-full h-full object-cover object-center"
+                  />
+                  {item?.sold && (
+                    <div className="absolute top-10 w-full">
+                      <img
+                        src="https://res.cloudinary.com/dymjjmeyc/image/upload/v1680453056/5a04b8549cf05203c4b603af_orffzp.png"
+                        className="mx-auto w-1/2 h-1/2 object-center object-cover"
+                        draggable="false"
+                      />
+                    </div>
+                  )}
+                </div>
                 <div className="p-5">
                   <p>{item?.title}</p>
                   <p>Үнэ : {item?.price}</p>
                   <p>Тоглоом : {item?.category.name}</p>
                 </div>
                 {data?.sold && (
-                  <Image
+                  <img
                     src={
                       "https://res.cloudinary.com/dymjjmeyc/image/upload/v1680453056/5a04b8549cf05203c4b603af_orffzp.png"
                     }
@@ -59,7 +69,7 @@ export default index;
 export async function getServerSideProps(context) {
   const id = context.query.userId;
 
-  const user = await axios.get(`http://localhost:8000/api/v1/user/${id}`);
+  const user = await axios.get(`${process.env.BASE_URL}/user/${id}`);
 
   return {
     props: {

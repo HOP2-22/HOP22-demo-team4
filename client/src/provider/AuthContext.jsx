@@ -16,7 +16,7 @@ export const AuthProvider = ({ children, hamburger, setHamburger }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:8000/api/v1/user/");
+      const response = await axios.post(`${process.env.BASE_URL}/user/`);
 
       if (response.data.data.data.exp * 1000 <= Date.now()) {
         logout();

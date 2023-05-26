@@ -17,7 +17,7 @@ const UserInfo = ({ data }) => {
   const [edit, setEdit] = useState();
   const deleteData = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/v1/user/${id}`);
+      await axios.delete(`${process.env.BASE_URL}/user/${id}`);
 
       console.log("user successfully deleled");
     } catch (error) {
@@ -28,13 +28,10 @@ const UserInfo = ({ data }) => {
   const editData = async (id) => {
     console.log(edit);
     try {
-      const response = await axios.put(
-        `http://localhost:8000/api/v1/user/${id}`,
-        {
-          adminId: user?._id,
-          email: edit,
-        }
-      );
+      const response = await axios.put(`${process.env.BASE_URL}/user/${id}`, {
+        adminId: user?._id,
+        email: edit,
+      });
       console.log(response, "successfully edited");
     } catch (error) {
       console.log(error);

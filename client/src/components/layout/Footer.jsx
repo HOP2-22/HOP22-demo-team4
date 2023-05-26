@@ -1,13 +1,11 @@
-import Image from "next/image";
-
 import { Container } from "../Container";
 
 export const Footer = () => {
   return (
-    <div className="w-full flex flex-col gap-8 justify-center items-center pt-[120px]">
+    <div className="w-full flex flex-col gap-8 justify-center items-center pt-[120px] bg-[#f4f4f4]">
       <Container className={"grid grid-cols-2 gap-4 items-center px-5 sm:px-0"}>
         <div className="relative w-full">
-          <Image
+          <img
             width={400}
             height={400}
             src="https://res.cloudinary.com/dymjjmeyc/image/upload/v1680950252/rlyvfvI_mff9dw.jpg"
@@ -23,7 +21,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="relative w-full">
-          <Image
+          <img
             width={400}
             height={400}
             src="https://res.cloudinary.com/dymjjmeyc/image/upload/v1680949311/5538374_f9hv6h.jpg"

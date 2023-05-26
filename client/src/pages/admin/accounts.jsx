@@ -4,7 +4,6 @@ import AdminSideBar from "@/components/admin/AdminSideBar";
 import { AdminAccountImage } from "@/components/admin/Accounts";
 
 const Accounts = ({ data }) => {
-  console.log(data);
   return (
     <AdminSideBar className={"h-full overflow-scroll"}>
       <AdminAccountImage data={data} />
@@ -15,7 +14,7 @@ const Accounts = ({ data }) => {
 export default Accounts;
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:8000/api/v1/account/`);
+  const res = await fetch(`${process.env.BASE_URL}/account/`);
 
   const data = await res.json();
 

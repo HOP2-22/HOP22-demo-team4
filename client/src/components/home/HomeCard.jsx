@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import { AuthContext } from "@/provider/AuthContext";
 
@@ -15,7 +14,7 @@ export const HomeCard = ({ data }) => {
         handleToTop();
       }}
     >
-      <Image
+      <img
         width={500}
         height={500}
         src={data.photo}

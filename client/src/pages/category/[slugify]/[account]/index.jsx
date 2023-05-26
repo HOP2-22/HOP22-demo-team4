@@ -27,19 +27,26 @@ const Account = ({ data }) => {
     setAccounts(shuffled.slice(0, 5));
   }, []);
 
-  console.log(data);
-
   return (
     <Layout>
       <Container className={"px-5 pt-[70px] sm:px-0"}>
+        {data?.sold && (
+          <div className="w-full flex justify-end">
+            <img
+              src="https://res.cloudinary.com/dymjjmeyc/image/upload/v1680453056/5a04b8549cf05203c4b603af_orffzp.png"
+              className="w-1/4 my-[30px]"
+              draggable="false"
+            />
+          </div>
+        )}
         <AccountDetailDesktopImages data={data} />
+        <AccountDetailPhoneImages data={data} />
         <Link
           href={`/profile/user/${data?.owner?._id}`}
           className="cursor-pointer px-5 sm:px-0 pt-5 text-[22px] sm:text-[24px] xl:text-[28px] pb-8 font-medium"
         >
           Хэрэглэгч : {data?.owner?.name}
         </Link>
-        <AccountDetailPhoneImages data={data} />
         <AccountDetailTitle title={data.title} createdAt={data.createdAt} />
         <AccountDetailDescriptions data={data} />
         <AccountDetailPrice price={data.price} data={data} />
@@ -67,7 +74,7 @@ export default Account;
 export async function getServerSideProps(context) {
   const id = context.query.account;
 
-  const res = await axios.get(`http://localhost:8000/api/v1/account/${id}`);
+  const res = await axios.get(`${process.env.BASE_URL}/account/${id}`);
 
   return {
     props: { data: res.data.data },

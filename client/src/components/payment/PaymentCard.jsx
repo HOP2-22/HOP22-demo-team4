@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 import { Check } from "lucide-react";
@@ -11,7 +10,7 @@ const PaymentCard = ({ item, index, changeChecked, checks }) => {
       }`}
     >
       <div className="flex gap-8 items-center">
-        <Image
+        <img
           width={40}
           height={40}
           alt={`payment ${item?.name}`}

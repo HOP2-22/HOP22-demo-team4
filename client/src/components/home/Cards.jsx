@@ -29,7 +29,7 @@ export default function Cards({ title, link, type }) {
   if (loading) {
     return (
       <>
-        <Image width={200} height={200} src="loading.gif" alt="" />
+        <img width={200} height={200} src="loading.gif" alt="" />
       </>
     );
   }

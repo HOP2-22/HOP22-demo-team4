@@ -26,7 +26,7 @@ const AccountDetailPrice = ({ data, price }) => {
 
     setUser({ ...user, userFavorite: [...user.userFavorite, data] });
     try {
-      await axios.post("http://localhost:8000/api/v1/account/add", {
+      await axios.post(`${process.env.BASE_URL}/account/add`, {
         userId: user?._id,
         accountId: data?._id,
       });

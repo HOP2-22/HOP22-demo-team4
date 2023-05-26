@@ -22,7 +22,7 @@ const Forget = () => {
 
     try {
       const sent = await axios.post(
-        "http://localhost:8000/api/v1/user/forgotPassword",
+        `${process.env.BASE_URL}/user/forgotPassword`,
         { email }
       );
 

@@ -25,13 +25,10 @@ export const SignIn = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        `http://localhost:8000/api/v1/user/login`,
-        {
-          email: formData.email,
-          password: formData.password,
-        }
-      );
+      const response = await axios.post(`${process.env.BASE_URL}/user/login`, {
+        email: formData.email,
+        password: formData.password,
+      });
 
       if (response.data.success !== true)
         return toast.error("Талбарыг зөв гүйцэт бөглө.");

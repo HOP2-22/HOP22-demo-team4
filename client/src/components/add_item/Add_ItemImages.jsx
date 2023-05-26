@@ -5,6 +5,7 @@ import Add_ItemEachElementTitle from "./Add_ItemEachElementTitle";
 import Add_ItemUpload from "./Add_ItemUpload";
 import Add_ItemImage from "./Add_ItemImage";
 import { storage } from "@/storage";
+import { X } from "lucide-react";
 
 const Add_ItemImages = ({ infoAccount, setInfoAccount, images, setImages }) => {
   const [mainImage, setMainImage] = useState(null);
@@ -57,6 +58,14 @@ const Add_ItemImages = ({ infoAccount, setInfoAccount, images, setImages }) => {
     getUrls();
   }, [image]);
 
+  const deleteImage = (index) => {
+    let newArr;
+
+    newArr = images.filter((image) => image !== index);
+
+    setImages(newArr);
+  };
+
   return (
     <div className="col-span-12 flex flex-col gap-5">
       <div className="">
@@ -79,7 +88,18 @@ const Add_ItemImages = ({ infoAccount, setInfoAccount, images, setImages }) => {
         <div className="w-full flex flex-wrap gap-5">
           {images?.length > 0 &&
             images.map((image, index) => (
-              <Add_ItemImage link={image} key={index} />
+              <div className="relative w-[100px] h-[100px] rounded-[12px] object-cover object-center">
+                <Add_ItemImage link={image} key={index} />
+                <div className="absolute top-1 left-1 py-1 px-1 bg-gray-500 rounded-full">
+                  <X
+                    size={18}
+                    color="white"
+                    onClick={() => {
+                      deleteImage(image);
+                    }}
+                  />
+                </div>
+              </div>
             ))}
           <Add_ItemUpload handle={handlePhotosUpload} />
         </div>

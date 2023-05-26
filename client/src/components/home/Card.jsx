@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function Card({ data }) {
@@ -8,7 +7,7 @@ export default function Card({ data }) {
       className="group w-[500px] h-[140px] mr-3"
       onClick={() => router.push(`/${data.slugify}`)}
     >
-      <Image
+      <img
         width={200}
         height={200}
         src={data.photo}

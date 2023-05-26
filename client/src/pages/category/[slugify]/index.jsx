@@ -11,17 +11,18 @@ import { Empty } from "@/components/category/Empty";
 const Category = ({ paginate, min, data, max, step, categories, error }) => {
   return (
     <Layout title={data.name}>
-      <Image
+      <img
         width={1000}
         height={1000}
-        className="hidden md:block md:h-[250px] lg:h-[320px] w-full object-cover mt-[70px] fixed -z-10"
+        className="hidden md:block md:h-[250px] lg:h-[320px] w-full object-cover mt-[70px] fixed"
         src={data.coverPhoto}
         draggable="false"
         alt=""
       />
+
       <Container
         className={
-          "pb-[70px] px-5 sm:px-0 pt-[90px] md:pt-[230px] lg:pt-[300px]"
+          "pb-[70px] px-5 sm:px-0 pt-[90px] md:pt-[230px] lg:pt-[300px] relative z-20"
         }
       >
         <div className="flex flex-col md:flex-row gap-y-10 gap-x-8">
@@ -38,6 +39,7 @@ const Category = ({ paginate, min, data, max, step, categories, error }) => {
             <>
               <div className="w-full md:w-[70%] grid grid-cols-12 gap-x-5 2xl:gap-x-8 gap-y-0">
                 {data?.accounts?.map((item, index) => {
+                  console.log(item);
                   return (
                     <CategoryCard
                       key={index}
@@ -61,7 +63,7 @@ export async function getServerSideProps(context) {
 
   try {
     const response = await axios.post(
-      `http://localhost:8000/api/v1/category/slugify?page=${
+      `${process.env.BASE_URL}/category/slugify?page=${
         query.page ? query.page : 1
       }&price[$gte]=${query.min ? query.min : 0}&price[$lte]=${
         query.max ? query.max : 6969696999
@@ -81,8 +83,6 @@ export async function getServerSideProps(context) {
     };
   } catch (error) {
     return {
-      // notFound: true,
-      // fallback: true,
       props: {
         data: "",
       },

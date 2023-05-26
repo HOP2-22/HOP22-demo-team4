@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export const ProfileCard = ({ data, sold }) => {
   return (
     <div className="group relative my-2 h-[130px] 3xl:h-[150px] col-span-12 sm:col-span-10 lg:col-span-6 w-full bg-white flex overflow-hidden shadow-2xl rounded-[3xl]">
@@ -17,7 +15,7 @@ export const ProfileCard = ({ data, sold }) => {
             sold ? (!data?.sold ? "hidden" : "flex") : "hidden"
           } absolute top-0 left-0 w-full h-full z-20 items-center justify-center`}
         >
-          <Image
+          <img
             width={200}
             height={200}
             src={

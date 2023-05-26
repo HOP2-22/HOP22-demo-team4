@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Box } from "@mui/material";
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import "swiper/css";
@@ -13,61 +11,32 @@ const AccountDetailPhoneImages = ({ data }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <Box sx={styles.imgContainer} className="block lg:hidden">
+    <div className="block lg:hidden">
       <Swiper
         style={{
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
-          width: "100%",
         }}
         loop={true}
         spaceBetween={10}
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
+        className="mySwiper2 w-full overflow-hidden h-[350px]"
       >
         {allImages.map((item, index) => (
           <SwiperSlide key={index}>
-            <img style={styles.phoneImage} src={item} key={index} />
+            <img
+              className="w-full h-full object-cover object-center"
+              src={item}
+              key={index}
+              alt="phoneImage"
+            />
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper
-        loop={true}
-        spaceBetween={10}
-        slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
-      >
-        {allImages.map((item, index) => (
-          <SwiperSlide key={index}>
-            <Image width={1200} height={500} src={item} key={index} alt="" />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </Box>
+    </div>
   );
 };
 
 export default AccountDetailPhoneImages;
-
-const styles = {
-  phoneImage: {
-    height: {
-      xl: "300px",
-      lg: "300px",
-      md: "100%",
-      xs: "100%",
-    },
-    objectFit: "cover",
-    objectPosition: "center",
-  },
-  imgContainer: {
-    backgroundColor: "black",
-    width: "100%",
-    height: "100%",
-  },
-};

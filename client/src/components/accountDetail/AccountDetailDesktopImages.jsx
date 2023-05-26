@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import Image from "next/image";
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -40,6 +39,7 @@ const AccountDetailDesktopImages = ({ data }) => {
               }}
               src={item}
               key={index}
+              alt="phoneImage"
             />
           </SwiperSlide>
         ))}
@@ -67,7 +67,7 @@ const AccountDetailDesktopImages = ({ data }) => {
               flexDirection: "column",
             }}
           >
-            <Image width={1200} height={700} src={item} key={index} />
+            <img width={1200} height={700} src={item} key={index} />
           </SwiperSlide>
         ))}
       </Swiper>

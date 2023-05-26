@@ -36,9 +36,7 @@ export async function getServerSideProps(context) {
   const id = context?.params?.accountId;
 
   try {
-    const { data } = await axios.get(
-      `http://localhost:8000/api/v1/account/${id}`
-    );
+    const { data } = await axios.get(`${process.env.BASE_URL}/account/${id}`);
 
     return {
       props: {

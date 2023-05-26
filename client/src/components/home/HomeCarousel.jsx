@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -17,7 +16,7 @@ const imageData = [
 ];
 
 const renderSlides = imageData.map((item, index) => (
-  <Image
+  <img
     width={1000}
     height={1000}
     key={index}

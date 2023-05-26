@@ -61,14 +61,14 @@ const index = ({ data, accountDetail }) => {
     });
 
     try {
-      await axios.post("http://localhost:8000/api/v1/room", {
+      await axios.post(`${process.env.BASE_URL}/room`, {
         name: `бараа ${accountDetail?.title} ${accountDetail?._id}`,
         members: [`${user?._id}`, `${accountDetail?.owner._id}`],
         accountId: accountDetail._id,
         userId: user?._id,
       });
 
-      const res = await axios.post("http://localhost:8000/api/v1/account/buy", {
+      const res = await axios.post(`${process.env.BASE_URL}/account/buy`, {
         accountId: accountDetail?._id,
         userId: user?._id,
       });
@@ -104,11 +104,9 @@ export default index;
 export async function getServerSideProps(context) {
   const { query } = context;
 
-  const res = await axios.get("http://localhost:8000/api/v1/payment");
+  const res = await axios.get(`${process.env.BASE_URL}/payment`);
 
-  const detail = await axios.get(
-    `http://localhost:8000/api/v1/account/${query.d}`
-  );
+  const detail = await axios.get(`${process.env.BASE_URL}/account/${query.d}`);
 
   return {
     props: {

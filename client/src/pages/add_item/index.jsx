@@ -63,14 +63,14 @@ const Add_Item = ({ categories }) => {
       return toast.error("Гол зураг аа оруулна уу.");
 
     if (descs.length === 0)
-      return toast.error("Багадаа 1 дэлэгрэнгүй мэдээлэл оруулж өгнө үү.");
+      return toast.error("Багадаа 1 дэлгэрэнгүй мэдээлэл оруулж өгнө үү.");
 
     if (descs.slice(-1)[0].title === "" || descs.slice(-1)[0].desc === "") {
-      return toast.error("Сүүлийн дэлэгрэнгүй хоосон байна.");
+      return toast.error("Сүүлийн дэлгэрэнгүй хоосон байна.");
     }
 
     try {
-      await axios.post("http://localhost:8000/api/v1/account", {
+      await axios.post(`${process.env.BASE_URL}/account`, {
         title: infoAccount.title,
         mainImage: infoAccount.mainImageUrl,
         images: images,
@@ -125,7 +125,9 @@ const Add_Item = ({ categories }) => {
 export default Add_Item;
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:8000/api/v1/category");
+  const res = await fetch(`${process.env.BASE_URL}/category`);
+
+  console.log(process.env.BASE_URL);
 
   const data = await res.json();
 

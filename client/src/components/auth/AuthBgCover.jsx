@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 const AuthBgCover = () => {
@@ -6,7 +5,7 @@ const AuthBgCover = () => {
     "https://res.cloudinary.com/dymjjmeyc/image/upload/v1679913069/AccountTrader/0x0_zfidbn.jpg";
 
   return (
-    <Image
+    <img
       src={image}
       width={1000}
       height={1000}
