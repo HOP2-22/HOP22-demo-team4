@@ -23,6 +23,7 @@ app.use(express.json());
 let whitelist = [
   "http://localhost:3000",
   "https://accounts.google.com",
+  "https://hop-22-demo-team4-swapzone.vercel.app",
   undefined,
 ];
 
