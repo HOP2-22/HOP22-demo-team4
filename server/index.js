@@ -38,7 +38,7 @@ let corsOptions = {
   credential: true,
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use("/api/v1/user", user);
 app.use("/api/v1/category", category);
