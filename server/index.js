@@ -22,8 +22,6 @@ app.use(express.json());
 
 let whitelist = [
   "http://localhost:3000",
-  "https://accounts.google.com",
-  "https://hop-22-demo-team4-swapzone.vercel.app",
   "https://hop-22-demo-team4.vercel.app/",
   undefined,
 ];
@@ -40,7 +38,7 @@ let corsOptions = {
   credential: true,
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use("/api/v1/user", user);
 app.use("/api/v1/category", category);
