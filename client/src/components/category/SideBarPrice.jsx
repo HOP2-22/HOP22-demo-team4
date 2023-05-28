@@ -41,7 +41,7 @@ export const SideBarPrice = () => {
     <div className="flex flex-col gap-2">
       <p>Үнэ:</p>
       <select
-        className="w-full border border-black hover:border-[#44BAF0] rounded-[5px] text-[12px] py-[6px] cursor-pointer"
+        className="w-full border border-black hover:border-[#44BAF0] rounded-[5px] text-[12px] py-[10px] cursor-pointer"
         value={
           query.p === "-price"
             ? "decrease"
