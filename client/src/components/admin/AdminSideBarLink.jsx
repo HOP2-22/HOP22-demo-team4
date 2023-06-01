@@ -1,11 +1,12 @@
+import Link from "next/link";
 import React from "react";
 
-const AdminSideBarLink = ({ title, children }) => {
+const AdminSideBarLink = ({ title, children, link }) => {
   return (
-    <div className="pl-4 flex gap-5 items-center">
+    <Link href={`${link}`} className="pl-4 flex gap-5 items-center pb-4">
       {children}
-      <p className="text-white text-[24px]">{title}</p>
-    </div>
+      <p className={`text-white text-[24px]`}>{title}</p>
+    </Link>
   );
 };
 

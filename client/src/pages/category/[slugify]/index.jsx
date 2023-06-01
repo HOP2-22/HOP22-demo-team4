@@ -19,7 +19,6 @@ const Category = ({ paginate, min, data, max, step, categories, error }) => {
         draggable="false"
         alt=""
       />
-
       <Container
         className={
           "pb-[70px] px-5 sm:px-0 pt-[90px] md:pt-[230px] lg:pt-[300px] relative z-20"
@@ -33,7 +32,7 @@ const Category = ({ paginate, min, data, max, step, categories, error }) => {
             currentCat={data.name}
             categories={categories}
           />
-          {data.accounts.length === 0 ? (
+          {data?.accounts?.length === 0 ? (
             <Empty />
           ) : (
             <>
