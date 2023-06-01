@@ -27,7 +27,7 @@ const AccountDetailPhoneImages = ({ data }) => {
         {allImages.map((item, index) => (
           <SwiperSlide key={index}>
             <img
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-contain object-center"
               src={item}
               key={index}
               alt="phoneImage"
