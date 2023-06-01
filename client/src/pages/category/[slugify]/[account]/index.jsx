@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import axios from "axios";
 
 import { Container } from "@/components/Container";
@@ -9,9 +10,8 @@ import AccountDetailDesktopImages from "@/components/accountDetail/AccountDetail
 import AccountDetailDescriptions from "@/components/accountDetail/AccountDetailDescriptions";
 import AccountDetailPrice from "@/components/accountDetail/AccountDetailPrice";
 import AccountDetailSimilarItems from "@/components/accountDetail/AccountDetailSimilarItems";
-import Link from "next/link";
 
-const Account = ({ data }) => {
+const AccountDetail = ({ data }) => {
   const [accounts, setAccounts] = useState([]);
 
   useEffect(() => {
@@ -69,7 +69,7 @@ const Account = ({ data }) => {
   );
 };
 
-export default Account;
+export default AccountDetail;
 
 export async function getServerSideProps(context) {
   const id = context.query.account;

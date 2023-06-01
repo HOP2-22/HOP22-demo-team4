@@ -57,6 +57,8 @@ const Category = ({ paginate, min, data, max, step, categories, error }) => {
   );
 };
 
+export default Category;
+
 export async function getServerSideProps(context) {
   const { query } = context;
 
@@ -88,5 +90,3 @@ export async function getServerSideProps(context) {
     };
   }
 }
-
-export default Category;

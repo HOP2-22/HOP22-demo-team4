@@ -5,9 +5,9 @@ import { toast } from "react-hot-toast";
 
 import { AuthContext } from "@/provider/AuthContext";
 
-export const Guard = ({ children, role, setShow }) => {
+export const Guard = ({ children, role }) => {
   const { push } = useRouter();
-  const { logout, setLoading, setUser } = useContext(AuthContext);
+  const { logout, setLoading, setUser, setShow } = useContext(AuthContext);
 
   useEffect(() => {
     const checkUser = async () => {
@@ -28,6 +28,7 @@ export const Guard = ({ children, role, setShow }) => {
           toast.error(
             `Таны [${response.data.data.user.role}] энэ эрх энэ хуудасруу нэвтэрхээс хамгаалагдсан байна.`
           );
+
           return;
         }
 

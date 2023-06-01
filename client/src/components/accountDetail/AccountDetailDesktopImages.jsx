@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { FreeMode, Navigation, Thumbs, Pagination } from "swiper";
+import { FreeMode, Navigation, Thumbs } from "swiper";
 
 const AccountDetailDesktopImages = ({ data }) => {
   const [allImages, setAllImages] = useState([data.mainImage, ...data.images]);

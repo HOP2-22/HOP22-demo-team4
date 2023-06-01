@@ -60,6 +60,8 @@ export const AuthProvider = ({ children, hamburger, setHamburger }) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const [show, setShow] = useState(false);
+
   return (
     <AuthContext.Provider
       value={{
@@ -74,6 +76,9 @@ export const AuthProvider = ({ children, hamburger, setHamburger }) => {
 
         hamburger,
         setHamburger,
+
+        show,
+        setShow,
       }}
     >
       {children}

@@ -49,7 +49,7 @@ export const HomeFilter = ({
           <input
             onFocus={onFocus}
             onBlur={onBlur}
-            className="w-full sm:w-[250px] placeholder:text-[13px] h-[37px] pl-3 rounded-full outline outline-black/50 focus:outline-[#44BAF0]"
+            className="w-full sm:w-[250px] placeholder:text-[13px] h-[37px] pl-3 rounded-full outline outline-black/30 focus:outline-[#44BAF0]"
             value={searchValue}
             onChange={searchInputHandler}
             placeholder="Тоглоомныхоо нэрээр хайна уу"

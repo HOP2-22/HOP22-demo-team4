@@ -2,17 +2,16 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-hot-toast";
-import Cookies from "js-cookie";
 import Head from "next/head";
 
-import { AuthContext } from "../../provider/AuthContext";
+import { AuthContext } from "../../../provider/AuthContext";
 import AuthBgCover from "@/components/auth/AuthBgCover";
 import AuthTitle from "@/components/auth/AuthTitle";
 import SignupBody from "@/components/auth/SignupBody";
 
 export const SignUp = () => {
   const { push } = useRouter();
-  const { user, setUser, setLoading } = useContext(AuthContext);
+  const { user, setLoading } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     name: "",

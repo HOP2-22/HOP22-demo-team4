@@ -74,7 +74,9 @@ const Add_ItemImages = ({ infoAccount, setInfoAccount, images, setImages }) => {
         <div className="h-[1px] w-full bg-black/60 rounded-full my-2"></div>
         <div className="w-full flex gap-5">
           {infoAccount?.mainImageUrl !== "" && (
-            <Add_ItemImage link={infoAccount.mainImageUrl} />
+            <div className="w-[100px] h-[100px]">
+              <Add_ItemImage link={infoAccount.mainImageUrl} />
+            </div>
           )}
           <Add_ItemUpload handle={handlePhotoUpload} />
         </div>
@@ -87,7 +89,10 @@ const Add_ItemImages = ({ infoAccount, setInfoAccount, images, setImages }) => {
         <div className="w-full flex flex-wrap gap-5">
           {images?.length > 0 &&
             images.map((image, index) => (
-              <div className="relative w-[100px] h-[100px] rounded-[12px] object-cover object-center">
+              <div
+                className="relative w-[100px] h-[100px] rounded-[12px] object-cover object-center"
+                key={image.id | index}
+              >
                 <Add_ItemImage link={image} key={index} />
                 <div className="absolute top-1 left-1 py-1 px-1 bg-gray-500 rounded-full">
                   <X

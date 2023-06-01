@@ -33,7 +33,7 @@ const Add_ItemDescription = ({ descs, setDescs }) => {
               </p>
               <div className="flex flex-col sm:flex-row w-full gap-4">
                 <div className="w-full sm:w-[30%]">
-                  <p className="mb-1">Гарчиг:</p>
+                  <p className="mb-1">Толгой:</p>
                   <input
                     type="text"
                     className="w-full px-2 py-[6px] focus:outline-[#44BAF0] rounded-[10px]"

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
@@ -11,7 +11,7 @@ import PaymentButton from "@/components/payment/PaymentButton";
 import PaymentTitle from "@/components/payment/PaymentTitle";
 import { Guard } from "@/components/Guard";
 
-const index = ({ data, accountDetail }) => {
+const Payment = ({ data, accountDetail }) => {
   const { push, refresh } = useRouter();
   const { user, setLoading, loading } = useContext(AuthContext);
 
@@ -99,7 +99,7 @@ const index = ({ data, accountDetail }) => {
   );
 };
 
-export default index;
+export default Payment;
 
 export async function getServerSideProps(context) {
   const { query } = context;

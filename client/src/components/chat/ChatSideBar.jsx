@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
+import { useRouter } from "next/router";
 
 import { Navbar } from "../layout/Navbar";
 import { AuthContext } from "@/provider/AuthContext";
-import { useRouter } from "next/router";
 
 const ChatSideBar = ({ children, move, setMove }) => {
   return (

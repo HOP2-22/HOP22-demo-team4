@@ -37,6 +37,8 @@ export const SignIn = () => {
       Cookies.set("token", response.data.data.token);
 
       if (response.data.data.user.role === "admin") {
+        toast.success("Амжилттай Admin нэвтэрлээ.");
+
         push("/admin");
         return;
       }

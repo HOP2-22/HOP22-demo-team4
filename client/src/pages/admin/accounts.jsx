@@ -6,6 +6,7 @@ import { AdminAccountImage } from "@/components/admin/Accounts";
 const Accounts = ({ data }) => {
   return (
     <AdminSideBar className={"h-full overflow-scroll"}>
+      <div className="w-full h-40 bg-red-100"></div>
       <AdminAccountImage data={data} />
     </AdminSideBar>
   );

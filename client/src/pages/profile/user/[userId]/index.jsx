@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Layout } from "@/components/layout/Layout";
 
-const index = ({ data }) => {
+const UserProfile = ({ data }) => {
   return (
     <Layout>
       <Container>
@@ -64,7 +64,7 @@ const index = ({ data }) => {
   );
 };
 
-export default index;
+export default UserProfile;
 
 export async function getServerSideProps(context) {
   const id = context.query.userId;

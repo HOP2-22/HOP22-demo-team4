@@ -26,7 +26,7 @@ exports.addType = asyncHandler(async (req, res, next) => {
 exports.createCategory = asyncHandler(async (req, res, next) => {
   const field = await Category.findOne({ name: req.body.name });
 
-  if (!field)
+  if (field)
     return res.status(404).json({
       success: false,
       message: "There are category like that name , name is unique",
