@@ -15,11 +15,19 @@ const Accounts = ({ data }) => {
 export default Accounts;
 
 export async function getServerSideProps() {
-  const res = await fetch(`${process.env.BASE_URL}/account/`);
+  try {
+    const res = await fetch(`${process.env.BASE_URL}/account/`);
 
-  const data = await res.json();
+    const data = await res.json();
 
-  return {
-    props: { data: data.data },
-  };
+    return {
+      props: { data: data.data },
+    };
+  } catch (error) {
+    return {
+      redirect: {
+        distination: "/",
+      },
+    };
+  }
 }

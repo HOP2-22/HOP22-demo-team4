@@ -125,13 +125,21 @@ const Add_Item = ({ categories }) => {
 export default Add_Item;
 
 export async function getServerSideProps() {
-  const res = await fetch(`${process.env.BASE_URL}/category`);
+  try {
+    const res = await fetch(`${process.env.BASE_URL}/category`);
 
-  const data = await res.json();
+    const data = await res.json();
 
-  return {
-    props: {
-      categories: data.data,
-    },
-  };
+    return {
+      props: {
+        categories: data.data,
+      },
+    };
+  } catch (error) {
+    return {
+      redirect: {
+        destination: "/",
+      },
+    };
+  }
 }

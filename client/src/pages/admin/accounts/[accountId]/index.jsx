@@ -10,10 +10,6 @@ import AccountTitle from "@/components/admin/accountDetail/AccountTitle";
 import AccountSold from "@/components/admin/accountDetail/AccountSold";
 
 const AccountDetail = ({ data, error }) => {
-  if (error) {
-    return <div>{error}</div>;
-  }
-
   return (
     <AdminSideBar>
       <Box sx={{ padding: "30px 30px 60px 30px" }}>
@@ -44,10 +40,9 @@ export async function getServerSideProps(context) {
       },
     };
   } catch (error) {
-    console.error(error);
     return {
-      props: {
-        error: error.message,
+      redirect: {
+        distination: "/",
       },
     };
   }

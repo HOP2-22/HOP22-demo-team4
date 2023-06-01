@@ -33,8 +33,7 @@ exports.checkUser = asyncHandler(async (req, res, next) => {
 exports.getUsers = asyncHandler(async (req, res, next) => {
   const users = await User.find({})
     .populate("publishedAccounts")
-    .populate({ path: "chatrooms", populate: "messages" })
-    .select("name email chatrooms");
+    .populate({ path: "chatrooms", populate: "messages" });
 
   res.status(200).json({
     success: true,
@@ -97,6 +96,8 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
       user.updatedUser === adminId;
     }
   }
+
+  await user.save();
 
   res.status(200).json({
     success: true,

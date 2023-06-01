@@ -8,6 +8,7 @@ import AdminSideBarLink from "./AdminSideBarLink";
 import {
   Gamepad2,
   GitPullRequestClosed,
+  HeartHandshake,
   LogOut,
   PackagePlus,
   User,
@@ -24,7 +25,7 @@ const AdminSideBar = ({ children, className }) => {
         <div className="w-full h-screen flex">
           <div className="w-[20%] flex flex-col px-5 py-[30px] bg-indigo-600">
             <p className="text-white text-[36px] pb-[30px]">Dashboard</p>
-            <AdminSideBarLink title={"Users"} link={"/admin/categories"}>
+            <AdminSideBarLink title={"Users"} link={"/admin/users"}>
               <User color="white" size={30} />
             </AdminSideBarLink>
             <AdminSideBarLink title={"Games"} link={"/admin/categories"}>
@@ -35,12 +36,12 @@ const AdminSideBar = ({ children, className }) => {
             </AdminSideBarLink>
             <AdminSideBarLink
               title={"Selling process"}
-              link={"/admin/accounts"}
+              link={"/admin/chatrooms"}
             >
-              <BiCuboid color="white" size={30} />
+              <HeartHandshake color="white" size={30} />
             </AdminSideBarLink>
             <div className="mt-auto flex flex-col gap-4 px-3">
-              <AdminSideBarLink title={"New Game"} link={"/admin/reporteds"}>
+              <AdminSideBarLink title={"New Game"} link={"/admin/requests"}>
                 <PackagePlus color="white" size={30} />
               </AdminSideBarLink>
               <AdminSideBarLink title={"Reported"} link={"/admin/reporteds"}>
@@ -62,7 +63,9 @@ const AdminSideBar = ({ children, className }) => {
               </Link>
             </div>
           </div>
-          <div className={`w-[80%] ${className}`}>{children}</div>
+          <div className={`w-[80%] h-screen overflow-scroll ${className}`}>
+            {children}
+          </div>
         </div>
       )}
     </Guard>

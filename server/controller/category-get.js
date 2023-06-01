@@ -8,7 +8,7 @@ const filteredPaginate = require("../utils/filteredPaginate");
 const Account = require("../models/account");
 
 exports.getCategories = asyncHandler(async (req, res, next) => {
-  const categories = await Category.find(req.query);
+  const categories = await Category.find(req.query).populate("owner");
 
   res.status(200).json({
     success: true,

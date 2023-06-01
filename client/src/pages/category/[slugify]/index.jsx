@@ -83,8 +83,8 @@ export async function getServerSideProps(context) {
     };
   } catch (error) {
     return {
-      props: {
-        data: "",
+      redirect: {
+        destination: "/",
       },
     };
   }

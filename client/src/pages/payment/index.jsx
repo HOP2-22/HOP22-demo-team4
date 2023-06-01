@@ -68,7 +68,7 @@ const Payment = ({ data, accountDetail }) => {
         userId: user?._id,
       });
 
-      const res = await axios.post(`${process.env.BASE_URL}/account/buy`, {
+      await axios.post(`${process.env.BASE_URL}/account/buy`, {
         accountId: accountDetail?._id,
         userId: user?._id,
       });
@@ -102,16 +102,26 @@ const Payment = ({ data, accountDetail }) => {
 export default Payment;
 
 export async function getServerSideProps(context) {
-  const { query } = context;
+  try {
+    const { query } = context;
 
-  const res = await axios.get(`${process.env.BASE_URL}/payment`);
+    const res = await axios.get(`${process.env.BASE_URL}/payment`);
 
-  const detail = await axios.get(`${process.env.BASE_URL}/account/${query.d}`);
+    const detail = await axios.get(
+      `${process.env.BASE_URL}/account/${query.d}`
+    );
 
-  return {
-    props: {
-      data: res.data.data,
-      accountDetail: detail.data.data,
-    },
-  };
+    return {
+      props: {
+        data: res.data.data,
+        accountDetail: detail.data.data,
+      },
+    };
+  } catch (error) {
+    return {
+      redirect: {
+        destination: "/",
+      },
+    };
+  }
 }

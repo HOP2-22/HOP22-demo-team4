@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 
@@ -10,6 +10,8 @@ import AccountDetailDesktopImages from "@/components/accountDetail/AccountDetail
 import AccountDetailDescriptions from "@/components/accountDetail/AccountDetailDescriptions";
 import AccountDetailPrice from "@/components/accountDetail/AccountDetailPrice";
 import AccountDetailSimilarItems from "@/components/accountDetail/AccountDetailSimilarItems";
+import { AuthContext } from "@/provider/AuthContext";
+import { redirect } from "next/dist/server/api-utils";
 
 const AccountDetail = ({ data }) => {
   const [accounts, setAccounts] = useState([]);
@@ -43,7 +45,7 @@ const AccountDetail = ({ data }) => {
         <AccountDetailPhoneImages data={data} />
         <Link
           href={`/profile/user/${data?.owner?._id}`}
-          className="cursor-pointer px-5 sm:px-0 pt-5 text-[22px] sm:text-[24px] xl:text-[28px] pb-8 font-medium"
+          className="cursor-pointer px-5 sm:px-0 pt-5 text-[22px] sm:text-[24px] xl:text-[28px] pb-8 font-medium underline"
         >
           Хэрэглэгч : {data?.owner?.name}
         </Link>
@@ -72,11 +74,19 @@ const AccountDetail = ({ data }) => {
 export default AccountDetail;
 
 export async function getServerSideProps(context) {
-  const id = context.query.account;
+  try {
+    const id = context.query.account;
 
-  const res = await axios.get(`${process.env.BASE_URL}/account/${id}`);
+    const res = await axios.get(`${process.env.BASE_URL}/account/${id}`);
 
-  return {
-    props: { data: res.data.data },
-  };
+    return {
+      props: { data: res.data.data },
+    };
+  } catch (error) {
+    return {
+      redirect: {
+        destination: "/",
+      },
+    };
+  }
 }

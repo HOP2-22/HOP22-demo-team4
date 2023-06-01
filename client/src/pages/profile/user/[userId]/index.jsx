@@ -67,13 +67,21 @@ const UserProfile = ({ data }) => {
 export default UserProfile;
 
 export async function getServerSideProps(context) {
-  const id = context.query.userId;
+  try {
+    const id = context.query.userId;
 
-  const user = await axios.get(`${process.env.BASE_URL}/user/${id}`);
+    const user = await axios.get(`${process.env.BASE_URL}/user/${id}`);
 
-  return {
-    props: {
-      data: user.data.data,
-    },
-  };
+    return {
+      props: {
+        data: user.data.data,
+      },
+    };
+  } catch (error) {
+    return {
+      redirect: {
+        destination: "/",
+      },
+    };
+  }
 }

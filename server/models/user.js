@@ -71,6 +71,8 @@ userSchema.virtual("publishedAccounts", {
 userSchema.pre("remove", async function (next) {
   await this.model("accounts").deleteMany({ owner: this._id });
   await this.model("categories").deleteMany({ owner: this._id });
+  await this.model("chatrooms").deleteMany({ members: { $all: [this._id] } });
+  await this.model("messages").deleteMany({ writer: this._id });
   next();
 });
 

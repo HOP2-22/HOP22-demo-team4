@@ -12,7 +12,7 @@ import AuthBgCover from "@/components/auth/AuthBgCover";
 import SignInBody from "@/components/auth/SignInBody";
 
 export const SignIn = () => {
-  const { push } = useRouter();
+  const router = useRouter();
 
   const { user, setUser, setLoading } = useContext(AuthContext);
 
@@ -37,15 +37,15 @@ export const SignIn = () => {
       Cookies.set("token", response.data.data.token);
 
       if (response.data.data.user.role === "admin") {
-        toast.success("Амжилттай Admin нэвтэрлээ.");
+        router.push("/admin/users");
 
-        push("/admin");
+        toast.success("Амжилттай Admin нэвтэрлээ.");
         return;
       }
 
       toast.success("Амжилттай нэвтэрлээ.");
 
-      push("/");
+      router.push("/");
     } catch (error) {
       console.log(error);
     }
@@ -54,7 +54,7 @@ export const SignIn = () => {
   };
 
   useEffect(() => {
-    if (user !== null) push("/");
+    if (user !== null) router.push("/");
   }, [user]);
 
   return (
