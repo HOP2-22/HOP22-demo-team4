@@ -70,7 +70,9 @@ const Row = ({ users, setUsers }) => {
     <TableBody>
       {users?.map((item, index) => (
         <TableRow key={index}>
-          <TableCell>{item?.id}</TableCell>
+          <TableCell>
+            {item?.role === "admin" ? `${item?.role} хэрэглэгч` : item?.id}
+          </TableCell>
           <TableCell>
             <TextField
               required

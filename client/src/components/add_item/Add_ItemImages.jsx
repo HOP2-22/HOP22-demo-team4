@@ -57,10 +57,10 @@ const Add_ItemImages = ({ infoAccount, setInfoAccount, images, setImages }) => {
     getUrls();
   }, [image]);
 
-  const deleteImage = (index) => {
+  const deleteImage = (Image) => {
     let newArr;
 
-    newArr = images.filter((image) => image !== index);
+    newArr = images.filter((image) => image !== Image);
 
     setImages(newArr);
   };
@@ -94,14 +94,13 @@ const Add_ItemImages = ({ infoAccount, setInfoAccount, images, setImages }) => {
                 key={image.id | index}
               >
                 <Add_ItemImage link={image} key={index} />
-                <div className="absolute top-1 left-1 py-1 px-1 bg-gray-500 rounded-full">
-                  <X
-                    size={18}
-                    color="white"
-                    onClick={() => {
-                      deleteImage(image);
-                    }}
-                  />
+                <div
+                  className="absolute top-1 left-1 py-1 px-1 bg-gray-500 rounded-full"
+                  onClick={() => {
+                    deleteImage(image);
+                  }}
+                >
+                  <X size={18} color="white" />
                 </div>
               </div>
             ))}

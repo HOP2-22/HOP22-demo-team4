@@ -54,6 +54,7 @@ exports.updateCategory = asyncHandler(async (req, res, next) => {
 
   for (let item in req.body) {
     category[item] = req.body[item];
+    console.log(category[item]);
   }
 
   if (adminId) {

@@ -6,12 +6,21 @@ const AdminInput = ({
   onChangeHandler,
   onkeydownHandler,
   inputRef,
+  containerClassName,
+  labelClassName,
+  inputClassName,
 }) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div
+      className={`flex flex-col gap-2 ${
+        containerClassName && `${containerClassName}`
+      }`}
+    >
       <label
         htmlFor=""
-        className="pl-2 text-indigo-900 font-medium text-[20px]"
+        className={`pl-2 text-indigo-900 font-medium text-[20px] ${
+          labelClassName && `${labelClassName}`
+        }`}
       >
         {label ? label : "label"}
       </label>
@@ -25,7 +34,9 @@ const AdminInput = ({
           }
         }}
         ref={inputRef}
-        className="w-[300px] outline outline-indigo-500 rounded-[20px] px-5 py-[10px]"
+        className={`outline outline-indigo-500 rounded-[20px] px-5 py-[10px] ${
+          inputClassName && `${inputClassName}`
+        }`}
       />
     </div>
   );

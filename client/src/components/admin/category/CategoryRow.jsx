@@ -10,10 +10,11 @@ const CategoryRow = ({ categories }) => {
       {categories.map((category, index) => {
         return (
           <TableRow
-            className="py-[5px] rounded-[20px] hover:bg-red-100"
+            className="py-[5px] rounded-[20px] bg-white hover:bg-gray-300 cursor-pointer transition-colors duration-200 ease-in"
             onClick={() => {
               push(`/admin/categories/${category?._id}`);
             }}
+            key={index}
           >
             <TableCell>{category?._id}</TableCell>
             <TableCell>{category?.name}</TableCell>
