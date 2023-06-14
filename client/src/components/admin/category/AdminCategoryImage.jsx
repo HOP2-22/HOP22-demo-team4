@@ -7,10 +7,15 @@ import Add_ItemUpload from "@/components/add_item/Add_ItemUpload";
 
 import { X } from "lucide-react";
 
-const AdminCategoryImage = ({ values, setValues, create }) => {
-  const [bgPhoto, setBgPhoto] = useState(null);
-  const [coverPhoto, setCoverPhoto] = useState(null);
-
+const AdminCategoryImage = ({
+  values,
+  setValues,
+  create,
+  bgPhoto,
+  setBgPhoto,
+  coverPhoto,
+  setCoverPhoto,
+}) => {
   useEffect(() => {
     const getUrl = async () => {
       if (bgPhoto) {

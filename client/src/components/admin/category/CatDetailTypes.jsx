@@ -110,7 +110,7 @@ const CatDetailTypes = ({ category, setCategory, typeValue, setTypeValue }) => {
         />
         <button
           onClick={() => addType()}
-          className="w-[100px] h-10 rounded-[10px] text-white bg-blue-500 cursor-pointer"
+          className="w-[100px] h-10 rounded-[10px] text-white bg-blue-500 hover:bg-blue-400 transition-colors duration-200 cursor-pointer"
         >
           Add
         </button>

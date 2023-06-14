@@ -1,21 +1,14 @@
 import React, { useContext, useRef, useState } from "react";
 import axios from "axios";
-import {
-  Table,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
 import { toast } from "react-hot-toast";
 
 import AdminSideBar from "@/components/admin/AdminSideBar";
-import Row from "@/components/admin/category/CategoryRow";
 import AdminInput from "@/components/admin/AdminInput";
 import AllTypes from "@/components/admin/category/AllTypes";
 import AddType from "@/components/admin/category/AddType";
 import AdminCategoryImage from "@/components/admin/category/AdminCategoryImage";
 import { AuthContext } from "@/provider/AuthContext";
+import CategoryTable from "@/components/admin/category/CategoryTable";
 
 import { X } from "lucide-react";
 
@@ -23,6 +16,9 @@ const Categories = ({ data }) => {
   const { user } = useContext(AuthContext);
   const nameRef = useRef(null);
   const typeRef = useRef(null);
+
+  const [bgPhoto, setBgPhoto] = useState(null);
+  const [coverPhoto, setCoverPhoto] = useState(null);
 
   const [categories, setCategories] = useState(data);
   const [inputValue, setInputValue] = useState("");
@@ -107,6 +103,9 @@ const Categories = ({ data }) => {
         coverPhoto: "",
         type: [],
       });
+
+      setBgPhoto(null);
+      setCoverPhoto(null);
     } catch (error) {
       console.log(error);
     }
@@ -124,6 +123,7 @@ const Categories = ({ data }) => {
 
   return (
     <AdminSideBar className={"w-full pt-[50px] flex flex-col gap-10 px-10"}>
+      <p className="mb-[30px] text-4xl font-medium text-black">Games</p>
       <div className="w-full flex gap-28">
         <AdminInput
           value={values?.name}
@@ -174,20 +174,12 @@ const Categories = ({ data }) => {
         values={values}
         setValues={setValues}
         create={createCategory}
+        bgPhoto={bgPhoto}
+        setBgPhoto={setBgPhoto}
+        coverPhoto={coverPhoto}
+        setCoverPhoto={setCoverPhoto}
       />
-      <TableContainer>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>When created</TableCell>
-              <TableCell>Creater name</TableCell>
-            </TableRow>
-          </TableHead>
-          <Row categories={categories} setCategories={setCategories} />
-        </Table>
-      </TableContainer>
+      <CategoryTable categories={categories} setCategories={setCategories} />
     </AdminSideBar>
   );
 };

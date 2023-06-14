@@ -16,10 +16,13 @@ exports.getAccounts = asyncHandler(async (req, res, next) => {
 
   const pagination = await paginate(Account, page, limit);
 
+  const permission = req.query.permission === "true" ? true : false;
+  delete req.query["permission"];
+
   const accounts = await Account.find(
     {
       ...req.query,
-      // permission: false,
+      permission,
     },
     select
   )

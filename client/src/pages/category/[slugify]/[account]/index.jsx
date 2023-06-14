@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 
@@ -10,8 +10,6 @@ import AccountDetailDesktopImages from "@/components/accountDetail/AccountDetail
 import AccountDetailDescriptions from "@/components/accountDetail/AccountDetailDescriptions";
 import AccountDetailPrice from "@/components/accountDetail/AccountDetailPrice";
 import AccountDetailSimilarItems from "@/components/accountDetail/AccountDetailSimilarItems";
-import { AuthContext } from "@/provider/AuthContext";
-import { redirect } from "next/dist/server/api-utils";
 
 const AccountDetail = ({ data }) => {
   const [accounts, setAccounts] = useState([]);

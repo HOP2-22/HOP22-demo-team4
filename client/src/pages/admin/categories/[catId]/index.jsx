@@ -11,9 +11,12 @@ import { storage } from "@/storage";
 import { AuthContext } from "@/provider/AuthContext";
 import { toast } from "react-hot-toast";
 
+import { ChevronLeft } from "lucide-react";
+
 const Category = ({ data }) => {
   const { user } = useContext(AuthContext);
 
+  const { push } = useRouter();
   const id = useRouter().query.catId;
   const [category, setCategory] = useState(data);
   const [typeValue, setTypeValue] = useState("");
@@ -23,6 +26,8 @@ const Category = ({ data }) => {
 
   const editData = async () => {
     try {
+      if (category.type.length === 0) return toast.error("Төрөл хоосон байна");
+
       await axios.put(`${process.env.BASE_URL}/category/${id}`, {
         name: category.name,
         photo: category.photo,
@@ -87,12 +92,34 @@ const Category = ({ data }) => {
     setCoverPhoto(event.target.files[0]);
   };
 
+  const deleteItem = async () => {
+    try {
+      await axios.delete(`${process.env.BASE_URL}/category/${id}`);
+
+      toast.success("Амжилттай устаглаа");
+
+      push("/admin/categories");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <AdminSideBar
       className={
         "relative w-full pt-[50px] flex flex-col px-10 overflow-y-auto"
       }
     >
+      <div className="flex gap-5 items-center pb-[30px]">
+        <div
+          className="p-2 rounded-full bg-indigo-400 cursor-pointer"
+          onClick={() => push("/admin/categories")}
+        >
+          <ChevronLeft color="white" size={35} />
+        </div>
+        <p className="text-4xl font-medium text-black">Game detail</p>
+      </div>
+
       <CatDetailName category={category} setCategory={setCategory} />
       <CatDetailTypes
         typeValue={typeValue}
@@ -110,12 +137,18 @@ const Category = ({ data }) => {
         label={"Cover photo"}
         changeFunction={handleCoverPhoto}
       />
-      <div className="w-full flex justify-end mt-5 mb-10">
+      <div className="w-full flex items-center gap-10 justify-end mt-5 mb-10">
+        <button
+          onClick={() => deleteItem()}
+          className="py-6 px-14 text-white bg-rose-600 hover:bg-rose-400 transition-colors duration-200 text-[22px] rounded-[10px]"
+        >
+          Delete category
+        </button>
         <button
           onClick={() => editData()}
-          className="py-6 px-14 text-white bg-blue-500 text-[22px] rounded-[10px]"
+          className="py-6 px-14 text-white bg-blue-500 hover:bg-blue-400 transition-colors duration-200 text-[22px] rounded-[10px]"
         >
-          Edit data
+          Edit category
         </button>
       </div>
     </AdminSideBar>

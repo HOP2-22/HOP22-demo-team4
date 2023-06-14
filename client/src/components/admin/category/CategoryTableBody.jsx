@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { TableBody, TableCell, TableRow } from "@mui/material";
 
-const CategoryRow = ({ categories }) => {
+const CategoryTableBody = ({ categories }) => {
   const { push } = useRouter();
 
   return (
@@ -27,4 +27,4 @@ const CategoryRow = ({ categories }) => {
   );
 };
 
-export default CategoryRow;
+export default CategoryTableBody;

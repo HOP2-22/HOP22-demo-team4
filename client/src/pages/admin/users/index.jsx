@@ -11,7 +11,7 @@ import { toast } from "react-hot-toast";
 
 import AdminSideBar from "@/components/admin/AdminSideBar";
 import AdminInput from "@/components/admin/AdminInput";
-import Row from "@/components/admin/user/UserRow";
+import UserTableBody from "@/components/admin/user/UserTableBody";
 
 const Users = ({ data }) => {
   const nameRef = useRef(null);
@@ -76,6 +76,8 @@ const Users = ({ data }) => {
 
   return (
     <AdminSideBar className={"pt-[50px] px-10 flex flex-col gap-10 h-screen"}>
+      <p className="mb-[30px] text-4xl font-medium text-black">Users</p>
+
       <div className="flex justify-between items-end pb-5 border-b border-black/60">
         <div className="flex flex-col gap-5">
           <p className="text-[22px] text-black font-medium">
@@ -123,28 +125,24 @@ const Users = ({ data }) => {
         </div>
         <button
           onClick={() => register()}
-          className="px-[30px] py-[15px] text-[25px] font-medium rounded-[15px] text-white bg-blue-500"
+          className="px-[30px] py-[15px] text-[25px] font-medium rounded-[15px] text-white bg-blue-500 hover:bg-blue-400 transition-colors duration-200"
         >
           Register
         </button>
       </div>
-      <div className="">
-        <TableContainer>
-          <TableContainer>
-            <TableHead>
-              <TableRow>
-                <TableCell>ID</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Email</TableCell>
-                <TableCell>Public Accounts count</TableCell>
-                <TableCell>When created</TableCell>
-                <TableCell>Buttons</TableCell>
-              </TableRow>
-            </TableHead>
-            <Row users={users} setUsers={setUsers} />
-          </TableContainer>
-        </TableContainer>
-      </div>
+      <TableContainer>
+        <TableHead>
+          <TableRow>
+            <TableCell>ID</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell>Email</TableCell>
+            <TableCell>Public Accounts count</TableCell>
+            <TableCell>When created</TableCell>
+            <TableCell>Buttons</TableCell>
+          </TableRow>
+        </TableHead>
+        <UserTableBody users={users} setUsers={setUsers} />
+      </TableContainer>
     </AdminSideBar>
   );
 };

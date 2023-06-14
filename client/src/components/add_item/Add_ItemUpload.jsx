@@ -8,7 +8,6 @@ const Add_ItemUpload = ({ handle }) => {
       <input
         type="file"
         className="absolute top-0 left-0 w-full h-[100px] bg-transparent z-40 opacity-0 cursor-pointer"
-        multiple
         onChange={handle}
       />
       <Plus size={38} color="black" />

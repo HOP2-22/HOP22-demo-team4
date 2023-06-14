@@ -38,13 +38,14 @@ exports.getCategory = asyncHandler(async (req, res, next) => {
 
   let length = 0;
 
-  category.accounts.map((item) => {
+  const filteredCategory = category.accounts.filter((item) => {
     if (
       item.price > req.query.price["$gte"] &&
       item.price < req.query.price["$lte"] &&
-      item.permission === false
+      item.permission === true
     ) {
       length++;
+      return item;
     }
   });
 
@@ -57,9 +58,9 @@ exports.getCategory = asyncHandler(async (req, res, next) => {
   let min = 100000000000;
   let max = 0;
 
-  for (let i = 0; i < category.accounts.length; i++) {
-    if (max < category.accounts[i].price) max = category.accounts[i].price;
-    if (min > category.accounts[i].price) min = category.accounts[i].price;
+  for (let i = 0; i < filteredCategory.length; i++) {
+    if (max < filteredCategory[i].price) max = filteredCategory[i].price;
+    if (min > filteredCategory[i].price) min = filteredCategory[i].price;
   }
 
   let pagination = await filteredPaginate(length, page, limit);
@@ -67,7 +68,7 @@ exports.getCategory = asyncHandler(async (req, res, next) => {
   const accounts = await Account.find(
     {
       category: category._id,
-      permission: false,
+      permission: true,
       ...req.query,
     },
     select

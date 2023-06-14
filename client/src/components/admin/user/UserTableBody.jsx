@@ -16,7 +16,7 @@ import { AuthContext } from "@/provider/AuthContext";
 
 import { Pencil, Trash } from "lucide-react";
 
-const Row = ({ users, setUsers }) => {
+const UserTableBody = ({ users, setUsers }) => {
   const { user } = useContext(AuthContext);
 
   const [editValue, setEditValue] = useState({
@@ -119,7 +119,7 @@ const Row = ({ users, setUsers }) => {
   );
 };
 
-export default Row;
+export default UserTableBody;
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[500]),
